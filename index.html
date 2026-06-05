@@ -4,6 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>September Designz | Premium Design & Development Agency</title>
+    
+    <!-- Google Analytics - ACTIVE -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D4YTK8D93M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-D4YTK8D93M');
+    </script>
+    
+    <!-- Facebook Pixel - READY (replace 123456789012345 with your Pixel ID when you get it) -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        // REPLACE 123456789012345 with your actual Facebook Pixel ID
+        fbq('init', '123456789012345');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=123456789012345&ev=PageView&noscript=1"/>
+    </noscript>
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -849,6 +877,65 @@
 
     <script>
         // ============================================
+        // TRACKING: Send custom events to Google Analytics
+        // ============================================
+        
+        function trackBooking(name, service, price, paymentMethod) {
+            // Google Analytics event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'booking',
+                    'event_label': service,
+                    'value': price,
+                    'currency': 'MWK'
+                });
+                gtag('event', 'purchase', {
+                    'event_category': 'booking',
+                    'event_label': paymentMethod,
+                    'value': price,
+                    'currency': 'MWK'
+                });
+            }
+            
+            console.log('✓ Google Analytics tracked: Booking -', service, 'MWK', price);
+        }
+        
+        function trackPageView(pageName) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    'page_title': pageName,
+                    'page_location': window.location.href
+                });
+            }
+        }
+        
+        // Track when user clicks WhatsApp button
+        document.querySelectorAll('.whatsapp-float').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'contact', {
+                        'event_category': 'whatsapp',
+                        'event_label': 'WhatsApp Click'
+                    });
+                }
+                console.log('✓ WhatsApp click tracked');
+            });
+        });
+        
+        // Track when user clicks any CTA button
+        document.querySelectorAll('.btn-primary, .btn-secondary, .service-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click_cta', {
+                        'event_category': 'button',
+                        'event_label': btn.innerText.substring(0, 50)
+                    });
+                }
+                console.log('✓ CTA click tracked:', btn.innerText.substring(0, 30));
+            });
+        });
+        
+        // ============================================
         // PAYMENT HANDLERS
         // ============================================
         
@@ -860,24 +947,17 @@
         const laterDetails = document.getElementById('laterDetails');
         
         function updatePaymentDetails() {
-            // Hide all
             if (airtelDetails) airtelDetails.classList.remove('active');
             if (mpambaDetails) mpambaDetails.classList.remove('active');
             if (paypalDetails) paypalDetails.classList.remove('active');
             if (laterDetails) laterDetails.classList.remove('active');
             
-            // Show selected
             const selected = document.querySelector('input[name="paymentMethod"]:checked');
             if (selected) {
-                if (selected.value === 'airtel') {
-                    if (airtelDetails) airtelDetails.classList.add('active');
-                } else if (selected.value === 'mpamba') {
-                    if (mpambaDetails) mpambaDetails.classList.add('active');
-                } else if (selected.value === 'paypal') {
-                    if (paypalDetails) paypalDetails.classList.add('active');
-                } else if (selected.value === 'later') {
-                    if (laterDetails) laterDetails.classList.add('active');
-                }
+                if (selected.value === 'airtel' && airtelDetails) airtelDetails.classList.add('active');
+                else if (selected.value === 'mpamba' && mpambaDetails) mpambaDetails.classList.add('active');
+                else if (selected.value === 'paypal' && paypalDetails) paypalDetails.classList.add('active');
+                else if (selected.value === 'later' && laterDetails) laterDetails.classList.add('active');
             }
         }
         
@@ -885,22 +965,30 @@
             radio.addEventListener('change', updatePaymentDetails);
         });
         
-        // Select Airtel by default
         if (radioButtons.length > 0) {
             radioButtons[0].checked = true;
             updatePaymentDetails();
         }
         
-        // Open USSD code for mobile payments
         function openUSSD(type) {
             if (type === 'airtel') {
-                // For Airtel Money - *211#
                 window.location.href = 'tel:*211%23';
                 showToast('Dial *211# on your Airtel line to send payment', 'success');
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'ussd_click', {
+                        'event_category': 'payment',
+                        'event_label': 'Airtel Money'
+                    });
+                }
             } else if (type === 'mpamba') {
-                // For TNM Mpamba - *444#
                 window.location.href = 'tel:*444%23';
                 showToast('Dial *444# on your TNM line to send payment', 'success');
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'ussd_click', {
+                        'event_category': 'payment',
+                        'event_label': 'TNM Mpamba'
+                    });
+                }
             }
         }
         
@@ -926,13 +1014,20 @@
                 serviceName = 'UI/UX Design';
             }
             
-            // PayPal payment link - replace with your actual PayPal.me link
             window.open(`https://paypal.me/septemberdesignz/${amount}`, '_blank');
             showToast(`Redirecting to PayPal for ${serviceName} ($${amount} USD)`, 'success');
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'paypal_click', {
+                    'event_category': 'payment',
+                    'event_label': serviceName,
+                    'value': amount
+                });
+            }
         }
         
         // ============================================
-        // BOOKING SYSTEM WITH EMAIL NOTIFICATIONS
+        // BOOKING SYSTEM
         // ============================================
         
         const bookingForm = document.getElementById('bookingForm');
@@ -972,7 +1067,6 @@
             }, 6000);
         }
         
-        // Send email via FormSubmit
         async function sendEmailNotification(booking, paymentMethod) {
             const formData = new FormData();
             formData.append('name', booking.name);
@@ -997,7 +1091,6 @@
             }
         }
         
-        // Send auto-reply to client
         async function sendAutoReply(booking, paymentMethod) {
             let paymentInstructions = '';
             if (paymentMethod === 'airtel') {
@@ -1053,7 +1146,6 @@
                 const date = document.getElementById('date').value;
                 const details = document.getElementById('details').value;
                 
-                // Get selected payment method
                 const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
                 const paymentMethod = selectedPayment ? selectedPayment.value : 'later';
                 
@@ -1085,14 +1177,13 @@
                     status: 'pending'
                 };
                 
-                // Save to localStorage
                 let bookings = JSON.parse(localStorage.getItem('september_bookings') || '[]');
                 bookings.push(booking);
                 localStorage.setItem('september_bookings', JSON.stringify(bookings));
                 
-                // Send email notifications
                 await sendEmailNotification(booking, paymentMethod);
                 await sendAutoReply(booking, paymentMethod);
+                trackBooking(name, service, price, paymentMethod);
                 
                 let paymentMsg = '';
                 if (paymentMethod === 'airtel') {
@@ -1108,7 +1199,6 @@
                 showMessage(`✅ Thanks ${name}! Your booking request for ${service} (MWK ${price.toLocaleString()}) has been saved.${paymentMsg} Check your email for confirmation!`, 'success');
                 showToast(`🎉 Booking submitted! Check your email.`, 'success');
                 
-                // Reset form but keep Airtel selected
                 bookingForm.reset();
                 if (radioButtons.length > 0) {
                     radioButtons[0].checked = true;
@@ -1131,6 +1221,7 @@
                     const target = document.querySelector(href);
                     if (target) {
                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        trackPageView(href.substring(1));
                     }
                 }
             });
@@ -1164,10 +1255,12 @@
             }
         }
         
-        // Console branding
+        trackPageView('Homepage');
+        
         console.log('%c✨ September Designz | Premium Design & Development Agency ✨', 'color: #c084fc; font-size: 16px; font-weight: bold;');
         console.log('%c📧 Email notifications active | 💬 WhatsApp chat ready | 💳 Payments integrated', 'color: #10b981; font-size: 12px;');
         console.log('%c📱 Airtel Money: *211# | TNM Mpamba: *444#', 'color: #e4405f; font-size: 12px;');
+        console.log('%c📊 Google Analytics Active (G-D4YTK8D93M)', 'color: #f59e0b; font-size: 12px;');
     </script>
 </body>
 </html>
