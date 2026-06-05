@@ -149,4 +149,13 @@ window.addEventListener('scroll', () => {
         navbar.style.transform = 'translateY(0)';
     }
     lastScroll = currentScroll;
+});// Smooth scroll for new flyers section
+document.querySelectorAll('a[href="#flyers"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector('#flyers');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
 });
