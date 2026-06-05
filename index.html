@@ -175,6 +175,165 @@
             to { transform: translateX(0); opacity: 1; }
         }
         
+        /* Payment Section Styles */
+        .payment-section {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .payment-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #c084fc;
+        }
+        
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .payment-option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .payment-option:hover {
+            background: rgba(192, 132, 252, 0.1);
+            border-color: #c084fc;
+        }
+        
+        .payment-option.selected {
+            background: rgba(192, 132, 252, 0.15);
+            border-color: #c084fc;
+            border-width: 2px;
+        }
+        
+        .payment-option input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #c084fc;
+        }
+        
+        .payment-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .payment-info {
+            flex: 1;
+        }
+        
+        .payment-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .payment-desc {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        .payment-details {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            display: none;
+        }
+        
+        .payment-details.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .payment-details h4 {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #c084fc;
+        }
+        
+        .payment-number {
+            background: rgba(192, 132, 252, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+        
+        .ussd-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.2s;
+            margin-bottom: 10px;
+        }
+        
+        .ussd-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .copy-btn {
+            background: rgba(192, 132, 252, 0.2);
+            border: 1px solid #c084fc;
+            color: #c084fc;
+            padding: 8px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(192, 132, 252, 0.3);
+        }
+        
+        .paypal-btn {
+            background: #0070ba;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        
+        .paypal-btn:hover {
+            background: #003087;
+            transform: translateY(-2px);
+        }
+        
         .service-card, .portfolio-item, .flyer-item, .booking-form-wrapper {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -212,6 +371,9 @@
             }
             .whatsapp-float i {
                 font-size: 26px;
+            }
+            .payment-option {
+                padding: 12px;
             }
         }
     </style>
@@ -458,7 +620,7 @@
         </div>
     </section>
 
-    <!-- Booking Section -->
+    <!-- Booking Section with Payment -->
     <section id="book" class="booking">
         <div class="container">
             <div class="booking-wrapper">
@@ -519,8 +681,114 @@
                             <label>Project Details</label>
                             <textarea id="details" rows="4" placeholder="Tell me about your project, goals, and requirements..."></textarea>
                         </div>
+                        
+                        <!-- PAYMENT SECTION -->
+                        <div class="payment-section">
+                            <div class="payment-title">
+                                <i class="fas fa-credit-card"></i> Select Payment Method
+                            </div>
+                            <div class="payment-options">
+                                <label class="payment-option" id="optionAirtel">
+                                    <input type="radio" name="paymentMethod" value="airtel">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="payment-info">
+                                        <div class="payment-name">Airtel Money</div>
+                                        <div class="payment-desc">Pay via Airtel Money using *211#</div>
+                                    </div>
+                                </label>
+                                <label class="payment-option" id="optionMpamba">
+                                    <input type="radio" name="paymentMethod" value="mpamba">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="payment-info">
+                                        <div class="payment-name">TNM Mpamba</div>
+                                        <div class="payment-desc">Pay via TNM Mpamba using *444#</div>
+                                    </div>
+                                </label>
+                                <label class="payment-option" id="optionPaypal">
+                                    <input type="radio" name="paymentMethod" value="paypal">
+                                    <div class="payment-icon">
+                                        <i class="fab fa-paypal"></i>
+                                    </div>
+                                    <div class="payment-info">
+                                        <div class="payment-name">PayPal</div>
+                                        <div class="payment-desc">Pay with PayPal or Credit Card</div>
+                                    </div>
+                                </label>
+                                <label class="payment-option" id="optionLater">
+                                    <input type="radio" name="paymentMethod" value="later">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="payment-info">
+                                        <div class="payment-name">Pay Later</div>
+                                        <div class="payment-desc">Discuss payment after consultation</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <!-- Airtel Money Details -->
+                            <div id="airtelDetails" class="payment-details">
+                                <h4><i class="fas fa-mobile-alt"></i> Pay with Airtel Money</h4>
+                                <div class="payment-number">
+                                    <i class="fas fa-phone"></i> Airtel Number: +265 994 071 332
+                                </div>
+                                <button type="button" class="ussd-btn" onclick="openUSSD('airtel')">
+                                    <i class="fas fa-dial"></i> Pay Now with *211#
+                                </button>
+                                <button type="button" class="copy-btn" onclick="copyToClipboard('994071332', 'Airtel number copied!')">
+                                    <i class="fas fa-copy"></i> Copy Number
+                                </button>
+                                <p style="font-size: 12px; color: #94a3b8; margin-top: 12px; text-align: center;">
+                                    Dial *211# on your Airtel line, select "Send Money", enter 994071332 and the amount.
+                                </p>
+                            </div>
+                            
+                            <!-- TNM Mpamba Details -->
+                            <div id="mpambaDetails" class="payment-details">
+                                <h4><i class="fas fa-mobile-alt"></i> Pay with TNM Mpamba</h4>
+                                <p style="color: #94a3b8; font-size: 14px; margin-bottom: 12px;">
+                                    To pay via TNM Mpamba, please contact us on WhatsApp for payment details.
+                                </p>
+                                <button type="button" class="ussd-btn" onclick="openUSSD('mpamba')">
+                                    <i class="fas fa-dial"></i> Pay Now with *444#
+                                </button>
+                                <button type="button" class="copy-btn" onclick="window.open('https://wa.me/265994071332', '_blank')">
+                                    <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                                </button>
+                                <p style="font-size: 12px; color: #94a3b8; margin-top: 12px; text-align: center;">
+                                    Dial *444# on your TNM line, select "Mpamba", then "Send Money".
+                                </p>
+                            </div>
+                            
+                            <!-- PayPal Details -->
+                            <div id="paypalDetails" class="payment-details">
+                                <h4><i class="fab fa-paypal"></i> Pay with PayPal:</h4>
+                                <div class="payment-number">
+                                    <i class="fas fa-envelope"></i> septemberafricah29@gmail.com
+                                </div>
+                                <button type="button" class="copy-btn" onclick="copyToClipboard('septemberafricah29@gmail.com', 'PayPal email copied!')">
+                                    <i class="fas fa-copy"></i> Copy Email
+                                </button>
+                                <button type="button" class="paypal-btn" onclick="openPayPal()" style="margin-top: 12px;">
+                                    <i class="fab fa-paypal"></i> Pay with PayPal
+                                </button>
+                            </div>
+                            
+                            <!-- Pay Later Details -->
+                            <div id="laterDetails" class="payment-details">
+                                <h4><i class="fas fa-handshake"></i> Pay Later Option</h4>
+                                <p style="color: #94a3b8; font-size: 14px;">
+                                    You'll receive an invoice after consultation. Payment can be made within 7 days via Airtel Money, Mpamba, or bank transfer.
+                                </p>
+                            </div>
+                        </div>
+                        
                         <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane"></i> Send Booking Request
+                            <i class="fas fa-paper-plane"></i> Submit Booking Request
                         </button>
                         <div id="formMessage"></div>
                     </form>
@@ -581,6 +849,89 @@
 
     <script>
         // ============================================
+        // PAYMENT HANDLERS
+        // ============================================
+        
+        // Payment option selection
+        const radioButtons = document.querySelectorAll('input[name="paymentMethod"]');
+        const airtelDetails = document.getElementById('airtelDetails');
+        const mpambaDetails = document.getElementById('mpambaDetails');
+        const paypalDetails = document.getElementById('paypalDetails');
+        const laterDetails = document.getElementById('laterDetails');
+        
+        function updatePaymentDetails() {
+            // Hide all
+            if (airtelDetails) airtelDetails.classList.remove('active');
+            if (mpambaDetails) mpambaDetails.classList.remove('active');
+            if (paypalDetails) paypalDetails.classList.remove('active');
+            if (laterDetails) laterDetails.classList.remove('active');
+            
+            // Show selected
+            const selected = document.querySelector('input[name="paymentMethod"]:checked');
+            if (selected) {
+                if (selected.value === 'airtel') {
+                    if (airtelDetails) airtelDetails.classList.add('active');
+                } else if (selected.value === 'mpamba') {
+                    if (mpambaDetails) mpambaDetails.classList.add('active');
+                } else if (selected.value === 'paypal') {
+                    if (paypalDetails) paypalDetails.classList.add('active');
+                } else if (selected.value === 'later') {
+                    if (laterDetails) laterDetails.classList.add('active');
+                }
+            }
+        }
+        
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', updatePaymentDetails);
+        });
+        
+        // Select Airtel by default
+        if (radioButtons.length > 0) {
+            radioButtons[0].checked = true;
+            updatePaymentDetails();
+        }
+        
+        // Open USSD code for mobile payments
+        function openUSSD(type) {
+            if (type === 'airtel') {
+                // For Airtel Money - *211#
+                window.location.href = 'tel:*211%23';
+                showToast('Dial *211# on your Airtel line to send payment', 'success');
+            } else if (type === 'mpamba') {
+                // For TNM Mpamba - *444#
+                window.location.href = 'tel:*444%23';
+                showToast('Dial *444# on your TNM line to send payment', 'success');
+            }
+        }
+        
+        function copyToClipboard(text, successMsg) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(successMsg, 'success');
+            });
+        }
+        
+        function openPayPal() {
+            const service = document.getElementById('service').value;
+            let amount = '';
+            let serviceName = '';
+            
+            if (service.includes('Graphic')) {
+                amount = '25.00';
+                serviceName = 'Graphic Design';
+            } else if (service.includes('Web')) {
+                amount = '350.00';
+                serviceName = 'Web Development';
+            } else {
+                amount = '125.00';
+                serviceName = 'UI/UX Design';
+            }
+            
+            // PayPal payment link - replace with your actual PayPal.me link
+            window.open(`https://paypal.me/septemberdesignz/${amount}`, '_blank');
+            showToast(`Redirecting to PayPal for ${serviceName} ($${amount} USD)`, 'success');
+        }
+        
+        // ============================================
         // BOOKING SYSTEM WITH EMAIL NOTIFICATIONS
         // ============================================
         
@@ -621,19 +972,19 @@
             }, 6000);
         }
         
-        // Send email via FormSubmit (free, no backend needed)
-        async function sendEmailNotification(booking) {
+        // Send email via FormSubmit
+        async function sendEmailNotification(booking, paymentMethod) {
             const formData = new FormData();
             formData.append('name', booking.name);
             formData.append('email', booking.email);
             formData.append('service', booking.service);
             formData.append('price', booking.price);
             formData.append('date', booking.date || 'Not specified');
+            formData.append('payment', paymentMethod);
             formData.append('details', booking.details || 'No details provided');
-            formData.append('_subject', `🔔 New Booking: ${booking.name} - ${booking.service}`);
+            formData.append('_subject', `🔔 New Booking: ${booking.name} - ${booking.service} (${paymentMethod})`);
             formData.append('_template', 'table');
             
-            // Send to your email
             try {
                 await fetch('https://formsubmit.co/ajax/septemberafricah29@gmail.com', {
                     method: 'POST',
@@ -647,7 +998,18 @@
         }
         
         // Send auto-reply to client
-        async function sendAutoReply(booking) {
+        async function sendAutoReply(booking, paymentMethod) {
+            let paymentInstructions = '';
+            if (paymentMethod === 'airtel') {
+                paymentInstructions = 'Please send payment via Airtel Money using *211#. Send to Airtel Number: +265 994 071 332. We will confirm receipt within 24 hours.';
+            } else if (paymentMethod === 'mpamba') {
+                paymentInstructions = 'Please send payment via TNM Mpamba using *444#. Contact us on WhatsApp for payment details.';
+            } else if (paymentMethod === 'paypal') {
+                paymentInstructions = 'Please send payment via PayPal to: septemberafricah29@gmail.com';
+            } else {
+                paymentInstructions = 'You selected "Pay Later". We will send you an invoice after consultation.';
+            }
+            
             const autoReplyData = new FormData();
             autoReplyData.append('email', booking.email);
             autoReplyData.append('_subject', `✨ Booking Confirmation - September Designz`);
@@ -655,11 +1017,14 @@
             autoReplyData.append('message', `
                 <h2>Thank you, ${booking.name}! 🙌</h2>
                 <p>We've received your booking request for <strong>${booking.service}</strong>.</p>
-                <p><strong>Estimated Price:</strong> MWK ${booking.price.toLocaleString()}</p>
+                <p><strong>Price:</strong> MWK ${booking.price.toLocaleString()}</p>
                 <p><strong>Preferred Date:</strong> ${booking.date || 'To be confirmed'}</p>
+                <p><strong>Payment Method:</strong> ${paymentMethod}</p>
+                <p><strong>Payment Instructions:</strong> ${paymentInstructions}</p>
+                <br>
                 <p>We will contact you within 24 hours at <strong>${booking.email}</strong> to discuss your project in detail.</p>
                 <br>
-                <p>In the meantime, feel free to reach out via WhatsApp: <strong>+265 994 071 332</strong></p>
+                <p>Questions? WhatsApp us: <strong>+265 994 071 332</strong></p>
                 <br>
                 <p>Best regards,<br>September Designz Team</p>
             `);
@@ -688,6 +1053,10 @@
                 const date = document.getElementById('date').value;
                 const details = document.getElementById('details').value;
                 
+                // Get selected payment method
+                const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+                const paymentMethod = selectedPayment ? selectedPayment.value : 'later';
+                
                 if (!name || !email) {
                     showMessage('❌ Please fill in your name and email', 'error');
                     return;
@@ -711,6 +1080,7 @@
                     price: price,
                     date: date,
                     details: details,
+                    paymentMethod: paymentMethod,
                     timestamp: new Date().toISOString(),
                     status: 'pending'
                 };
@@ -721,13 +1091,29 @@
                 localStorage.setItem('september_bookings', JSON.stringify(bookings));
                 
                 // Send email notifications
-                await sendEmailNotification(booking);
-                await sendAutoReply(booking);
+                await sendEmailNotification(booking, paymentMethod);
+                await sendAutoReply(booking, paymentMethod);
                 
-                showMessage(`✅ Thanks ${name}! Your booking request for ${service} (MWK ${price.toLocaleString()}) has been saved. Check your email for confirmation!`, 'success');
-                showToast(`🎉 Booking sent! Check your email.`, 'success');
+                let paymentMsg = '';
+                if (paymentMethod === 'airtel') {
+                    paymentMsg = ' Please dial *211# to complete payment to 994071332.';
+                } else if (paymentMethod === 'mpamba') {
+                    paymentMsg = ' Please dial *444# to complete payment. Contact us for details.';
+                } else if (paymentMethod === 'paypal') {
+                    paymentMsg = ' Please complete payment via PayPal.';
+                } else {
+                    paymentMsg = ' We\'ll send an invoice after consultation.';
+                }
                 
+                showMessage(`✅ Thanks ${name}! Your booking request for ${service} (MWK ${price.toLocaleString()}) has been saved.${paymentMsg} Check your email for confirmation!`, 'success');
+                showToast(`🎉 Booking submitted! Check your email.`, 'success');
+                
+                // Reset form but keep Airtel selected
                 bookingForm.reset();
+                if (radioButtons.length > 0) {
+                    radioButtons[0].checked = true;
+                    updatePaymentDetails();
+                }
                 
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
@@ -780,8 +1166,8 @@
         
         // Console branding
         console.log('%c✨ September Designz | Premium Design & Development Agency ✨', 'color: #c084fc; font-size: 16px; font-weight: bold;');
-        console.log('%c📧 Email notifications active | 💬 WhatsApp chat ready', 'color: #10b981; font-size: 12px;');
-        console.log('%c📱 Instagram: @september_designz | Facebook: September.Africah', 'color: #e4405f; font-size: 12px;');
+        console.log('%c📧 Email notifications active | 💬 WhatsApp chat ready | 💳 Payments integrated', 'color: #10b981; font-size: 12px;');
+        console.log('%c📱 Airtel Money: *211# | TNM Mpamba: *444#', 'color: #e4405f; font-size: 12px;');
     </script>
 </body>
 </html>
