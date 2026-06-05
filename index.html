@@ -8,10 +8,222 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo.png">
+    <style>
+        /* --- ANIMATED BACKGROUND ENHANCEMENTS --- */
+        /* Ensure body has a base dark gradient that will be overlaid with moving elements */
+        body {
+            background: #0a0a0a;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Dynamic animated gradient orb layer - moving abstract shapes */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        /* Floating gradient orbs with smooth animation */
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: floatOrb 20s infinite alternate ease-in-out;
+        }
+        
+        .orb-1 {
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(192, 132, 252, 0.4), rgba(139, 92, 246, 0.1));
+            top: -20%;
+            left: -20%;
+            animation-duration: 25s;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.1));
+            bottom: -10%;
+            right: -15%;
+            animation-duration: 30s;
+            animation-delay: 2s;
+        }
+        
+        .orb-3 {
+            width: 45vw;
+            height: 45vw;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.25), rgba(139, 92, 246, 0.05));
+            top: 40%;
+            left: 30%;
+            animation-duration: 28s;
+            animation-delay: 5s;
+        }
+        
+        .orb-4 {
+            width: 70vw;
+            height: 70vw;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.05));
+            bottom: -30%;
+            left: -20%;
+            animation-duration: 35s;
+            animation-delay: 1s;
+        }
+        
+        @keyframes floatOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translate(5%, 8%) scale(1.1);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(-3%, -5%) scale(0.95);
+                opacity: 0.45;
+            }
+        }
+        
+        /* Animated grid lines - subtle moving tech pattern */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(192, 132, 252, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(192, 132, 252, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+            animation: moveGrid 30s linear infinite;
+        }
+        
+        @keyframes moveGrid {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+        
+        /* Particle wave effect (tiny glowing dots that move slowly) */
+        .particle-wave {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(192, 132, 252, 0.6);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(192, 132, 252, 0.8);
+            opacity: 0;
+            animation: particleFloat 12s infinite ease-in-out;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.6;
+            }
+            80% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Subtle shimmer on cards/hover elements - improves interactive feel */
+        .service-card, .portfolio-item, .flyer-item, .booking-form-wrapper, .stat-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s;
+        }
+        
+        .service-card:hover, .portfolio-item:hover, .flyer-item:hover {
+            box-shadow: 0 20px 35px -12px rgba(139, 92, 246, 0.3);
+            border-color: rgba(192, 132, 252, 0.5);
+        }
+        
+        /* Ensure navbar doesn't clip animations */
+        .navbar {
+            backdrop-filter: blur(12px);
+            background: rgba(10, 10, 15, 0.7);
+        }
+        
+        /* Enhance hero background blending */
+        .hero {
+            position: relative;
+            background-blend-mode: overlay;
+        }
+        
+        .hero-overlay {
+            background: rgba(10, 10, 15, 0.7);
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Responsive adjustment for animations */
+        @media (prefers-reduced-motion: reduce) {
+            .animated-bg, .grid-overlay, .particle, .bg-orb {
+                animation: none !important;
+            }
+        }
+        
+        /* Additional pulse effect for CTA buttons */
+        .btn-primary {
+            animation: subtlePulse 3s infinite;
+        }
+        
+        @keyframes subtlePulse {
+            0% {
+                box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(192, 132, 252, 0.6);
+            }
+            100% {
+                box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- ANIMATED BACKGROUND LAYERS (no images, pure CSS) -->
+    <div class="animated-bg">
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+        <div class="bg-orb orb-3"></div>
+        <div class="bg-orb orb-4"></div>
+    </div>
+    <div class="grid-overlay"></div>
+    <div class="particle-wave" id="particleContainer"></div>
+
+    <!-- Navigation (unchanged structure) -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
@@ -81,7 +293,7 @@
                         <span><i class="fas fa-check"></i> Social Media Kits</span>
                         <span><i class="fas fa-check"></i> Flyers & Posters</span>
                     </div>
-                    <div class="price">Starting at <span>$299</span></div>
+                    <div class="price">Starting at <span>MWK25,000</span></div>
                     <a href="#book" class="service-btn">Get Started →</a>
                 </div>
                 <div class="service-card featured">
@@ -96,7 +308,7 @@
                         <span><i class="fas fa-check"></i> SEO Optimized</span>
                         <span><i class="fas fa-check"></i> CMS Integration</span>
                     </div>
-                    <div class="price">Starting at <span>$799</span></div>
+                    <div class="price">Starting at <span>MWK350,000</span></div>
                     <a href="#book" class="service-btn">Get Started →</a>
                 </div>
                 <div class="service-card">
@@ -110,7 +322,7 @@
                         <span><i class="fas fa-check"></i> Prototyping</span>
                         <span><i class="fas fa-check"></i> User Testing</span>
                     </div>
-                    <div class="price">Starting at <span>$499</span></div>
+                    <div class="price">Starting at <span>MWK125,000</span></div>
                     <a href="#book" class="service-btn">Get Started →</a>
                 </div>
             </div>
@@ -128,7 +340,7 @@
             <div class="flyers-grid">
                 <div class="flyer-item">
                     <div class="flyer-image">
-                        <img src="images/flyer-1.jpg" alt="Business Flyer Design">
+                        <img src="images/flyer-1.png" alt="Business Flyer Design">
                         <div class="flyer-overlay">
                             <span class="flyer-category">Business Flyer</span>
                             <h3>Corporate Event Flyer</h3>
@@ -140,31 +352,31 @@
                         <img src="images/flyer-2.jpg" alt="Promotional Flyer">
                         <div class="flyer-overlay">
                             <span class="flyer-category">Promotional</span>
-                            <h3>Summer Sale Flyer</h3>
+                            <h3>Event or Promotional Flyer</h3>
                         </div>
                     </div>
                 </div>
                 <div class="flyer-item">
                     <div class="flyer-image">
-                        <img src="images/flyer-3.jpg" alt="Event Poster">
+                        <img src="images/flyer-3.jpg" alt="Transportation Flyer">
                         <div class="flyer-overlay">
-                            <span class="flyer-category">Event Poster</span>
-                            <h3>Concert Poster Design</h3>
+                            <span class="flyer-category">Transportation</span>
+                            <h3>Transportation Flyer</h3>
                         </div>
                     </div>
                 </div>
                 <div class="flyer-item">
                     <div class="flyer-image">
-                        <img src="images/flyer-4.jpg" alt="Restaurant Menu">
+                        <img src="images/flyer-4.png" alt="Online Store Flyer">
                         <div class="flyer-overlay">
-                            <span class="flyer-category">Menu Design</span>
-                            <h3>Restaurant Menu</h3>
+                            <span class="flyer-category">Store Design</span>
+                            <h3>Online Store Flyer</h3>
                         </div>
                     </div>
                 </div>
                 <div class="flyer-item">
                     <div class="flyer-image">
-                        <img src="images/flyer-5.jpg" alt="Social Media Graphic">
+                        <img src="images/flyer-5.png" alt="Social Media Graphic">
                         <div class="flyer-overlay">
                             <span class="flyer-category">Social Media</span>
                             <h3>Instagram Post Design</h3>
@@ -173,10 +385,10 @@
                 </div>
                 <div class="flyer-item">
                     <div class="flyer-image">
-                        <img src="images/flyer-6.jpg" alt="Brochure Design">
+                        <img src="images/flyer-6.jpg" alt="Church Design">
                         <div class="flyer-overlay">
-                            <span class="flyer-category">Brochure</span>
-                            <h3>Company Brochure</h3>
+                            <span class="flyer-category">Church</span>
+                            <h3>Church Flyer</h3>
                         </div>
                     </div>
                 </div>
@@ -201,7 +413,7 @@
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Luxury Brand Identity</h3>
+                        <h3>Brand Identity</h3>
                         <p>Graphic Design</p>
                     </div>
                 </div>
@@ -213,7 +425,7 @@
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Fashion E-commerce</h3>
+                        <h3>E-commerce</h3>
                         <p>Web Development</p>
                     </div>
                 </div>
@@ -225,7 +437,7 @@
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Banking Mobile App</h3>
+                        <h3>Mobile App</h3>
                         <p>UI/UX Design</p>
                     </div>
                 </div>
@@ -281,9 +493,9 @@
                         <div class="form-group">
                             <label>Select Service</label>
                             <select id="service">
-                                <option value="Graphic Design ($299)">🎨 Graphic Design ($299)</option>
-                                <option value="Web Development ($799)">💻 Web Development ($799)</option>
-                                <option value="UI/UX Design ($499)">📱 UI/UX Design ($499)</option>
+                                <option value="Graphic Design">🎨 Graphic Design </option>
+                                <option value="Web Development">💻 Web Development</option>
+                                <option value="UI/UX Design">📱 UI/UX Design</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -336,8 +548,8 @@
                     <h4>Contact</h4>
                     <ul>
                         <li><i class="fas fa-envelope"></i> hello@septemberdesignz.com</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 923-7890</li>
-                        <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+                        <li><i class="fas fa-phone"></i> +265 994 O71 332</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Blantyre, Malawi</li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -356,5 +568,84 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Additional script for particle generation (non-intrusive, enhances motion) -->
+    <script>
+        (function() {
+            // Create floating particles for extra animated magic (does not affect images)
+            const particleContainer = document.getElementById('particleContainer');
+            if (particleContainer) {
+                const particleCount = 35;
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    const size = Math.random() * 6 + 2;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 15 + 's';
+                    particle.style.animationDuration = 8 + Math.random() * 12 + 's';
+                    particle.style.opacity = 0.3 + Math.random() * 0.5;
+                    particle.style.background = `rgba(192, 132, 252, ${0.3 + Math.random() * 0.5})`;
+                    particleContainer.appendChild(particle);
+                }
+            }
+            
+            // Smooth scroll for any remaining links and ensure animations don't conflict
+            const allLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+            allLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId !== '#') {
+                        const targetEl = document.querySelector(targetId);
+                        if (targetEl) {
+                            e.preventDefault();
+                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+            
+            // Mobile menu toggle (preserving original behavior but avoid double init)
+            const mobileMenuBtn = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            if (mobileMenuBtn && navLinks) {
+                // Avoid duplication if script.js already sets this
+                if (!mobileMenuBtn.hasAttribute('data-listener')) {
+                    mobileMenuBtn.setAttribute('data-listener', 'true');
+                    mobileMenuBtn.addEventListener('click', () => {
+                        if (navLinks.style.display === 'flex') {
+                            navLinks.style.display = '';
+                        } else {
+                            navLinks.style.display = 'flex';
+                        }
+                    });
+                }
+            }
+            
+            // Re-apply intersection observer for fade-ins but ensure it doesn't break existing
+            if (typeof IntersectionObserver !== 'undefined') {
+                const animatedElements = document.querySelectorAll('.service-card, .portfolio-item, .flyer-item, .stat-card');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                
+                animatedElements.forEach(el => {
+                    if (!el.style.opacity || el.style.opacity === '') {
+                        el.style.opacity = '0';
+                        el.style.transform = 'translateY(30px)';
+                        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                        observer.observe(el);
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
