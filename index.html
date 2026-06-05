@@ -10,14 +10,12 @@
     <link rel="icon" type="image/png" href="images/logo.png">
     <style>
         /* --- ANIMATED BACKGROUND ENHANCEMENTS --- */
-        /* Ensure body has a base dark gradient that will be overlaid with moving elements */
         body {
             background: #0a0a0a;
             position: relative;
             overflow-x: hidden;
         }
         
-        /* Dynamic animated gradient orb layer - moving abstract shapes */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -29,7 +27,6 @@
             pointer-events: none;
         }
         
-        /* Floating gradient orbs with smooth animation */
         .bg-orb {
             position: absolute;
             border-radius: 50%;
@@ -45,7 +42,6 @@
             top: -20%;
             left: -20%;
             animation-duration: 25s;
-            animation-delay: 0s;
         }
         
         .orb-2 {
@@ -79,21 +75,11 @@
         }
         
         @keyframes floatOrb {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.4;
-            }
-            50% {
-                transform: translate(5%, 8%) scale(1.1);
-                opacity: 0.6;
-            }
-            100% {
-                transform: translate(-3%, -5%) scale(0.95);
-                opacity: 0.45;
-            }
+            0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            50% { transform: translate(5%, 8%) scale(1.1); opacity: 0.6; }
+            100% { transform: translate(-3%, -5%) scale(0.95); opacity: 0.45; }
         }
         
-        /* Animated grid lines - subtle moving tech pattern */
         .grid-overlay {
             position: fixed;
             top: 0;
@@ -110,15 +96,10 @@
         }
         
         @keyframes moveGrid {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(50px, 50px);
-            }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
         
-        /* Particle wave effect (tiny glowing dots that move slowly) */
         .particle-wave {
             position: fixed;
             top: 0;
@@ -139,25 +120,63 @@
         }
         
         @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 0;
-            }
-            20% {
-                opacity: 0.6;
-            }
-            80% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-20vh) scale(1);
-                opacity: 0;
-            }
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { transform: translateY(-20vh) scale(1); opacity: 0; }
         }
         
-        /* Subtle shimmer on cards/hover elements - improves interactive feel */
-        .service-card, .portfolio-item, .flyer-item, .booking-form-wrapper, .stat-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s;
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-float i {
+            font-size: 32px;
+            color: white;
+        }
+        
+        /* Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            z-index: 1001;
+            animation: slideIn 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .service-card, .portfolio-item, .flyer-item, .booking-form-wrapper {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .service-card:hover, .portfolio-item:hover, .flyer-item:hover {
@@ -165,55 +184,41 @@
             border-color: rgba(192, 132, 252, 0.5);
         }
         
-        /* Ensure navbar doesn't clip animations */
+        .btn-primary {
+            animation: subtlePulse 3s infinite;
+        }
+        
+        @keyframes subtlePulse {
+            0% { box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 8px 30px rgba(192, 132, 252, 0.6); }
+            100% { box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3); }
+        }
+        
         .navbar {
             backdrop-filter: blur(12px);
             background: rgba(10, 10, 15, 0.7);
-        }
-        
-        /* Enhance hero background blending */
-        .hero {
-            position: relative;
-            background-blend-mode: overlay;
         }
         
         .hero-overlay {
             background: rgba(10, 10, 15, 0.7);
         }
         
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Responsive adjustment for animations */
-        @media (prefers-reduced-motion: reduce) {
-            .animated-bg, .grid-overlay, .particle, .bg-orb {
-                animation: none !important;
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
             }
-        }
-        
-        /* Additional pulse effect for CTA buttons */
-        .btn-primary {
-            animation: subtlePulse 3s infinite;
-        }
-        
-        @keyframes subtlePulse {
-            0% {
-                box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
-            }
-            50% {
-                box-shadow: 0 8px 30px rgba(192, 132, 252, 0.6);
-            }
-            100% {
-                box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+            .whatsapp-float i {
+                font-size: 26px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ANIMATED BACKGROUND LAYERS (no images, pure CSS) -->
+    <!-- ANIMATED BACKGROUND LAYERS -->
     <div class="animated-bg">
         <div class="bg-orb orb-1"></div>
         <div class="bg-orb orb-2"></div>
@@ -223,7 +228,15 @@
     <div class="grid-overlay"></div>
     <div class="particle-wave" id="particleContainer"></div>
 
-    <!-- Navigation (unchanged structure) -->
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/265994071332?text=Hello%20September%20Designz!%20I'm%20interested%20in%20your%20services.%20Can%20you%20help%20me%3F" 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
@@ -244,7 +257,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Your Branding -->
+    <!-- Hero Section -->
     <section id="home" class="hero" style="background-image: url('images/hero-bg.jpg'); background-size: cover; background-position: center;">
         <div class="hero-overlay"></div>
         <div class="container">
@@ -329,7 +342,7 @@
         </div>
     </section>
 
-    <!-- Graphic Design Flyers Section (NEW) -->
+    <!-- Flyers Section -->
     <section id="flyers" class="flyers">
         <div class="container">
             <div class="section-header">
@@ -493,9 +506,9 @@
                         <div class="form-group">
                             <label>Select Service</label>
                             <select id="service">
-                                <option value="Graphic Design">🎨 Graphic Design </option>
-                                <option value="Web Development">💻 Web Development</option>
-                                <option value="UI/UX Design">📱 UI/UX Design</option>
+                                <option value="Graphic Design">🎨 Graphic Design - MWK25,000</option>
+                                <option value="Web Development">💻 Web Development - MWK350,000</option>
+                                <option value="UI/UX Design">📱 UI/UX Design - MWK125,000</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -527,11 +540,11 @@
                     </div>
                     <p>Creating digital experiences that inspire and deliver results.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
-                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-behance"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -547,8 +560,8 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> hello@septemberdesignz.com</li>
-                        <li><i class="fas fa-phone"></i> +265 994 O71 332</li>
+                        <li><i class="fas fa-envelope"></i> septemberafricah29@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +265 994 071 332</li>
                         <li><i class="fas fa-map-marker-alt"></i> Blantyre, Malawi</li>
                     </ul>
                 </div>
@@ -567,85 +580,208 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    
-    <!-- Additional script for particle generation (non-intrusive, enhances motion) -->
     <script>
-        (function() {
-            // Create floating particles for extra animated magic (does not affect images)
-            const particleContainer = document.getElementById('particleContainer');
-            if (particleContainer) {
-                const particleCount = 35;
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    const size = Math.random() * 6 + 2;
-                    particle.style.width = size + 'px';
-                    particle.style.height = size + 'px';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.animationDelay = Math.random() * 15 + 's';
-                    particle.style.animationDuration = 8 + Math.random() * 12 + 's';
-                    particle.style.opacity = 0.3 + Math.random() * 0.5;
-                    particle.style.background = `rgba(192, 132, 252, ${0.3 + Math.random() * 0.5})`;
-                    particleContainer.appendChild(particle);
-                }
-            }
+        // ============================================
+        // BOOKING SYSTEM WITH EMAIL NOTIFICATIONS
+        // ============================================
+        
+        const bookingForm = document.getElementById('bookingForm');
+        
+        function getPriceFromService(serviceText) {
+            if (serviceText.includes('Graphic')) return 25000;
+            if (serviceText.includes('Web')) return 350000;
+            if (serviceText.includes('UI/UX')) return 125000;
+            return 0;
+        }
+        
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.style.background = type === 'success' ? '#10b981' : '#ef4444';
+            toast.innerHTML = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 5000);
+        }
+        
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('formMessage');
+            if (!messageDiv) return;
             
-            // Smooth scroll for any remaining links and ensure animations don't conflict
-            const allLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
-            allLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId && targetId !== '#') {
-                        const targetEl = document.querySelector(targetId);
-                        if (targetEl) {
-                            e.preventDefault();
-                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }
+            messageDiv.innerHTML = `
+                <div style="background: ${type === 'success' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)'}; 
+                            border: 1px solid ${type === 'success' ? '#10b981' : '#ef4444'}; 
+                            border-radius: 12px; 
+                            padding: 12px; 
+                            color: ${type === 'success' ? '#10b981' : '#ef4444'};">
+                    ${message}
+                </div>
+            `;
+            
+            setTimeout(() => {
+                messageDiv.innerHTML = '';
+            }, 6000);
+        }
+        
+        // Send email via FormSubmit (free, no backend needed)
+        async function sendEmailNotification(booking) {
+            const formData = new FormData();
+            formData.append('name', booking.name);
+            formData.append('email', booking.email);
+            formData.append('service', booking.service);
+            formData.append('price', booking.price);
+            formData.append('date', booking.date || 'Not specified');
+            formData.append('details', booking.details || 'No details provided');
+            formData.append('_subject', `🔔 New Booking: ${booking.name} - ${booking.service}`);
+            formData.append('_template', 'table');
+            
+            // Send to your email
+            try {
+                await fetch('https://formsubmit.co/ajax/septemberafricah29@gmail.com', {
+                    method: 'POST',
+                    body: formData
                 });
-            });
-            
-            // Mobile menu toggle (preserving original behavior but avoid double init)
-            const mobileMenuBtn = document.querySelector('.mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-            if (mobileMenuBtn && navLinks) {
-                // Avoid duplication if script.js already sets this
-                if (!mobileMenuBtn.hasAttribute('data-listener')) {
-                    mobileMenuBtn.setAttribute('data-listener', 'true');
-                    mobileMenuBtn.addEventListener('click', () => {
-                        if (navLinks.style.display === 'flex') {
-                            navLinks.style.display = '';
-                        } else {
-                            navLinks.style.display = 'flex';
-                        }
-                    });
-                }
+                return true;
+            } catch (error) {
+                console.error('Email error:', error);
+                return false;
             }
+        }
+        
+        // Send auto-reply to client
+        async function sendAutoReply(booking) {
+            const autoReplyData = new FormData();
+            autoReplyData.append('email', booking.email);
+            autoReplyData.append('_subject', `✨ Booking Confirmation - September Designz`);
+            autoReplyData.append('_template', 'table');
+            autoReplyData.append('message', `
+                <h2>Thank you, ${booking.name}! 🙌</h2>
+                <p>We've received your booking request for <strong>${booking.service}</strong>.</p>
+                <p><strong>Estimated Price:</strong> MWK ${booking.price.toLocaleString()}</p>
+                <p><strong>Preferred Date:</strong> ${booking.date || 'To be confirmed'}</p>
+                <p>We will contact you within 24 hours at <strong>${booking.email}</strong> to discuss your project in detail.</p>
+                <br>
+                <p>In the meantime, feel free to reach out via WhatsApp: <strong>+265 994 071 332</strong></p>
+                <br>
+                <p>Best regards,<br>September Designz Team</p>
+            `);
             
-            // Re-apply intersection observer for fade-ins but ensure it doesn't break existing
-            if (typeof IntersectionObserver !== 'undefined') {
-                const animatedElements = document.querySelectorAll('.service-card, .portfolio-item, .flyer-item, .stat-card');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            try {
+                await fetch('https://formsubmit.co/ajax/septemberafricah29@gmail.com', {
+                    method: 'POST',
+                    body: autoReplyData
+                });
+                return true;
+            } catch (error) {
+                console.error('Auto-reply error:', error);
+                return false;
+            }
+        }
+        
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
                 
-                animatedElements.forEach(el => {
-                    if (!el.style.opacity || el.style.opacity === '') {
-                        el.style.opacity = '0';
-                        el.style.transform = 'translateY(30px)';
-                        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                        observer.observe(el);
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const serviceSelect = document.getElementById('service');
+                const service = serviceSelect.value;
+                const price = getPriceFromService(service);
+                const date = document.getElementById('date').value;
+                const details = document.getElementById('details').value;
+                
+                if (!name || !email) {
+                    showMessage('❌ Please fill in your name and email', 'error');
+                    return;
+                }
+                
+                if (!email.includes('@') || !email.includes('.')) {
+                    showMessage('❌ Please enter a valid email address', 'error');
+                    return;
+                }
+                
+                const submitBtn = bookingForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
+                const booking = {
+                    id: Date.now(),
+                    name: name,
+                    email: email,
+                    service: service,
+                    price: price,
+                    date: date,
+                    details: details,
+                    timestamp: new Date().toISOString(),
+                    status: 'pending'
+                };
+                
+                // Save to localStorage
+                let bookings = JSON.parse(localStorage.getItem('september_bookings') || '[]');
+                bookings.push(booking);
+                localStorage.setItem('september_bookings', JSON.stringify(bookings));
+                
+                // Send email notifications
+                await sendEmailNotification(booking);
+                await sendAutoReply(booking);
+                
+                showMessage(`✅ Thanks ${name}! Your booking request for ${service} (MWK ${price.toLocaleString()}) has been saved. Check your email for confirmation!`, 'success');
+                showToast(`🎉 Booking sent! Check your email.`, 'success');
+                
+                bookingForm.reset();
+                
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                console.log('Booking saved:', booking);
+            });
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('.nav-link, .btn-primary, .btn-secondary, .service-btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
-                });
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+        
+        // Particles generation
+        const particleContainer = document.getElementById('particleContainer');
+        if (particleContainer) {
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 6 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = 8 + Math.random() * 12 + 's';
+                particle.style.opacity = 0.3 + Math.random() * 0.5;
+                particle.style.background = `rgba(192, 132, 252, ${0.3 + Math.random() * 0.5})`;
+                particleContainer.appendChild(particle);
             }
-        })();
+        }
+        
+        // Console branding
+        console.log('%c✨ September Designz | Premium Design & Development Agency ✨', 'color: #c084fc; font-size: 16px; font-weight: bold;');
+        console.log('%c📧 Email notifications active | 💬 WhatsApp chat ready', 'color: #10b981; font-size: 12px;');
     </script>
 </body>
 </html>
