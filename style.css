@@ -1,4 +1,3 @@
-/* RESET - removes default browser spacing */
 * {
     margin: 0;
     padding: 0;
@@ -12,20 +11,19 @@ body {
     line-height: 1.6;
 }
 
-/* Container - centers content and limits width */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Navigation Bar */
 .navbar {
     background: rgba(10, 10, 10, 0.95);
     padding: 20px 0;
     position: sticky;
     top: 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 100;
 }
 
 .navbar .container {
@@ -54,11 +52,25 @@ body {
     color: #c084fc;
 }
 
-/* Hero Section */
 .hero {
     padding: 100px 0;
     text-align: center;
     background: radial-gradient(circle at 30% 10%, rgba(139,92,246,0.15), transparent);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #c084fc;
+    filter: blur(100px);
+    opacity: 0.1;
+    top: -100px;
+    right: -100px;
+    border-radius: 50%;
 }
 
 .hero h1 {
@@ -77,7 +89,6 @@ body {
     margin: 0 auto 30px;
 }
 
-/* Buttons */
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -86,6 +97,7 @@ body {
     font-weight: bold;
     margin: 0 10px;
     transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -96,13 +108,13 @@ body {
 .btn-secondary {
     border: 2px solid #c084fc;
     color: white;
+    background: transparent;
 }
 
 .btn:hover {
     transform: translateY(-3px);
 }
 
-/* Services Grid */
 .services {
     padding: 80px 0;
 }
@@ -150,7 +162,10 @@ body {
     margin-top: 20px;
 }
 
-/* Portfolio Grid */
+#portfolio {
+    padding: 40px 0;
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -165,6 +180,10 @@ body {
     transition: 0.3s;
 }
 
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
 .portfolio-item img {
     width: 100%;
     height: 250px;
@@ -175,7 +194,10 @@ body {
     padding: 20px;
 }
 
-/* Booking Form */
+#book {
+    padding: 40px 0;
+}
+
 .booking-form {
     background: rgba(255,255,255,0.03);
     padding: 40px;
@@ -206,13 +228,26 @@ body {
     font-family: inherit;
 }
 
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #c084fc;
+    box-shadow: 0 0 0 2px rgba(192,132,252,0.2);
+}
+
 button[type="submit"] {
     width: 100%;
     padding: 14px;
     font-size: 18px;
+    border: none;
 }
 
-/* Footer */
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
 .footer {
     background: #050505;
     text-align: center;
@@ -220,7 +255,10 @@ button[type="submit"] {
     margin-top: 60px;
 }
 
-/* Responsive Design (for phones) */
+section {
+    scroll-margin-top: 80px;
+}
+
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 36px;
@@ -234,9 +272,25 @@ button[type="submit"] {
         margin-top: 15px;
     }
     
+    .nav-links a {
+        margin: 0 15px;
+    }
+    
     .btn {
         display: block;
         margin: 10px auto;
         width: 80%;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .booking-form {
+        padding: 20px;
     }
 }
