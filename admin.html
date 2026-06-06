@@ -418,6 +418,71 @@
         <div id="bookingsList" class="bookings-list"></div>
     </div>
 </div>
+<!-- ============================================ -->
+<!-- DYNAMIC CONTENT EDITOR SECTION -->
+<!-- ============================================ -->
+<div class="admin-container" style="margin-top: 60px; border-top: 2px solid rgba(192,132,252,0.3); padding-top: 40px;">
+    <div class="admin-header">
+        <h2><i class="fas fa-edit"></i> Dynamic Content Editor</h2>
+        <p>Edit your website content here - changes appear instantly!</p>
+    </div>
+    
+    <div style="display: grid; gap: 30px; margin-top: 30px;">
+        
+        <!-- Stats Editor -->
+        <div class="stat-card">
+            <h3><i class="fas fa-chart-line"></i> Stats Numbers</h3>
+            <div style="display: grid; gap: 15px; margin-top: 15px;">
+                <div><label>Projects Completed:</label><input type="number" id="editProjects" class="filter-select" style="width: 100%;"></div>
+                <div><label>Happy Clients:</label><input type="number" id="editClients" class="filter-select" style="width: 100%;"></div>
+                <div><label>Years Experience:</label><input type="number" id="editYears" class="filter-select" style="width: 100%;"></div>
+                <div><label>Countries Reached:</label><input type="number" id="editCountries" class="filter-select" style="width: 100%;"></div>
+                <button class="btn-export" onclick="updateStats()">Save Stats</button>
+            </div>
+        </div>
+        
+        <!-- Hero Text Editor -->
+        <div class="stat-card">
+            <h3><i class="fas fa-heading"></i> Hero Text</h3>
+            <div style="display: grid; gap: 15px; margin-top: 15px;">
+                <div><label>Typing Words (comma separated):</label><input type="text" id="editTypingWords" class="filter-select" style="width: 100%;"></div>
+                <div><label>Hero Subtitle:</label><textarea id="editHeroSubtitle" rows="3" class="filter-select" style="width: 100%;"></textarea></div>
+                <button class="btn-export" onclick="updateHeroText()">Save Hero Text</button>
+            </div>
+        </div>
+        
+        <!-- Services Editor -->
+        <div class="stat-card">
+            <h3><i class="fas fa-cubes"></i> Services</h3>
+            <button class="btn-export" onclick="addService()" style="margin-bottom: 15px; width: auto;">+ Add New Service</button>
+            <div id="servicesList"></div>
+        </div>
+        
+        <!-- Flyers Editor -->
+        <div class="stat-card">
+            <h3><i class="fas fa-images"></i> Flyers</h3>
+            <button class="btn-export" onclick="addFlyer()" style="margin-bottom: 15px; width: auto;">+ Add New Flyer</button>
+            <div id="flyersList"></div>
+        </div>
+        
+        <!-- Portfolio Editor -->
+        <div class="stat-card">
+            <h3><i class="fas fa-briefcase"></i> Portfolio</h3>
+            <button class="btn-export" onclick="addPortfolio()" style="margin-bottom: 15px; width: auto;">+ Add New Portfolio Item</button>
+            <div id="portfolioList"></div>
+        </div>
+        
+        <!-- Reset Button -->
+        <div class="stat-card" style="border-color: #ef4444;">
+            <h3><i class="fas fa-exclamation-triangle"></i> Danger Zone</h3>
+            <button class="btn-delete" onclick="resetToDefault()" style="width: 100%;">Reset All Content to Default</button>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Include the editor script -->
+<script src="admin-editor.js"></script>
 
     <script>
         // ============================================

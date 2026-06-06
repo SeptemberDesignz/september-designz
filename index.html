@@ -19,9 +19,6 @@
     <link rel="icon" type="image/png" href="images/logo.png">
     
     <style>
-        /* ============================================
-           RESET & BASE STYLES
-        ============================================ */
         * {
             margin: 0;
             padding: 0;
@@ -37,9 +34,6 @@
             cursor: none;
         }
         
-        /* ============================================
-           CUSTOM GLOWING CURSOR
-        ============================================ */
         .custom-cursor {
             width: 30px;
             height: 30px;
@@ -78,9 +72,6 @@
             cursor: none;
         }
         
-        /* ============================================
-           ANIMATED BACKGROUND (FLOATING ORBS)
-        ============================================ */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -100,44 +91,10 @@
             animation: floatOrb 20s infinite alternate ease-in-out;
         }
         
-        .orb-1 {
-            width: 60vw;
-            height: 60vw;
-            background: radial-gradient(circle, rgba(192, 132, 252, 0.4), rgba(139, 92, 246, 0.1));
-            top: -20%;
-            left: -20%;
-            animation-duration: 25s;
-        }
-        
-        .orb-2 {
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.1));
-            bottom: -10%;
-            right: -15%;
-            animation-duration: 30s;
-            animation-delay: 2s;
-        }
-        
-        .orb-3 {
-            width: 45vw;
-            height: 45vw;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.25), rgba(139, 92, 246, 0.05));
-            top: 40%;
-            left: 30%;
-            animation-duration: 28s;
-            animation-delay: 5s;
-        }
-        
-        .orb-4 {
-            width: 70vw;
-            height: 70vw;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.05));
-            bottom: -30%;
-            left: -20%;
-            animation-duration: 35s;
-            animation-delay: 1s;
-        }
+        .orb-1 { width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(192, 132, 252, 0.4), rgba(139, 92, 246, 0.1)); top: -20%; left: -20%; animation-duration: 25s; }
+        .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.1)); bottom: -10%; right: -15%; animation-duration: 30s; animation-delay: 2s; }
+        .orb-3 { width: 45vw; height: 45vw; background: radial-gradient(circle, rgba(245, 158, 11, 0.25), rgba(139, 92, 246, 0.05)); top: 40%; left: 30%; animation-duration: 28s; animation-delay: 5s; }
+        .orb-4 { width: 70vw; height: 70vw; background: radial-gradient(circle, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.05)); bottom: -30%; left: -20%; animation-duration: 35s; animation-delay: 1s; }
         
         @keyframes floatOrb {
             0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
@@ -151,9 +108,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(192, 132, 252, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(192, 132, 252, 0.05) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(192, 132, 252, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(192, 132, 252, 0.05) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: -1;
             pointer-events: none;
@@ -191,9 +146,12 @@
             100% { transform: translateY(-20vh) scale(1); opacity: 0; }
         }
         
-        /* ============================================
-           CLICKABLE LOGO WITH POP-OUT EFFECT
-        ============================================ */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
         .logo-link {
             text-decoration: none;
             display: inline-block;
@@ -244,9 +202,6 @@
             color: transparent;
         }
         
-        /* ============================================
-           TYPING ANIMATION HERO
-        ============================================ */
         .hero-title {
             font-size: 64px;
             font-weight: 800;
@@ -268,9 +223,6 @@
             50% { border-color: transparent; }
         }
         
-        /* ============================================
-           ANIMATED STATS COUNTERS SECTION
-        ============================================ */
         .stats-showcase {
             padding: 60px 0;
             background: linear-gradient(135deg, rgba(192, 132, 252, 0.1), rgba(139, 92, 246, 0.05));
@@ -310,9 +262,6 @@
             font-weight: 500;
         }
         
-        /* ============================================
-           WHATSAPP BUTTON
-        ============================================ */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -340,9 +289,6 @@
             color: white;
         }
         
-        /* ============================================
-           TOAST NOTIFICATION
-        ============================================ */
         .toast-notification {
             position: fixed;
             bottom: 100px;
@@ -361,9 +307,6 @@
             to { transform: translateX(0); opacity: 1; }
         }
         
-        /* ============================================
-           NAVBAR & LAYOUT
-        ============================================ */
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -416,9 +359,6 @@
             cursor: pointer;
         }
         
-        /* ============================================
-           HERO SECTION
-        ============================================ */
         .hero {
             position: relative;
             padding: 100px 0;
@@ -472,9 +412,6 @@
             margin-bottom: 48px;
         }
         
-        /* ============================================
-           BUTTONS
-        ============================================ */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -516,9 +453,6 @@
             justify-content: center;
         }
         
-        /* ============================================
-           SECTION HEADERS
-        ============================================ */
         .section-header {
             text-align: center;
             margin-bottom: 60px;
@@ -558,9 +492,6 @@
             margin: 0 auto;
         }
         
-        /* ============================================
-           SERVICES SECTION
-        ============================================ */
         .services {
             padding: 80px 0;
         }
@@ -669,9 +600,6 @@
             transform: translateX(5px);
         }
         
-        /* ============================================
-           FLYERS SECTION
-        ============================================ */
         .flyers {
             padding: 80px 0;
             background: linear-gradient(135deg, rgba(192, 132, 252, 0.05), rgba(139, 92, 246, 0.02));
@@ -740,9 +668,6 @@
             margin: 0;
         }
         
-        /* ============================================
-           PORTFOLIO SECTION
-        ============================================ */
         .portfolio {
             padding: 80px 0;
         }
@@ -826,9 +751,6 @@
             color: #94a3b8;
         }
         
-        /* ============================================
-           BOOKING SECTION
-        ============================================ */
         .booking {
             padding: 80px 0;
         }
@@ -919,9 +841,6 @@
             text-align: center;
         }
         
-        /* ============================================
-           PAYMENT SECTION
-        ============================================ */
         .payment-section {
             margin-top: 24px;
             padding-top: 20px;
@@ -1074,9 +993,6 @@
             transform: translateY(-2px);
         }
         
-        /* ============================================
-           FOOTER
-        ============================================ */
         .footer {
             background: #050508;
             padding: 60px 0 20px;
@@ -1157,77 +1073,31 @@
             vertical-align: middle;
         }
         
-        /* ============================================
-           RESPONSIVE DESIGN
-        ============================================ */
         @media (max-width: 968px) {
-            .hero-title {
-                font-size: 48px;
-            }
-            .section-title {
-                font-size: 36px;
-            }
-            .booking-wrapper {
-                grid-template-columns: 1fr;
-            }
-            .services-grid,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero-title { font-size: 48px; }
+            .section-title { font-size: 36px; }
+            .booking-wrapper { grid-template-columns: 1fr; }
+            .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
         }
         
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .mobile-menu {
-                display: block;
-            }
-            .hero-title {
-                font-size: 36px;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            .stat-number-custom {
-                font-size: 36px;
-            }
-            .flyers-grid {
-                grid-template-columns: 1fr;
-            }
-            .flyer-image img {
-                height: 280px;
-            }
-            .custom-cursor,
-            .cursor-dot {
-                display: none;
-            }
-            body {
-                cursor: auto;
-            }
-            .logo-img {
-                height: 35px;
-            }
-            .logo-text {
-                font-size: 20px;
-            }
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .hero-title { font-size: 36px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; justify-content: center; }
+            .stat-number-custom { font-size: 36px; }
+            .flyers-grid { grid-template-columns: 1fr; }
+            .flyer-image img { height: 280px; }
+            .custom-cursor, .cursor-dot { display: none; }
+            body { cursor: auto; }
+            .logo-img { height: 35px; }
+            .logo-text { font-size: 20px; }
         }
         
-        /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .service-card, .portfolio-item, .flyer-item {
@@ -1237,11 +1107,9 @@
 </head>
 <body>
 
-    <!-- CUSTOM CURSOR ELEMENTS -->
     <div class="custom-cursor"></div>
     <div class="cursor-dot"></div>
 
-    <!-- ANIMATED BACKGROUND LAYERS -->
     <div class="animated-bg">
         <div class="bg-orb orb-1"></div>
         <div class="bg-orb orb-2"></div>
@@ -1251,20 +1119,16 @@
     <div class="grid-overlay"></div>
     <div class="particle-wave" id="particleContainer"></div>
 
-    <!-- WHATSAPP FLOATING BUTTON -->
     <a href="https://wa.me/265994071332?text=Hello%20September%20Designz!%20I'm%20interested%20in%20your%20services.%20Can%20you%20help%20me%3F" 
-       class="whatsapp-float" 
-       target="_blank"
-       aria-label="Chat on WhatsApp">
+       class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="container">
             <a href="#home" class="logo-link">
                 <div class="logo">
-                    <img src="images/logo.png" alt="September Designz Logo" class="logo-img">
+                    <img src="images/logo.png" alt="September Designz Logo" class="logo-img" loading="eager" width="45" height="45">
                     <span class="logo-text">September<span>Designz</span></span>
                 </div>
             </a>
@@ -1282,7 +1146,6 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION WITH TYPING ANIMATION -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="container">
@@ -1293,7 +1156,7 @@
                 <h1 class="hero-title">
                     <span class="typing-text" id="typingText"></span>
                 </h1>
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" id="heroSubtitle">
                     We transform bold ideas into stunning digital experiences that drive results. 
                     Let's build something extraordinary together.
                 </p>
@@ -1309,7 +1172,6 @@
         </div>
     </section>
 
-    <!-- ANIMATED STATS COUNTERS SECTION - Numbers count from 0 when you scroll -->
     <div class="stats-showcase">
         <div class="container">
             <div class="stats-grid-custom">
@@ -1333,7 +1195,6 @@
         </div>
     </div>
 
-    <!-- SERVICES SECTION -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
@@ -1341,50 +1202,10 @@
                 <h2 class="section-title">Premium Design <span class="gradient-text">& Development</span> Services</h2>
                 <p class="section-subtitle">Tailored solutions to elevate your brand and captivate your audience</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-palette"></i></div>
-                    <h3>Graphic Design</h3>
-                    <p>Stunning logos, brand identities, and social media visuals that make you unforgettable.</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> Logo Design</span>
-                        <span><i class="fas fa-check"></i> Brand Guidelines</span>
-                        <span><i class="fas fa-check"></i> Social Media Kits</span>
-                        <span><i class="fas fa-check"></i> Flyers & Posters</span>
-                    </div>
-                    <div class="price">Starting at <span>MWK25,000</span></div>
-                    <a href="#book" class="service-btn">Get Started →</a>
-                </div>
-                <div class="service-card featured">
-                    <div class="popular-badge">Most Popular</div>
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
-                    <h3>Web Development</h3>
-                    <p>Custom, responsive websites that load fast and convert visitors into customers.</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> Responsive Design</span>
-                        <span><i class="fas fa-check"></i> SEO Optimized</span>
-                        <span><i class="fas fa-check"></i> CMS Integration</span>
-                    </div>
-                    <div class="price">Starting at <span>MWK350,000</span></div>
-                    <a href="#book" class="service-btn">Get Started →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>UI/UX Design</h3>
-                    <p>Beautiful, intuitive interfaces that deliver exceptional user experiences.</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> Wireframing</span>
-                        <span><i class="fas fa-check"></i> Prototyping</span>
-                        <span><i class="fas fa-check"></i> User Testing</span>
-                    </div>
-                    <div class="price">Starting at <span>MWK125,000</span></div>
-                    <a href="#book" class="service-btn">Get Started →</a>
-                </div>
-            </div>
+            <div class="services-grid" id="servicesGrid"></div>
         </div>
     </section>
 
-    <!-- FLYERS SECTION -->
     <section id="flyers" class="flyers">
         <div class="container">
             <div class="section-header">
@@ -1392,18 +1213,10 @@
                 <h2 class="section-title">Creative <span class="gradient-text">Flyers & Designs</span></h2>
                 <p class="section-subtitle">Eye-catching marketing materials that get results</p>
             </div>
-            <div class="flyers-grid">
-                <div class="flyer-item"><div class="flyer-image"><img src="images/flyer-1.png" alt="Business Flyer Design"><div class="flyer-overlay"><span class="flyer-category">Business Flyer</span><h3>Corporate Event Flyer</h3></div></div></div>
-                <div class="flyer-item"><div class="flyer-image"><img src="images/flyer-2.jpg" alt="Promotional Flyer"><div class="flyer-overlay"><span class="flyer-category">Promotional</span><h3>Event or Promotional Flyer</h3></div></div></div>
-                <div class="flyer-item"><div class="flyer-image"><img src="images/flyer-3.jpg" alt="Transportation Flyer"><div class="flyer-overlay"><span class="flyer-category">Transportation</span><h3>Transportation Flyer</h3></div></div></div>
-                <div class="flyer-item"><div class="flyer-image"><img src="images/flyer-4.png" alt="Online Store Flyer"><div class="flyer-overlay"><span class="flyer-category">Store Design</span><h3>Online Store Flyer</h3></div></div></div>
-                <div class="flyer-item"><div class="flyer-image"><img src="images/flyer-5.png" alt="Social Media Graphic"><div class="flyer-overlay"><span class="flyer-category">Social Media</span><h3>Instagram Post Design</h3></div></div></div>
-                <div class="flyer-item"><div class="flyer-image"><img src="images/flyer-6.jpg" alt="Church Design"><div class="flyer-overlay"><span class="flyer-category">Church</span><h3>Church Flyer</h3></div></div></div>
-            </div>
+            <div class="flyers-grid" id="flyersGrid"></div>
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-header">
@@ -1411,15 +1224,10 @@
                 <h2 class="section-title">Recent <span class="gradient-text">Projects</span> That Shine</h2>
                 <p class="section-subtitle">Real results for real brands</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item"><div class="portfolio-image"><img src="images/portfolio-1.jpg" alt="Brand Identity Project"><div class="portfolio-overlay"><a href="#" class="view-project">View Project <i class="fas fa-arrow-right"></i></a></div></div><div class="portfolio-info"><h3>Brand Identity</h3><p>Graphic Design</p></div></div>
-                <div class="portfolio-item"><div class="portfolio-image"><img src="images/portfolio-2.jpg" alt="E-commerce Website"><div class="portfolio-overlay"><a href="#" class="view-project">View Project <i class="fas fa-arrow-right"></i></a></div></div><div class="portfolio-info"><h3>E-commerce</h3><p>Web Development</p></div></div>
-                <div class="portfolio-item"><div class="portfolio-image"><img src="images/portfolio-3.jpg" alt="Mobile App Design"><div class="portfolio-overlay"><a href="#" class="view-project">View Project <i class="fas fa-arrow-right"></i></a></div></div><div class="portfolio-info"><h3>Mobile App</h3><p>UI/UX Design</p></div></div>
-            </div>
+            <div class="portfolio-grid" id="portfolioGrid"></div>
         </div>
     </section>
 
-    <!-- BOOKING SECTION WITH PAYMENT -->
     <section id="book" class="booking">
         <div class="container">
             <div class="booking-wrapper">
@@ -1440,11 +1248,10 @@
                         <h3>Book Your Slot</h3>
                         <div class="form-group"><label>Full Name *</label><input type="text" id="name" placeholder="John Doe" required></div>
                         <div class="form-group"><label>Email Address *</label><input type="email" id="email" placeholder="hello@example.com" required></div>
-                        <div class="form-group"><label>Select Service</label><select id="service"><option value="Graphic Design">🎨 Graphic Design - MWK25,000</option><option value="Web Development">💻 Web Development - MWK350,000</option><option value="UI/UX Design">📱 UI/UX Design - MWK125,000</option></select></div>
+                        <div class="form-group"><label>Select Service</label><select id="service"></select></div>
                         <div class="form-group"><label>Preferred Date</label><input type="date" id="date"></div>
                         <div class="form-group"><label>Project Details</label><textarea id="details" rows="4" placeholder="Tell me about your project, goals, and requirements..."></textarea></div>
                         
-                        <!-- PAYMENT SECTION -->
                         <div class="payment-section">
                             <div class="payment-title"><i class="fas fa-credit-card"></i> Select Payment Method</div>
                             <div class="payment-options">
@@ -1468,13 +1275,12 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="logo">
-                        <img src="images/logo.png" alt="Logo" class="footer-logo">
+                        <img src="images/logo.png" alt="Logo" class="footer-logo" loading="lazy" width="35" height="35">
                         September<span>Designz</span>
                     </div>
                     <p>Creating digital experiences that inspire and deliver results.</p>
@@ -1520,16 +1326,92 @@
 
     <script>
         // ============================================
-        // TYPING ANIMATION
+        // DYNAMIC CONTENT MANAGEMENT SYSTEM
         // ============================================
-        const words = ["Creative Designs.", "Brand Identity.", "Web Solutions.", "UI/UX Magic.", "Digital Success."];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+        
+        const defaultContent = {
+            stats: { projects: 156, clients: 98, years: 5, countries: 12 },
+            services: [
+                { name: "Graphic Design", icon: "fa-palette", description: "Stunning logos, brand identities, and social media visuals.", features: ["Logo Design", "Brand Guidelines", "Social Media Kits", "Flyers & Posters"], price: 25000, featured: false },
+                { name: "Web Development", icon: "fa-code", description: "Custom, responsive websites that load fast and convert.", features: ["Responsive Design", "SEO Optimized", "CMS Integration"], price: 350000, featured: true },
+                { name: "UI/UX Design", icon: "fa-mobile-alt", description: "Beautiful, intuitive interfaces that deliver exceptional experiences.", features: ["Wireframing", "Prototyping", "User Testing"], price: 125000, featured: false }
+            ],
+            flyers: [
+                { image: "images/flyer-1.png", category: "Business Flyer", title: "Corporate Event Flyer" },
+                { image: "images/flyer-2.jpg", category: "Promotional", title: "Event or Promotional Flyer" },
+                { image: "images/flyer-3.jpg", category: "Transportation", title: "Transportation Flyer" },
+                { image: "images/flyer-4.png", category: "Store Design", title: "Online Store Flyer" },
+                { image: "images/flyer-5.png", category: "Social Media", title: "Instagram Post Design" },
+                { image: "images/flyer-6.jpg", category: "Church", title: "Church Flyer" }
+            ],
+            portfolio: [
+                { image: "images/portfolio-1.jpg", title: "Brand Identity", category: "Graphic Design" },
+                { image: "images/portfolio-2.jpg", title: "E-commerce", category: "Web Development" },
+                { image: "images/portfolio-3.jpg", title: "Mobile App", category: "UI/UX Design" }
+            ],
+            typingWords: ["Creative Designs.", "Brand Identity.", "Web Solutions.", "UI/UX Magic.", "Digital Success."],
+            heroSubtitle: "We transform bold ideas into stunning digital experiences that drive results. Let's build something extraordinary together."
+        };
+        
+        let websiteContent = JSON.parse(localStorage.getItem('websiteContent'));
+        if (!websiteContent) {
+            websiteContent = defaultContent;
+            localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+        }
+        
+        function renderServices() {
+            const container = document.getElementById('servicesGrid');
+            if (!container) return;
+            container.innerHTML = websiteContent.services.map(service => `
+                <div class="service-card ${service.featured ? 'featured' : ''}">
+                    ${service.featured ? '<div class="popular-badge">Most Popular</div>' : ''}
+                    <div class="service-icon"><i class="fas ${service.icon}"></i></div>
+                    <h3>${service.name}</h3>
+                    <p>${service.description}</p>
+                    <div class="service-features">${service.features.map(f => `<span><i class="fas fa-check"></i> ${f}</span>`).join('')}</div>
+                    <div class="price">Starting at <span>MWK${service.price.toLocaleString()}</span></div>
+                    <a href="#book" class="service-btn">Get Started →</a>
+                </div>
+            `).join('');
+        }
+        
+        function renderFlyers() {
+            const container = document.getElementById('flyersGrid');
+            if (!container) return;
+            container.innerHTML = websiteContent.flyers.map(flyer => `
+                <div class="flyer-item"><div class="flyer-image"><img src="${flyer.image}" alt="${flyer.title}" loading="lazy" width="400" height="350"><div class="flyer-overlay"><span class="flyer-category">${flyer.category}</span><h3>${flyer.title}</h3></div></div></div>
+            `).join('');
+        }
+        
+        function renderPortfolio() {
+            const container = document.getElementById('portfolioGrid');
+            if (!container) return;
+            container.innerHTML = websiteContent.portfolio.map(item => `
+                <div class="portfolio-item"><div class="portfolio-image"><img src="${item.image}" alt="${item.title}" loading="lazy" width="400" height="300"><div class="portfolio-overlay"><a href="#" class="view-project">View Project <i class="fas fa-arrow-right"></i></a></div></div><div class="portfolio-info"><h3>${item.title}</h3><p>${item.category}</p></div></div>
+            `).join('');
+        }
+        
+        function loadStats() {
+            document.getElementById('projectsCount').innerText = websiteContent.stats.projects;
+            document.getElementById('clientsCount').innerText = websiteContent.stats.clients;
+            document.getElementById('yearsCount').innerText = websiteContent.stats.years;
+            document.getElementById('countriesCount').innerText = websiteContent.stats.countries;
+        }
+        
+        function populateServiceDropdown() {
+            const serviceSelect = document.getElementById('service');
+            if (!serviceSelect) return;
+            serviceSelect.innerHTML = websiteContent.services.map(service => 
+                `<option value="${service.name}">${service.name} - MWK${service.price.toLocaleString()}</option>`
+            ).join('');
+        }
+        
+        let wordIndex = 0, charIndex = 0, isDeleting = false;
         const typingElement = document.getElementById('typingText');
         
         function typeEffect() {
-            const currentWord = words[wordIndex];
+            if (!typingElement) return;
+            const currentWord = websiteContent.typingWords[wordIndex];
             if (isDeleting) {
                 typingElement.innerHTML = currentWord.substring(0, charIndex - 1) + '<span class="typed-word"></span>';
                 charIndex--;
@@ -1537,81 +1419,44 @@
                 typingElement.innerHTML = currentWord.substring(0, charIndex + 1) + '<span class="typed-word"></span>';
                 charIndex++;
             }
-            
             if (!isDeleting && charIndex === currentWord.length) {
                 isDeleting = true;
                 setTimeout(typeEffect, 2000);
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
+                wordIndex = (wordIndex + 1) % websiteContent.typingWords.length;
                 setTimeout(typeEffect, 500);
             } else {
                 setTimeout(typeEffect, isDeleting ? 100 : 150);
             }
         }
         
-        typeEffect();
-        
-        // ============================================
-        // ANIMATED COUNTERS - Counts from 0 when you scroll
-        // ============================================
-        function animateCounter(element, target, duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    element.innerText = target;
-                    clearInterval(timer);
-                } else {
-                    element.innerText = Math.floor(start);
-                }
-            }, 16);
+        function initPage() {
+            renderServices();
+            renderFlyers();
+            renderPortfolio();
+            loadStats();
+            populateServiceDropdown();
+            typeEffect();
+            const heroSubtitleEl = document.getElementById('heroSubtitle');
+            if (heroSubtitleEl) heroSubtitleEl.innerText = websiteContent.heroSubtitle;
         }
         
-        // Watch when stats section comes into view
-        const observerOptions = { threshold: 0.3 };
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(document.getElementById('projectsCount'), 156);   // 0 → 156 Projects
-                    animateCounter(document.getElementById('clientsCount'), 98);     // 0 → 98 Clients
-                    animateCounter(document.getElementById('yearsCount'), 5);        // 0 → 5 Years
-                    animateCounter(document.getElementById('countriesCount'), 12);   // 0 → 12 Countries
-                    counterObserver.disconnect(); // Only animate once
-                }
-            });
-        }, observerOptions);
+        initPage();
         
-        const statsSection = document.querySelector('.stats-showcase');
-        if (statsSection) counterObserver.observe(statsSection);
-        
-        // ============================================
-        // CUSTOM CURSOR
-        // ============================================
         const cursor = document.querySelector('.custom-cursor');
         const cursorDot = document.querySelector('.cursor-dot');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-            cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-        });
-        
-        const interactiveElements = document.querySelectorAll('a, button, .service-card, .btn, input, select, textarea, .nav-links a, .whatsapp-float, .flyer-item, .portfolio-item, .logo-link');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform = `scale(1.5)`;
-                cursor.style.background = 'rgba(192, 132, 252, 0.2)';
+        if (cursor && cursorDot) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
             });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = `scale(1)`;
-                cursor.style.background = 'transparent';
+            document.querySelectorAll('a, button, .service-card, .btn, input, select, textarea, .nav-links a, .whatsapp-float, .flyer-item, .portfolio-item, .logo-link').forEach(el => {
+                el.addEventListener('mouseenter', () => { cursor.style.transform = `scale(1.5)`; cursor.style.background = 'rgba(192, 132, 252, 0.2)'; });
+                el.addEventListener('mouseleave', () => { cursor.style.transform = `scale(1)`; cursor.style.background = 'transparent'; });
             });
-        });
+        }
         
-        // ============================================
-        // PAYMENT HANDLERS
-        // ============================================
         const radioButtons = document.querySelectorAll('input[name="paymentMethod"]');
         const airtelDetails = document.getElementById('airtelDetails');
         const mpambaDetails = document.getElementById('mpambaDetails');
@@ -1623,7 +1468,6 @@
             if (mpambaDetails) mpambaDetails.classList.remove('active');
             if (paypalDetails) paypalDetails.classList.remove('active');
             if (laterDetails) laterDetails.classList.remove('active');
-            
             const selected = document.querySelector('input[name="paymentMethod"]:checked');
             if (selected) {
                 if (selected.value === 'airtel' && airtelDetails) airtelDetails.classList.add('active');
@@ -1632,34 +1476,25 @@
                 else if (selected.value === 'later' && laterDetails) laterDetails.classList.add('active');
             }
         }
-        
-        radioButtons.forEach(radio => radio.addEventListener('change', updatePaymentDetails));
+        if (radioButtons.length) radioButtons.forEach(radio => radio.addEventListener('change', updatePaymentDetails));
         
         function openUSSD(type) {
-            if (type === 'airtel') {
-                window.location.href = 'tel:*211%23';
-                showToast('Dial *211# on your Airtel line to send payment', 'success');
-            } else if (type === 'mpamba') {
-                window.location.href = 'tel:*444%23';
-                showToast('Dial *444# on your TNM line to send payment', 'success');
-            }
+            if (type === 'airtel') { window.location.href = 'tel:*211%23'; showToast('Dial *211# on your Airtel line', 'success'); }
+            else if (type === 'mpamba') { window.location.href = 'tel:*444%23'; showToast('Dial *444# on your TNM line', 'success'); }
         }
         
-        function copyToClipboard(text, successMsg) {
-            navigator.clipboard.writeText(text).then(() => showToast(successMsg, 'success'));
-        }
+        function copyToClipboard(text, successMsg) { navigator.clipboard.writeText(text).then(() => showToast(successMsg, 'success')); }
         
         function openPayPal() {
-            const service = document.getElementById('service').value;
-            let amount = '';
-            if (service.includes('Graphic')) amount = '25.00';
-            else if (service.includes('Web')) amount = '350.00';
-            else amount = '125.00';
+            const service = document.getElementById('service');
+            if (!service) return;
+            const selectedService = websiteContent.services.find(s => s.name === service.value);
+            const amount = selectedService ? (selectedService.price / 1000).toFixed(2) : '25.00';
             window.open(`https://paypal.me/septemberdesignz/${amount}`, '_blank');
-            showToast(`Redirecting to PayPal`, 'success');
+            showToast('Redirecting to PayPal', 'success');
         }
         
-        function showToast(message, type = 'success') {
+        function showToast(message, type) {
             const toast = document.createElement('div');
             toast.className = 'toast-notification';
             toast.style.background = type === 'success' ? '#10b981' : '#ef4444';
@@ -1671,19 +1506,14 @@
         function showMessage(message, type) {
             const messageDiv = document.getElementById('formMessage');
             if (!messageDiv) return;
-            messageDiv.innerHTML = `<div style="background: ${type === 'success' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)'}; border: 1px solid ${type === 'success' ? '#10b981' : '#ef4444'}; border-radius: 12px; padding: 12px; color: ${type === 'success' ? '#10b981' : '#ef4444'};">${message}</div>`;
+            messageDiv.innerHTML = `<div style="background: ${type === 'success' ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)'}; border: 1px solid ${type === 'success' ? '#10b981' : '#ef4444'}; border-radius: 12px; padding: 12px; color: ${type === 'success' ? '#10b981' : '#ef4444'};">${message}</div>`;
             setTimeout(() => messageDiv.innerHTML = '', 6000);
         }
         
-        // ============================================
-        // BOOKING SYSTEM
-        // ============================================
         const bookingForm = document.getElementById('bookingForm');
-        
-        function getPriceFromService(serviceText) {
-            if (serviceText.includes('Graphic')) return 25000;
-            if (serviceText.includes('Web')) return 350000;
-            return 125000;
+        function getPriceFromService(serviceName) {
+            const service = websiteContent.services.find(s => s.name === serviceName);
+            return service ? service.price : 0;
         }
         
         async function sendEmailNotification(booking, paymentMethod) {
@@ -1695,26 +1525,19 @@
             formData.append('date', booking.date || 'Not specified');
             formData.append('payment', paymentMethod);
             formData.append('details', booking.details || 'No details provided');
-            formData.append('_subject', `🔔 New Booking: ${booking.name} - ${booking.service} (${paymentMethod})`);
+            formData.append('_subject', `🔔 New Booking: ${booking.name} - ${booking.service}`);
             formData.append('_template', 'table');
             try { await fetch('https://formsubmit.co/ajax/septemberafricah29@gmail.com', { method: 'POST', body: formData }); return true; } 
-            catch (error) { console.error('Email error:', error); return false; }
+            catch (error) { return false; }
         }
         
         async function sendAutoReply(booking, paymentMethod) {
-            let paymentInstructions = '';
-            if (paymentMethod === 'airtel') paymentInstructions = 'Please send payment via Airtel Money using *211#. Send to Airtel Number: +265 994 071 332.';
-            else if (paymentMethod === 'mpamba') paymentInstructions = 'Please send payment via TNM Mpamba using *444#. Contact us on WhatsApp for payment details.';
-            else if (paymentMethod === 'paypal') paymentInstructions = 'Please send payment via PayPal to: septemberafricah29@gmail.com';
-            else paymentInstructions = 'You selected "Pay Later". We will send you an invoice after consultation.';
-            
-            const autoReplyData = new FormData();
-            autoReplyData.append('email', booking.email);
-            autoReplyData.append('_subject', `✨ Booking Confirmation - September Designz`);
-            autoReplyData.append('_template', 'table');
-            autoReplyData.append('message', `<h2>Thank you, ${booking.name}! 🙌</h2><p>We've received your booking request for <strong>${booking.service}</strong>.</p><p><strong>Price:</strong> MWK ${booking.price.toLocaleString()}</p><p><strong>Preferred Date:</strong> ${booking.date || 'To be confirmed'}</p><p><strong>Payment Method:</strong> ${paymentMethod}</p><p><strong>Payment Instructions:</strong> ${paymentInstructions}</p><br><p>We will contact you within 24 hours at <strong>${booking.email}</strong> to discuss your project.</p><br><p>Questions? WhatsApp us: <strong>+265 994 071 332</strong></p><br><p>Best regards,<br>September Designz Team</p>`);
-            try { await fetch('https://formsubmit.co/ajax/septemberafricah29@gmail.com', { method: 'POST', body: autoReplyData }); return true; } 
-            catch (error) { console.error('Auto-reply error:', error); return false; }
+            let instructions = paymentMethod === 'airtel' ? 'Pay via Airtel Money: *211# to 994071332' : (paymentMethod === 'mpamba' ? 'Pay via TNM Mpamba: *444#' : (paymentMethod === 'paypal' ? 'Pay via PayPal: septemberafricah29@gmail.com' : 'Pay later option selected'));
+            const data = new FormData();
+            data.append('email', booking.email);
+            data.append('_subject', 'Booking Confirmation - September Designz');
+            data.append('message', `<h2>Thank you, ${booking.name}!</h2><p>Booking for ${booking.service} (MWK ${booking.price.toLocaleString()})</p><p>Payment: ${paymentMethod}</p><p>${instructions}</p><p>We'll contact you within 24 hours.</p>`);
+            try { await fetch('https://formsubmit.co/ajax/septemberafricah29@gmail.com', { method: 'POST', body: data }); return true; } catch (error) { return false; }
         }
         
         if (bookingForm) {
@@ -1722,111 +1545,61 @@
                 e.preventDefault();
                 const name = document.getElementById('name').value.trim();
                 const email = document.getElementById('email').value.trim();
-                const serviceSelect = document.getElementById('service');
-                const service = serviceSelect.value;
+                const service = document.getElementById('service').value;
                 const price = getPriceFromService(service);
                 const date = document.getElementById('date').value;
                 const details = document.getElementById('details').value;
-                const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
-                const paymentMethod = selectedPayment ? selectedPayment.value : 'later';
-                
-                if (!name || !email) { showMessage('❌ Please fill in your name and email', 'error'); return; }
-                if (!email.includes('@') || !email.includes('.')) { showMessage('❌ Please enter a valid email address', 'error'); return; }
-                
-                const submitBtn = bookingForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                submitBtn.disabled = true;
-                
-                const booking = { id: Date.now(), name, email, service, price, date, details, paymentMethod, timestamp: new Date().toISOString(), status: 'pending' };
+                const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || 'later';
+                if (!name || !email) { showMessage('❌ Please fill in name and email', 'error'); return; }
+                if (!email.includes('@')) { showMessage('❌ Valid email required', 'error'); return; }
+                const btn = bookingForm.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                btn.disabled = true;
+                const booking = { id: Date.now(), name, email, service, price, date, details, paymentMethod, timestamp: new Date().toISOString() };
                 let bookings = JSON.parse(localStorage.getItem('september_bookings') || '[]');
                 bookings.push(booking);
                 localStorage.setItem('september_bookings', JSON.stringify(bookings));
                 await sendEmailNotification(booking, paymentMethod);
                 await sendAutoReply(booking, paymentMethod);
-                
-                let paymentMsg = '';
-                if (paymentMethod === 'airtel') paymentMsg = ' Please dial *211# to complete payment to 994071332.';
-                else if (paymentMethod === 'mpamba') paymentMsg = ' Please dial *444# to complete payment.';
-                else if (paymentMethod === 'paypal') paymentMsg = ' Please complete payment via PayPal.';
-                else paymentMsg = ' We\'ll send an invoice after consultation.';
-                
-                showMessage(`✅ Thanks ${name}! Your booking request for ${service} (MWK ${price.toLocaleString()}) has been saved.${paymentMsg} Check your email for confirmation!`, 'success');
-                showToast(`🎉 Booking submitted! Check your email.`, 'success');
+                showMessage(`✅ Thanks ${name}! Your booking for ${service} (MWK ${price.toLocaleString()}) has been saved.`, 'success');
+                showToast('Booking submitted! Check your email.', 'success');
                 bookingForm.reset();
-                if (radioButtons.length > 0) { radioButtons[0].checked = true; updatePaymentDetails(); }
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+                if (radioButtons.length) { radioButtons[0].checked = true; updatePaymentDetails(); }
+                btn.innerHTML = originalText;
+                btn.disabled = false;
             });
         }
         
-        // ============================================
-        // SMOOTH SCROLLING
-        // ============================================
-        document.querySelector('.logo-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#home').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        
+        document.querySelector('.logo-link')?.addEventListener('click', (e) => { e.preventDefault(); document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' }); });
         document.querySelectorAll('.nav-links a[href^="#"], .btn-primary, .btn-secondary, .service-btn').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (href && href.startsWith('#')) { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }); }
             });
         });
         
-        // ============================================
-        // MOBILE MENU
-        // ============================================
         const mobileMenuBtn = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            });
-        }
+        if (mobileMenuBtn && navLinks) mobileMenuBtn.addEventListener('click', () => { navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex'; });
         
-        // ============================================
-        // PARTICLES GENERATION
-        // ============================================
         const particleContainer = document.getElementById('particleContainer');
         if (particleContainer) {
             for (let i = 0; i < 40; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
-                const size = Math.random() * 6 + 2;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
+                particle.style.width = (Math.random() * 6 + 2) + 'px';
+                particle.style.height = particle.style.width;
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 15 + 's';
                 particle.style.animationDuration = 8 + Math.random() * 12 + 's';
-                particle.style.opacity = 0.3 + Math.random() * 0.5;
                 particle.style.background = `rgba(192, 132, 252, ${0.3 + Math.random() * 0.5})`;
                 particleContainer.appendChild(particle);
             }
         }
         
-        // Console branding
-        console.log('%c✨ September Designz | Premium Design Agency ✨', 'color: #c084fc; font-size: 16px; font-weight: bold;');
-        console.log('%c🎨 Animated Counters (0 → Target Numbers) | 🖱️ Custom Cursor | ⌨️ Typing Animation', 'color: #10b981; font-size: 12px;');
-        console.log('%c📊 Projects: 156 | Clients: 98 | Years: 5 | Countries: 12', 'color: #f59e0b; font-size: 12px;');
+        console.log('%c✨ September Designz | Dynamic Website Active ✨', 'color: #c084fc; font-size: 16px; font-weight: bold;');
+        console.log('%c📝 Edit content from Admin Panel → admin.html', 'color: #10b981; font-size: 12px;');
     </script>
-    <script>
-    // TEST VERSION - Make sure counters work
-    console.log('Counter script loaded');
-    
-    // Manually set the numbers (test)
-    setTimeout(function() {
-        document.getElementById('projectsCount').innerText = '156';
-        document.getElementById('clientsCount').innerText = '98';
-        document.getElementById('yearsCount').innerText = '5';
-        document.getElementById('countriesCount').innerText = '12';
-        console.log('Numbers set manually');
-    }, 1000);
-</script>
 </body>
 </html>
