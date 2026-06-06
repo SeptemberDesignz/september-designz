@@ -148,93 +148,10 @@
             100% { transform: translateY(-20vh) scale(1); opacity: 0; }
         }
         
-        /* Image Animations & Styles */
         img {
             max-width: 100%;
             height: auto;
             display: block;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        /* Image Hover Effects */
-        .flyer-image img, .portfolio-image img {
-            transition: transform 0.5s ease, filter 0.3s ease;
-        }
-        
-        .flyer-item:hover .flyer-image img {
-            transform: scale(1.1) rotate(2deg);
-            filter: brightness(1.1) contrast(1.05);
-        }
-        
-        .portfolio-item:hover .portfolio-image img {
-            transform: scale(1.08);
-            filter: brightness(1.1);
-        }
-        
-        /* Image Glow Effect on Hover */
-        .flyer-item, .portfolio-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-        }
-        
-        .flyer-item::before, .portfolio-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.3), transparent);
-            transition: left 0.6s ease;
-            z-index: 2;
-            pointer-events: none;
-        }
-        
-        .flyer-item:hover::before, .portfolio-item:hover::before {
-            left: 100%;
-        }
-        
-        /* Image Fade-in Animation */
-        @keyframes imageFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .flyer-image img, .portfolio-image img {
-            animation: imageFadeIn 0.6s ease-out forwards;
-        }
-        
-        /* Image Border Glow */
-        .flyer-image, .portfolio-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        
-        .flyer-image::after, .portfolio-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 2px solid transparent;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .flyer-item:hover .flyer-image::after, 
-        .portfolio-item:hover .portfolio-image::after {
-            border-color: rgba(192, 132, 252, 0.6);
-            box-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
         }
         
         /* Logo */
@@ -348,6 +265,99 @@
             font-size: 18px;
             color: #94a3b8;
             font-weight: 500;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(192, 132, 252, 0.05), rgba(139, 92, 246, 0.02));
+        }
+        
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .about-content {
+            padding-right: 20px;
+        }
+        
+        .about-text {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .about-text strong {
+            color: #c084fc;
+        }
+        
+        .about-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .about-stat {
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .about-stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #c084fc, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .about-stat-label {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+        
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .about-feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(192, 132, 252, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+        
+        .about-feature-card:hover {
+            transform: translateX(10px);
+            border-color: rgba(192, 132, 252, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .about-feature-card i {
+            font-size: 40px;
+            color: #c084fc;
+            margin-bottom: 15px;
+        }
+        
+        .about-feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .about-feature-card p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
         }
         
         /* WhatsApp Button */
@@ -731,7 +741,7 @@
         
         .flyer-item:hover .flyer-image img {
             transform: scale(1.1) rotate(1deg);
-            filter: brightness(1.08) contrast(1.05);
+            filter: brightness(1.08);
         }
         
         .flyer-overlay {
@@ -1175,12 +1185,13 @@
             vertical-align: middle;
         }
         
-        /* Responsive */
         @media (max-width: 968px) {
             .hero-title { font-size: 48px; }
             .section-title { font-size: 36px; }
             .booking-wrapper { grid-template-columns: 1fr; }
             .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+            .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .about-content { padding-right: 0; }
         }
         
         @media (max-width: 768px) {
@@ -1196,9 +1207,9 @@
             body { cursor: auto; }
             .logo-img { height: 35px; }
             .logo-text { font-size: 20px; }
+            .about-stats { gap: 15px; }
         }
         
-        /* Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -1238,6 +1249,7 @@
             </a>
             <div class="nav-links">
                 <a href="#home">Home</a>
+                <a href="#about">About</a>
                 <a href="#services">Services</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#flyers">Flyers</a>
@@ -1298,6 +1310,52 @@
             </div>
         </div>
     </div>
+
+    <!-- ABOUT SECTION - September Designz Brand Story -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-content">
+                    <div class="section-tag">Our Story</div>
+                    <h2 class="section-title">More Than <span class="gradient-text">Design</span></h2>
+                    <p class="about-text">Born from a passion for creativity and a vision to transform the African design landscape, <strong>September Designz</strong> has grown into a premier design and development agency serving clients across Malawi and beyond. Our name represents new beginnings, fresh perspectives, and the relentless pursuit of excellence in every pixel we craft.</p>
+                    <p class="about-text">We don't just create designs — we build brands, tell stories, and drive results. From startups to established businesses, our work has helped clients increase engagement, boost conversions, and stand out in crowded markets.</p>
+                    
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <div class="about-stat-number">98%</div>
+                            <div class="about-stat-label">Client Satisfaction</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat-number">50+</div>
+                            <div class="about-stat-label">Brands Transformed</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat-number">24/7</div>
+                            <div class="about-stat-label">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-features">
+                    <div class="about-feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Marketing Impact</h3>
+                        <p>Strategic designs that convert viewers into loyal customers, increasing ROI by up to 150%</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Creative Strategy</h3>
+                        <p>Data-driven creativity that tells your unique brand story and captures audience attention</p>
+                    </div>
+                    <div class="about-feature-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Results Driven</h3>
+                        <p>Proven track record of increasing brand awareness, engagement, and sales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="services" class="services">
         <div class="container">
@@ -1399,6 +1457,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#flyers">Flyers</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
@@ -1510,69 +1569,41 @@
             ).join('');
         }
         
-        // ============================================
-        // FIXED ANIMATED COUNTERS - GUARANTEED TO WORK
-        // ============================================
-        
-        // Target numbers
-        const counterTargets = {
-            projects: 156,
-            clients: 98,
-            years: 5,
-            countries: 12
-        };
-        
-        // Current values
-        let currentProjects = 0;
-        let currentClients = 0;
-        let currentYears = 0;
-        let currentCountries = 0;
-        
-        // Get elements
+        // Animated Counters
+        let currentProjects = 0, currentClients = 0, currentYears = 0, currentCountries = 0;
         const projectsEl = document.getElementById('projectsCount');
         const clientsEl = document.getElementById('clientsCount');
         const yearsEl = document.getElementById('yearsCount');
         const countriesEl = document.getElementById('countriesCount');
         
-        // Counter function
         function startCounters() {
             const interval = setInterval(() => {
                 let allDone = true;
-                
-                if (currentProjects < counterTargets.projects) {
+                if (currentProjects < websiteContent.stats.projects) {
                     allDone = false;
                     currentProjects++;
                     if (projectsEl) projectsEl.innerText = currentProjects;
                 }
-                
-                if (currentClients < counterTargets.clients) {
+                if (currentClients < websiteContent.stats.clients) {
                     allDone = false;
                     currentClients++;
                     if (clientsEl) clientsEl.innerText = currentClients;
                 }
-                
-                if (currentYears < counterTargets.years) {
+                if (currentYears < websiteContent.stats.years) {
                     allDone = false;
                     currentYears++;
                     if (yearsEl) yearsEl.innerText = currentYears;
                 }
-                
-                if (currentCountries < counterTargets.countries) {
+                if (currentCountries < websiteContent.stats.countries) {
                     allDone = false;
                     currentCountries++;
                     if (countriesEl) countriesEl.innerText = currentCountries;
                 }
-                
-                if (allDone) {
-                    clearInterval(interval);
-                    console.log('Counters complete!');
-                }
+                if (allDone) clearInterval(interval);
             }, 25);
         }
         
-        // ============================================
-        // TYPING ANIMATION
-        // ============================================
+        // Typing Animation
         let wordIndex = 0, charIndex = 0, isDeleting = false;
         const typingElement = document.getElementById('typingText');
         
@@ -1598,9 +1629,6 @@
             }
         }
         
-        // ============================================
-        // INITIALIZE PAGE
-        // ============================================
         function initPage() {
             renderServices();
             renderFlyers();
@@ -1608,16 +1636,14 @@
             loadStats();
             populateServiceDropdown();
             typeEffect();
-            startCounters(); // Start counters immediately
+            startCounters();
             const heroSubtitleEl = document.getElementById('heroSubtitle');
             if (heroSubtitleEl) heroSubtitleEl.innerText = websiteContent.heroSubtitle;
         }
         
         initPage();
         
-        // ============================================
-        // CUSTOM CURSOR
-        // ============================================
+        // Custom Cursor
         const cursor = document.querySelector('.custom-cursor');
         const cursorDot = document.querySelector('.cursor-dot');
         if (cursor && cursorDot) {
@@ -1631,9 +1657,7 @@
             });
         }
         
-        // ============================================
-        // PAYMENT HANDLERS
-        // ============================================
+        // Payment Handlers
         const radioButtons = document.querySelectorAll('input[name="paymentMethod"]');
         const airtelDetails = document.getElementById('airtelDetails');
         const mpambaDetails = document.getElementById('mpambaDetails');
@@ -1687,9 +1711,7 @@
             setTimeout(() => messageDiv.innerHTML = '', 6000);
         }
         
-        // ============================================
-        // BOOKING SYSTEM
-        // ============================================
+        // Booking System
         const bookingForm = document.getElementById('bookingForm');
         function getPriceFromService(serviceName) {
             const service = websiteContent.services.find(s => s.name === serviceName);
@@ -1751,9 +1773,7 @@
             });
         }
         
-        // ============================================
-        // SMOOTH SCROLLING
-        // ============================================
+        // Smooth Scrolling
         document.querySelector('.logo-link')?.addEventListener('click', (e) => { e.preventDefault(); document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' }); });
         document.querySelectorAll('.nav-links a[href^="#"], .btn-primary, .btn-secondary, .service-btn').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1784,7 +1804,7 @@
         }
         
         console.log('%c✨ September Designz | Fully Loaded ✨', 'color: #c084fc; font-size: 16px; font-weight: bold;');
-        console.log('%c🎨 Image Animations Active | 📊 Counters Working | 🖱️ Custom Cursor', 'color: #10b981; font-size: 12px;');
+        console.log('%c📖 About Section Added | 🎨 Image Animations | 📊 Counters Working', 'color: #10b981; font-size: 12px;');
     </script>
 </body>
 </html>

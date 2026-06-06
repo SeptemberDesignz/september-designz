@@ -3,236 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - September Designz</title>
-    <link rel="stylesheet" href="style.css">
+    <title>September Designz | Creative Admin Studio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <style>
-        .admin-container {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 25s infinite alternate;
+        }
+        
+        .orb-1 { width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(192,132,252,0.4), rgba(139,92,246,0.1)); top: -20%; left: -20%; animation-duration: 20s; }
+        .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(6,182,212,0.3), rgba(59,130,246,0.1)); bottom: -20%; right: -20%; animation-duration: 25s; animation-delay: 5s; }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 10%) scale(1.2); }
+        }
+        
+        .navbar {
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(192, 132, 252, 0.2);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 24px;
         }
         
-        .admin-header {
-            margin-bottom: 40px;
-        }
-        
-        .admin-header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 48px;
-        }
-        
-        .stat-card {
-            background: linear-gradient(135deg, rgba(192, 132, 252, 0.1), rgba(139, 92, 246, 0.05));
-            border: 1px solid rgba(192, 132, 252, 0.2);
-            border-radius: 24px;
-            padding: 24px;
-            transition: transform 0.3s;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(192, 132, 252, 0.2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .stat-icon i {
-            font-size: 32px;
-            color: #c084fc;
-        }
-        
-        .stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: #c084fc;
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            font-size: 16px;
-            color: #94a3b8;
-            font-weight: 500;
-        }
-        
-        .action-bar {
+        .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-            gap: 16px;
         }
         
-        .btn-export {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-        
-        .btn-export:hover {
-            transform: translateY(-2px);
-        }
-        
-        .btn-logout {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-        
-        .btn-logout:hover {
-            transform: translateY(-2px);
-        }
-        
-        .filter-bar {
+        .logo {
             display: flex;
-            gap: 12px;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 800;
         }
         
-        .filter-select {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo span {
+            background: linear-gradient(135deg, #c084fc, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 8px 20px;
             border-radius: 40px;
             color: white;
-            cursor: pointer;
-        }
-        
-        .bookings-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .booking-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 24px;
-            border-left: 4px solid #c084fc;
+            text-decoration: none;
             transition: all 0.3s;
-        }
-        
-        .booking-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateX(5px);
-        }
-        
-        .booking-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        
-        .booking-id {
             font-size: 14px;
-            color: #64748b;
-            font-family: monospace;
         }
         
-        .booking-price {
-            font-size: 28px;
-            font-weight: 800;
-            color: #c084fc;
+        .nav-btn:hover {
+            background: rgba(192,132,252,0.2);
+            border-color: #c084fc;
+            transform: translateY(-2px);
         }
         
-        .booking-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin: 16px 0;
-        }
-        
-        .detail-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        
-        .detail-label {
-            font-size: 12px;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .detail-value {
-            font-size: 16px;
-            font-weight: 500;
-        }
-        
-        .booking-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 16px;
-        }
-        
-        .btn-delete {
-            background: rgba(239, 68, 68, 0.2);
-            border: 1px solid #ef4444;
-            color: #ef4444;
-            padding: 8px 20px;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .btn-delete:hover {
-            background: rgba(239, 68, 68, 0.3);
-            transform: scale(1.05);
-        }
-        
-        .btn-view {
-            background: rgba(192, 132, 252, 0.2);
-            border: 1px solid #c084fc;
-            color: #c084fc;
-            padding: 8px 20px;
-            border-radius: 40px;
-            cursor: pointer;
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 24px;
-        }
-        
-        .empty-state i {
-            font-size: 64px;
-            color: #c084fc;
-            margin-bottom: 20px;
-        }
-        
-        /* Login Screen Styles */
         .login-container {
             min-height: 100vh;
             display: flex;
@@ -242,11 +120,11 @@
         }
         
         .login-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(192, 132, 252, 0.2);
-            border-radius: 32px;
-            padding: 48px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(192,132,252,0.2);
+            border-radius: 40px;
+            padding: 50px;
             max-width: 450px;
             width: 100%;
             text-align: center;
@@ -255,36 +133,40 @@
         
         .login-card h2 {
             font-size: 32px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #c084fc, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .login-card p {
             color: #94a3b8;
-            margin-bottom: 32px;
+            margin-bottom: 30px;
         }
         
         .login-logo {
             width: 80px;
             height: 80px;
-            background: rgba(192, 132, 252, 0.2);
+            background: rgba(192,132,252,0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
+            margin: 0 auto 20px;
         }
         
         .login-logo i {
-            font-size: 48px;
+            font-size: 40px;
             color: #c084fc;
         }
         
         .login-input {
             width: 100%;
             padding: 14px 18px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
             color: white;
             font-size: 16px;
             margin-bottom: 20px;
@@ -294,7 +176,7 @@
         .login-input:focus {
             outline: none;
             border-color: #c084fc;
-            box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.1);
+            box-shadow: 0 0 0 3px rgba(192,132,252,0.1);
         }
         
         .login-btn {
@@ -311,13 +193,13 @@
         
         .login-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 8px 20px rgba(139,92,246,0.4);
         }
         
         .login-error {
-            background: rgba(239, 68, 68, 0.1);
+            background: rgba(239,68,68,0.1);
             border: 1px solid #ef4444;
-            border-radius: 12px;
+            border-radius: 30px;
             padding: 12px;
             color: #ef4444;
             margin-top: 20px;
@@ -325,433 +207,751 @@
         }
         
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .dashboard {
+            padding: 40px 0;
+            display: none;
+        }
+        
+        .welcome-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .welcome-header h1 {
+            font-size: 48px;
+            background: linear-gradient(135deg, #c084fc, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .welcome-header p {
+            color: #94a3b8;
+            font-size: 18px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(192,132,252,0.15);
+            border-radius: 24px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(192,132,252,0.4);
+        }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(192,132,252,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+        
+        .stat-icon i {
+            font-size: 28px;
+            color: #c084fc;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #c084fc;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+        
+        .editor-section {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(192,132,252,0.15);
+            border-radius: 28px;
+            padding: 32px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .section-title i {
+            font-size: 28px;
+            color: #c084fc;
+        }
+        
+        .section-title h2 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #cbd5e1;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 14px 16px;
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #c084fc;
+            box-shadow: 0 0 0 3px rgba(192,132,252,0.1);
+        }
+        
+        .btn-save {
+            background: linear-gradient(135deg, #c084fc, #8b5cf6);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139,92,246,0.4);
+        }
+        
+        .btn-add {
+            background: rgba(16,185,129,0.2);
+            border: 1px solid #10b981;
+            padding: 10px 20px;
+            border-radius: 40px;
+            color: #10b981;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-add:hover {
+            background: rgba(16,185,129,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-delete {
+            background: rgba(239,68,68,0.15);
+            border: 1px solid #ef4444;
+            padding: 6px 14px;
+            border-radius: 30px;
+            color: #ef4444;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-delete:hover {
+            background: rgba(239,68,68,0.3);
+        }
+        
+        .btn-edit {
+            background: rgba(192,132,252,0.15);
+            border: 1px solid #c084fc;
+            padding: 6px 14px;
+            border-radius: 30px;
+            color: #c084fc;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-edit:hover {
+            background: rgba(192,132,252,0.3);
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .item-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .item-card:hover {
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .item-info {
+            flex: 1;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .item-desc {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        .item-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 50px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+            font-weight: 500;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .reset-zone {
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.3);
+            border-radius: 28px;
+            padding: 32px;
+            text-align: center;
+        }
+        
+        .btn-reset {
+            background: rgba(239,68,68,0.2);
+            border: 1px solid #ef4444;
+            padding: 14px 32px;
+            border-radius: 40px;
+            color: #ef4444;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-reset:hover {
+            background: rgba(239,68,68,0.4);
+            transform: translateY(-2px);
+        }
+        
+        .logout-btn {
+            background: rgba(239,68,68,0.2);
+            border: 1px solid #ef4444;
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: #ef4444;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(239,68,68,0.3);
+        }
+        
+        @media (max-width: 968px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
         @media (max-width: 768px) {
-            .action-bar {
-                flex-direction: column;
-                align-items: stretch;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
-            
-            .filter-bar {
-                justify-content: center;
-            }
-            
-            .booking-header {
-                flex-direction: column;
-            }
-            
-            .login-card {
-                padding: 32px 24px;
+            .welcome-header h1 {
+                font-size: 32px;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- LOGIN SECTION (shown first) -->
+<div class="animated-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+</div>
+
 <div id="loginScreen" class="login-container">
     <div class="login-card">
         <div class="login-logo">
-            <i class="fas fa-lock"></i>
+            <i class="fas fa-crown"></i>
         </div>
-        <h2>Admin Login</h2>
-        <p>Enter your password to access the dashboard</p>
+        <h2>Welcome Back</h2>
+        <p>Enter your creative password to access the studio</p>
         <input type="password" id="adminPassword" class="login-input" placeholder="Enter password" onkeypress="if(event.key === 'Enter') checkLogin()">
-        <button class="login-btn" onclick="checkLogin()">
-            <i class="fas fa-arrow-right"></i> Login
-        </button>
+        <button class="login-btn" onclick="checkLogin()"><i class="fas fa-arrow-right"></i> Enter Studio</button>
         <div id="loginError" class="login-error">
-            <i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again.
+            <i class="fas fa-exclamation-circle"></i> Incorrect password. Access denied.
         </div>
     </div>
 </div>
 
-<!-- ADMIN DASHBOARD (hidden until login) -->
-<div id="adminDashboard" style="display: none;">
+<div id="dashboard" class="dashboard">
     <nav class="navbar">
         <div class="container">
-            <div class="logo">September<span>Designz</span></div>
-            <div class="nav-links">
-                <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Website</a>
-                <button class="btn-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <span>September<span style="color:#c084fc;">Designz</span></span>
+            </div>
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-btn"><i class="fas fa-eye"></i> View Site</a>
+                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Exit Studio</button>
             </div>
         </div>
     </nav>
 
-    <div class="admin-container">
-        <div class="admin-header">
-            <h1><i class="fas fa-chalkboard-user"></i> Booking Dashboard</h1>
-            <p>Manage and track all client booking requests</p>
+    <div class="container">
+        
+        <div class="welcome-header">
+            <h1><i class="fas fa-magic"></i> Creative Studio</h1>
+            <p>Manage your website content like magic ✨</p>
         </div>
         
-        <div class="stats-grid" id="statsGrid"></div>
-        
-        <div class="action-bar">
-            <button class="btn-export" onclick="exportAllBookings()">
-                <i class="fas fa-download"></i> Export to CSV
-            </button>
-            <div class="filter-bar">
-                <select id="filterService" class="filter-select" onchange="filterBookings()">
-                    <option value="all">All Services</option>
-                    <option value="Graphic Design">Graphic Design</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="UI/UX Design">UI/UX Design</option>
-                </select>
-                <select id="filterDate" class="filter-select" onchange="filterBookings()">
-                    <option value="all">All Time</option>
-                    <option value="today">Today</option>
-                    <option value="week">This Week</option>
-                    <option value="month">This Month</option>
-                </select>
+        <div class="stats-grid" id="statsPreview">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                <div class="stat-number" id="previewProjects">0</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-number" id="previewClients">0</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="stat-number" id="previewYears">0</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                <div class="stat-number" id="previewCountries">0</div>
+                <div class="stat-label">Countries</div>
             </div>
         </div>
         
-        <div id="bookingsList" class="bookings-list"></div>
+        <div class="editor-section">
+            <div class="section-title">
+                <i class="fas fa-chart-line"></i>
+                <h2>Impact Numbers</h2>
+                <p>Update your achievements</p>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label><i class="fas fa-project-diagram"></i> Projects Completed</label>
+                    <input type="number" id="editProjects" placeholder="156">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-users"></i> Happy Clients</label>
+                    <input type="number" id="editClients" placeholder="98">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-alt"></i> Years Experience</label>
+                    <input type="number" id="editYears" placeholder="5">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-globe"></i> Countries Reached</label>
+                    <input type="number" id="editCountries" placeholder="12">
+                </div>
+            </div>
+            <button class="btn-save" onclick="updateStats()"><i class="fas fa-save"></i> Save Statistics</button>
+        </div>
+        
+        <div class="editor-section">
+            <div class="section-title">
+                <i class="fas fa-heading"></i>
+                <h2>Hero Magic</h2>
+                <p>The first thing visitors see</p>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label><i class="fas fa-exchange-alt"></i> Rotating Words (comma separated)</label>
+                    <input type="text" id="editTypingWords" placeholder="Creative Designs., Brand Identity., Web Solutions.">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-quote-right"></i> Hero Subtitle</label>
+                    <textarea id="editHeroSubtitle" rows="3" placeholder="Your hero message here..."></textarea>
+                </div>
+            </div>
+            <button class="btn-save" onclick="updateHeroText()"><i class="fas fa-save"></i> Save Hero Text</button>
+        </div>
+        
+        <div class="editor-section">
+            <div class="section-title">
+                <i class="fas fa-cubes"></i>
+                <h2>Services Library</h2>
+                <p>What you offer</p>
+            </div>
+            <button class="btn-add" onclick="addService()"><i class="fas fa-plus"></i> Add New Service</button>
+            <div id="servicesList" class="items-list"></div>
+        </div>
+        
+        <div class="editor-section">
+            <div class="section-title">
+                <i class="fas fa-images"></i>
+                <h2>Flyer Gallery</h2>
+                <p>Your creative portfolio</p>
+            </div>
+            <button class="btn-add" onclick="addFlyer()"><i class="fas fa-plus"></i> Add New Flyer</button>
+            <div id="flyersList" class="items-list"></div>
+        </div>
+        
+        <div class="editor-section">
+            <div class="section-title">
+                <i class="fas fa-briefcase"></i>
+                <h2>Portfolio Vault</h2>
+                <p>Your best projects</p>
+            </div>
+            <button class="btn-add" onclick="addPortfolio()"><i class="fas fa-plus"></i> Add New Project</button>
+            <div id="portfolioList" class="items-list"></div>
+        </div>
+        
+        <div class="reset-zone">
+            <i class="fas fa-exclamation-triangle" style="font-size: 40px; color: #ef4444; margin-bottom: 15px; display: inline-block;"></i>
+            <h3 style="margin-bottom: 10px;">Reset Everything</h3>
+            <p style="color: #94a3b8; margin-bottom: 20px;">This will restore all default content. This action cannot be undone.</p>
+            <button class="btn-reset" onclick="resetToDefault()"><i class="fas fa-trash-alt"></i> Restore Factory Settings</button>
+        </div>
+        
     </div>
 </div>
-<!-- ============================================ -->
-<!-- DYNAMIC CONTENT EDITOR SECTION -->
-<!-- ============================================ -->
-<div class="admin-container" style="margin-top: 60px; border-top: 2px solid rgba(192,132,252,0.3); padding-top: 40px;">
-    <div class="admin-header">
-        <h2><i class="fas fa-edit"></i> Dynamic Content Editor</h2>
-        <p>Edit your website content here - changes appear instantly!</p>
-    </div>
+
+<script>
+    const ADMIN_PASSWORD = "September2025";
     
-    <div style="display: grid; gap: 30px; margin-top: 30px;">
-        
-        <!-- Stats Editor -->
-        <div class="stat-card">
-            <h3><i class="fas fa-chart-line"></i> Stats Numbers</h3>
-            <div style="display: grid; gap: 15px; margin-top: 15px;">
-                <div><label>Projects Completed:</label><input type="number" id="editProjects" class="filter-select" style="width: 100%;"></div>
-                <div><label>Happy Clients:</label><input type="number" id="editClients" class="filter-select" style="width: 100%;"></div>
-                <div><label>Years Experience:</label><input type="number" id="editYears" class="filter-select" style="width: 100%;"></div>
-                <div><label>Countries Reached:</label><input type="number" id="editCountries" class="filter-select" style="width: 100%;"></div>
-                <button class="btn-export" onclick="updateStats()">Save Stats</button>
+    function checkLogin() {
+        const password = document.getElementById('adminPassword').value;
+        if (password === ADMIN_PASSWORD) {
+            sessionStorage.setItem('adminLoggedIn', 'true');
+            showDashboard();
+            loadAllContent();
+        } else {
+            const errorDiv = document.getElementById('loginError');
+            errorDiv.style.display = 'block';
+            setTimeout(() => errorDiv.style.display = 'none', 3000);
+            document.getElementById('adminPassword').value = '';
+        }
+    }
+    
+    function logout() {
+        sessionStorage.removeItem('adminLoggedIn');
+        document.getElementById('loginScreen').style.display = 'flex';
+        document.getElementById('dashboard').style.display = 'none';
+    }
+    
+    function showDashboard() {
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+    }
+    
+    function checkAuth() {
+        if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+            showDashboard();
+            loadAllContent();
+        }
+    }
+    
+    let websiteContent = JSON.parse(localStorage.getItem('websiteContent'));
+    const defaultContent = {
+        stats: { projects: 156, clients: 98, years: 5, countries: 12 },
+        services: [
+            { name: "Graphic Design", icon: "fa-palette", description: "Stunning logos, brand identities, and social media visuals.", features: ["Logo Design", "Brand Guidelines", "Social Media Kits", "Flyers & Posters"], price: 25000, featured: false },
+            { name: "Web Development", icon: "fa-code", description: "Custom, responsive websites that load fast and convert.", features: ["Responsive Design", "SEO Optimized", "CMS Integration"], price: 350000, featured: true },
+            { name: "UI/UX Design", icon: "fa-mobile-alt", description: "Beautiful, intuitive interfaces that deliver exceptional experiences.", features: ["Wireframing", "Prototyping", "User Testing"], price: 125000, featured: false }
+        ],
+        flyers: [
+            { image: "images/flyer-1.png", category: "Business Flyer", title: "Corporate Event Flyer" },
+            { image: "images/flyer-2.jpg", category: "Promotional", title: "Event or Promotional Flyer" },
+            { image: "images/flyer-3.jpg", category: "Transportation", title: "Transportation Flyer" },
+            { image: "images/flyer-4.png", category: "Store Design", title: "Online Store Flyer" },
+            { image: "images/flyer-5.png", category: "Social Media", title: "Instagram Post Design" },
+            { image: "images/flyer-6.jpg", category: "Church", title: "Church Flyer" }
+        ],
+        portfolio: [
+            { image: "images/portfolio-1.jpg", title: "Brand Identity", category: "Graphic Design" },
+            { image: "images/portfolio-2.jpg", title: "E-commerce", category: "Web Development" },
+            { image: "images/portfolio-3.jpg", title: "Mobile App", category: "UI/UX Design" }
+        ],
+        typingWords: ["Creative Designs.", "Brand Identity.", "Web Solutions.", "UI/UX Magic.", "Digital Success."],
+        heroSubtitle: "We transform bold ideas into stunning digital experiences that drive results. Let's build something extraordinary together."
+    };
+    
+    if (!websiteContent) {
+        websiteContent = defaultContent;
+        localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+    }
+    
+    function showToast(msg) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = '<i class="fas fa-check-circle"></i> ' + msg;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    }
+    
+    function updatePreviewStats() {
+        document.getElementById('previewProjects').innerText = websiteContent.stats.projects;
+        document.getElementById('previewClients').innerText = websiteContent.stats.clients;
+        document.getElementById('previewYears').innerText = websiteContent.stats.years;
+        document.getElementById('previewCountries').innerText = websiteContent.stats.countries;
+        document.getElementById('editProjects').value = websiteContent.stats.projects;
+        document.getElementById('editClients').value = websiteContent.stats.clients;
+        document.getElementById('editYears').value = websiteContent.stats.years;
+        document.getElementById('editCountries').value = websiteContent.stats.countries;
+        document.getElementById('editTypingWords').value = websiteContent.typingWords.join(', ');
+        document.getElementById('editHeroSubtitle').value = websiteContent.heroSubtitle;
+    }
+    
+    function updateStats() {
+        websiteContent.stats = {
+            projects: parseInt(document.getElementById('editProjects').value) || 0,
+            clients: parseInt(document.getElementById('editClients').value) || 0,
+            years: parseInt(document.getElementById('editYears').value) || 0,
+            countries: parseInt(document.getElementById('editCountries').value) || 0
+        };
+        localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+        updatePreviewStats();
+        showToast('Statistics updated! ✨');
+    }
+    
+    function updateHeroText() {
+        websiteContent.typingWords = document.getElementById('editTypingWords').value.split(',').map(w => w.trim());
+        websiteContent.heroSubtitle = document.getElementById('editHeroSubtitle').value;
+        localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+        showToast('Hero text updated! 🎭');
+    }
+    
+    function renderServices() {
+        const container = document.getElementById('servicesList');
+        if (!container) return;
+        container.innerHTML = websiteContent.services.map((s, i) => `
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-title">${s.name} ${s.featured ? '⭐' : ''} - MWK ${s.price.toLocaleString()}</div>
+                    <div class="item-desc">${s.description.substring(0, 80)}...</div>
+                </div>
+                <div class="item-actions">
+                    <button class="btn-edit" onclick="editService(${i})"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="btn-delete" onclick="deleteService(${i})"><i class="fas fa-trash"></i> Delete</button>
+                </div>
             </div>
-        </div>
-        
-        <!-- Hero Text Editor -->
-        <div class="stat-card">
-            <h3><i class="fas fa-heading"></i> Hero Text</h3>
-            <div style="display: grid; gap: 15px; margin-top: 15px;">
-                <div><label>Typing Words (comma separated):</label><input type="text" id="editTypingWords" class="filter-select" style="width: 100%;"></div>
-                <div><label>Hero Subtitle:</label><textarea id="editHeroSubtitle" rows="3" class="filter-select" style="width: 100%;"></textarea></div>
-                <button class="btn-export" onclick="updateHeroText()">Save Hero Text</button>
+        `).join('');
+    }
+    
+    function addService() {
+        const name = prompt('✨ Service Name:');
+        if (!name) return;
+        const price = parseInt(prompt('💰 Price (MWK):'));
+        const description = prompt('📝 Description:');
+        const featured = confirm('⭐ Make this a featured service?');
+        websiteContent.services.push({ name, icon: "fa-palette", description, features: ["Amazing Quality", "Fast Delivery", "Support Included"], price, featured });
+        localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+        renderServices();
+        showToast('Service added! 🎉');
+    }
+    
+    function editService(index) {
+        const s = websiteContent.services[index];
+        s.name = prompt('Edit name:', s.name) || s.name;
+        s.price = parseInt(prompt('Edit price:', s.price)) || s.price;
+        s.description = prompt('Edit description:', s.description) || s.description;
+        localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+        renderServices();
+        showToast('Service updated! ✏️');
+    }
+    
+    function deleteService(index) {
+        if (confirm('Delete this service?')) {
+            websiteContent.services.splice(index, 1);
+            localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+            renderServices();
+            showToast('Service deleted! 🗑️');
+        }
+    }
+    
+    function renderFlyers() {
+        const container = document.getElementById('flyersList');
+        if (!container) return;
+        container.innerHTML = websiteContent.flyers.map((f, i) => `
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-title">${f.title}</div>
+                    <div class="item-desc">${f.category} — ${f.image}</div>
+                </div>
+                <div class="item-actions">
+                    <button class="btn-edit" onclick="editFlyer(${i})"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="btn-delete" onclick="deleteFlyer(${i})"><i class="fas fa-trash"></i> Delete</button>
+                </div>
             </div>
-        </div>
-        
-        <!-- Services Editor -->
-        <div class="stat-card">
-            <h3><i class="fas fa-cubes"></i> Services</h3>
-            <button class="btn-export" onclick="addService()" style="margin-bottom: 15px; width: auto;">+ Add New Service</button>
-            <div id="servicesList"></div>
-        </div>
-        
-        <!-- Flyers Editor -->
-        <div class="stat-card">
-            <h3><i class="fas fa-images"></i> Flyers</h3>
-            <button class="btn-export" onclick="addFlyer()" style="margin-bottom: 15px; width: auto;">+ Add New Flyer</button>
-            <div id="flyersList"></div>
-        </div>
-        
-        <!-- Portfolio Editor -->
-        <div class="stat-card">
-            <h3><i class="fas fa-briefcase"></i> Portfolio</h3>
-            <button class="btn-export" onclick="addPortfolio()" style="margin-bottom: 15px; width: auto;">+ Add New Portfolio Item</button>
-            <div id="portfolioList"></div>
-        </div>
-        
-        <!-- Reset Button -->
-        <div class="stat-card" style="border-color: #ef4444;">
-            <h3><i class="fas fa-exclamation-triangle"></i> Danger Zone</h3>
-            <button class="btn-delete" onclick="resetToDefault()" style="width: 100%;">Reset All Content to Default</button>
-        </div>
-        
-    </div>
-</div>
-
-<!-- Include the editor script -->
-<script src="admin-editor.js"></script>
-
-    <script>
-        // ============================================
-        // ADMIN PASSWORD PROTECTION
-        // ============================================
-        
-        // 🔐 CHANGE THIS PASSWORD TO YOUR OWN!
-        const ADMIN_PASSWORD = "September2025";
-        
-        // Check if already logged in (session storage)
-        function checkAuth() {
-            const isLoggedIn = sessionStorage.getItem('adminLoggedIn');
-            if (isLoggedIn === 'true') {
-                showDashboard();
-            } else {
-                showLogin();
-            }
+        `).join('');
+    }
+    
+    function addFlyer() {
+        const image = prompt('🖼️ Image path (e.g., images/flyer-new.jpg):');
+        if (!image) return;
+        const category = prompt('📂 Category:');
+        const title = prompt('📌 Title:');
+        websiteContent.flyers.push({ image, category, title });
+        localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+        renderFlyers();
+        showToast('Flyer added! 🖼️');
+    }
+    
+    function editFlyer(index) {
+        const f = websiteContent.flyers[index];
+        f.image = prompt('Edit image path:', f.image) || f.image;
+        f.category = prompt('Edit category:', f.category) || f.category;
+        f.title = prompt('Edit title:', f.title) || f.title;
+        localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+        renderFlyers();
+        showToast('Flyer updated! 🎨');
+    }
+    
+    function deleteFlyer(index) {
+        if (confirm('Delete this flyer?')) {
+            websiteContent.flyers.splice(index, 1);
+            localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+            renderFlyers();
+            showToast('Flyer deleted! 🗑️');
         }
-        
-        function checkLogin() {
-            const password = document.getElementById('adminPassword').value;
-            if (password === ADMIN_PASSWORD) {
-                sessionStorage.setItem('adminLoggedIn', 'true');
-                showDashboard();
-                loadBookings(); // Load bookings after showing dashboard
-            } else {
-                const errorDiv = document.getElementById('loginError');
-                errorDiv.style.display = 'block';
-                setTimeout(() => {
-                    errorDiv.style.display = 'none';
-                }, 3000);
-                document.getElementById('adminPassword').value = '';
-            }
-        }
-        
-        function logout() {
-            sessionStorage.removeItem('adminLoggedIn');
-            showLogin();
-            // Clear any sensitive data
-            document.getElementById('statsGrid').innerHTML = '';
-            document.getElementById('bookingsList').innerHTML = '';
-        }
-        
-        function showLogin() {
-            document.getElementById('loginScreen').style.display = 'flex';
-            document.getElementById('adminDashboard').style.display = 'none';
-        }
-        
-        function showDashboard() {
-            document.getElementById('loginScreen').style.display = 'none';
-            document.getElementById('adminDashboard').style.display = 'block';
-        }
-        
-        // ============================================
-        // BOOKING MANAGEMENT
-        // ============================================
-        
-        let allBookings = [];
-        
-        function loadBookings() {
-            allBookings = JSON.parse(localStorage.getItem('september_bookings') || '[]');
-            updateStats();
-            filterBookings();
-        }
-        
-        function updateStats() {
-            const totalBookings = allBookings.length;
-            const totalRevenue = allBookings.reduce((sum, b) => sum + (b.price || 0), 0);
-            const pendingBookings = allBookings.filter(b => !b.status || b.status === 'pending').length;
-            const avgValue = totalBookings > 0 ? totalRevenue / totalBookings : 0;
-            
-            document.getElementById('statsGrid').innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="stat-number">${totalBookings}</div>
-                    <div class="stat-label">Total Bookings</div>
+    }
+    
+    function renderPortfolio() {
+        const container = document.getElementById('portfolioList');
+        if (!container) return;
+        container.innerHTML = websiteContent.portfolio.map((p, i) => `
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-title">${p.title}</div>
+                    <div class="item-desc">${p.category} — ${p.image}</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
-                    <div class="stat-number">MWK ${totalRevenue.toLocaleString()}</div>
-                    <div class="stat-label">Total Revenue</div>
+                <div class="item-actions">
+                    <button class="btn-edit" onclick="editPortfolio(${i})"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="btn-delete" onclick="deletePortfolio(${i})"><i class="fas fa-trash"></i> Delete</button>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-hourglass-half"></i></div>
-                    <div class="stat-number">${pendingBookings}</div>
-                    <div class="stat-label">Pending Bookings</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="stat-number">MWK ${Math.round(avgValue).toLocaleString()}</div>
-                    <div class="stat-label">Average Order Value</div>
-                </div>
-            `;
+            </div>
+        `).join('');
+    }
+    
+    function addPortfolio() {
+        const image = prompt('🖼️ Image path (e.g., images/portfolio-new.jpg):');
+        if (!image) return;
+        const title = prompt('📌 Project Title:');
+        const category = prompt('📂 Category:');
+        websiteContent.portfolio.push({ image, title, category });
+        localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+        renderPortfolio();
+        showToast('Portfolio item added! 🏆');
+    }
+    
+    function editPortfolio(index) {
+        const p = websiteContent.portfolio[index];
+        p.image = prompt('Edit image path:', p.image) || p.image;
+        p.title = prompt('Edit title:', p.title) || p.title;
+        p.category = prompt('Edit category:', p.category) || p.category;
+        localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+        renderPortfolio();
+        showToast('Portfolio updated! ✨');
+    }
+    
+    function deletePortfolio(index) {
+        if (confirm('Delete this portfolio item?')) {
+            websiteContent.portfolio.splice(index, 1);
+            localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
+            renderPortfolio();
+            showToast('Portfolio item deleted! 🗑️');
         }
-        
-        function filterBookings() {
-            const serviceFilter = document.getElementById('filterService').value;
-            const dateFilter = document.getElementById('filterDate').value;
-            
-            let filtered = [...allBookings];
-            
-            if (serviceFilter !== 'all') {
-                filtered = filtered.filter(b => b.service.includes(serviceFilter));
-            }
-            
-            if (dateFilter !== 'all') {
-                const now = new Date();
-                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-                
-                if (dateFilter === 'today') {
-                    filtered = filtered.filter(b => {
-                        const bookingDate = new Date(b.timestamp);
-                        return bookingDate >= today;
-                    });
-                } else if (dateFilter === 'week') {
-                    const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-                    filtered = filtered.filter(b => new Date(b.timestamp) >= weekAgo);
-                } else if (dateFilter === 'month') {
-                    const monthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
-                    filtered = filtered.filter(b => new Date(b.timestamp) >= monthAgo);
-                }
-            }
-            
-            displayBookings(filtered);
+    }
+    
+    function resetToDefault() {
+        if (confirm('⚠️ WARNING: This will erase ALL your custom content and restore factory settings. This cannot be undone! Are you sure?')) {
+            localStorage.setItem('websiteContent', JSON.stringify(defaultContent));
+            websiteContent = JSON.parse(localStorage.getItem('websiteContent'));
+            updatePreviewStats();
+            renderServices();
+            renderFlyers();
+            renderPortfolio();
+            showToast('All content reset to default! 🔄');
         }
-        
-        function displayBookings(bookings) {
-            const bookingsList = document.getElementById('bookingsList');
-            
-            if (bookings.length === 0) {
-                bookingsList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-inbox"></i>
-                        <h3>No Bookings Found</h3>
-                        <p>There are no bookings matching your filters.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            bookingsList.innerHTML = bookings.slice().reverse().map(booking => `
-                <div class="booking-card" data-id="${booking.id}">
-                    <div class="booking-header">
-                        <div>
-                            <strong style="font-size: 18px;">${escapeHtml(booking.name)}</strong>
-                            <div class="booking-id">Booking #${booking.id}</div>
-                        </div>
-                        <div class="booking-price">MWK ${booking.price.toLocaleString()}</div>
-                    </div>
-                    
-                    <div class="booking-details">
-                        <div class="detail-item">
-                            <div class="detail-label"><i class="fas fa-envelope"></i> Email</div>
-                            <div class="detail-value">${escapeHtml(booking.email)}</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-label"><i class="fas fa-paintbrush"></i> Service</div>
-                            <div class="detail-value">${escapeHtml(booking.service)}</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-label"><i class="fas fa-calendar"></i> Preferred Date</div>
-                            <div class="detail-value">${booking.date || 'Not specified'}</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-label"><i class="fas fa-clock"></i> Submitted</div>
-                            <div class="detail-value">${new Date(booking.timestamp).toLocaleString()}</div>
-                        </div>
-                    </div>
-                    
-                    ${booking.details ? `
-                        <div class="detail-item" style="margin-top: 12px;">
-                            <div class="detail-label"><i class="fas fa-file-alt"></i> Project Details</div>
-                            <div class="detail-value">${escapeHtml(booking.details.substring(0, 200))}${booking.details.length > 200 ? '...' : ''}</div>
-                        </div>
-                    ` : ''}
-                    
-                    <div class="booking-actions">
-                        <button class="btn-delete" onclick="deleteBooking(${booking.id})">
-                            <i class="fas fa-trash"></i> Delete
-                        </button>
-                        <button class="btn-view" onclick="viewBookingDetails(${booking.id})">
-                            <i class="fas fa-eye"></i> View Details
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        function deleteBooking(id) {
-            if (confirm('⚠️ Are you sure you want to delete this booking? This action cannot be undone.')) {
-                allBookings = allBookings.filter(b => b.id !== id);
-                localStorage.setItem('september_bookings', JSON.stringify(allBookings));
-                loadBookings();
-                showToast('Booking deleted successfully!', 'success');
-            }
-        }
-        
-        function viewBookingDetails(id) {
-            const booking = allBookings.find(b => b.id === id);
-            if (booking) {
-                alert(`📋 Booking Details\n\nName: ${booking.name}\nEmail: ${booking.email}\nService: ${booking.service}\nPrice: MWK ${booking.price.toLocaleString()}\nDate: ${booking.date || 'Not specified'}\n\nProject Details:\n${booking.details || 'No details provided'}\n\nSubmitted: ${new Date(booking.timestamp).toLocaleString()}`);
-            }
-        }
-        
-        function exportAllBookings() {
-            if (allBookings.length === 0) {
-                alert('No bookings to export!');
-                return;
-            }
-            
-            let csvContent = "Booking ID,Name,Email,Service,Price (MWK),Preferred Date,Project Details,Submission Date\n";
-            allBookings.forEach(booking => {
-                csvContent += `${booking.id},"${booking.name}","${booking.email}","${booking.service}",${booking.price},"${booking.date || ''}","${(booking.details || '').replace(/"/g, '""')}","${booking.timestamp}"\n`;
-            });
-            
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            link.href = url;
-            link.setAttribute('download', `september-bookings-${new Date().toISOString().split('T')[0]}.csv`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(url);
-            
-            showToast('Export completed!', 'success');
-        }
-        
-        function escapeHtml(text) {
-            if (!text) return '';
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-        
-        function showToast(message, type) {
-            const toast = document.createElement('div');
-            toast.style.position = 'fixed';
-            toast.style.bottom = '20px';
-            toast.style.right = '20px';
-            toast.style.backgroundColor = type === 'success' ? '#10b981' : '#ef4444';
-            toast.style.color = 'white';
-            toast.style.padding = '12px 24px';
-            toast.style.borderRadius = '40px';
-            toast.style.zIndex = '1000';
-            toast.style.animation = 'slideIn 0.3s ease';
-            toast.innerHTML = message;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
-        
-        // Add animation style
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Check authentication on page load
-        checkAuth();
-    </script>
+    }
+    
+    function loadAllContent() {
+        updatePreviewStats();
+        renderServices();
+        renderFlyers();
+        renderPortfolio();
+    }
+    
+    checkAuth();
+</script>
 </body>
 </html>
