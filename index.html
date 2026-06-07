@@ -34,7 +34,6 @@
             cursor: none;
         }
         
-        /* Custom Glowing Cursor */
         .custom-cursor {
             width: 30px;
             height: 30px;
@@ -73,7 +72,6 @@
             cursor: none;
         }
         
-        /* Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -154,7 +152,6 @@
             display: block;
         }
         
-        /* Logo */
         .logo-link {
             text-decoration: none;
             display: inline-block;
@@ -205,7 +202,6 @@
             color: transparent;
         }
         
-        /* Typing Animation */
         .hero-title {
             font-size: 64px;
             font-weight: 800;
@@ -227,7 +223,6 @@
             50% { border-color: transparent; }
         }
         
-        /* Stats Counters */
         .stats-showcase {
             padding: 60px 0;
             background: linear-gradient(135deg, rgba(192, 132, 252, 0.1), rgba(139, 92, 246, 0.05));
@@ -267,100 +262,6 @@
             font-weight: 500;
         }
         
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: linear-gradient(135deg, rgba(192, 132, 252, 0.05), rgba(139, 92, 246, 0.02));
-        }
-        
-        .about-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-        
-        .about-content {
-            padding-right: 20px;
-        }
-        
-        .about-text {
-            color: #cbd5e1;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        .about-text strong {
-            color: #c084fc;
-        }
-        
-        .about-stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .about-stat {
-            text-align: center;
-            flex: 1;
-            min-width: 100px;
-        }
-        
-        .about-stat-number {
-            font-size: 32px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #c084fc, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .about-stat-label {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-top: 5px;
-        }
-        
-        .about-features {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .about-feature-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(192, 132, 252, 0.15);
-            border-radius: 20px;
-            padding: 25px;
-            transition: all 0.3s;
-        }
-        
-        .about-feature-card:hover {
-            transform: translateX(10px);
-            border-color: rgba(192, 132, 252, 0.4);
-            background: rgba(255, 255, 255, 0.05);
-        }
-        
-        .about-feature-card i {
-            font-size: 40px;
-            color: #c084fc;
-            margin-bottom: 15px;
-        }
-        
-        .about-feature-card h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .about-feature-card p {
-            color: #94a3b8;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        /* WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -388,7 +289,6 @@
             color: white;
         }
         
-        /* Toast Notification */
         .toast-notification {
             position: fixed;
             bottom: 100px;
@@ -407,7 +307,6 @@
             to { transform: translateX(0); opacity: 1; }
         }
         
-        /* Container & Layout */
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -460,7 +359,6 @@
             cursor: pointer;
         }
         
-        /* Hero Section */
         .hero {
             position: relative;
             padding: 100px 0;
@@ -514,7 +412,6 @@
             margin-bottom: 48px;
         }
         
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -556,7 +453,6 @@
             justify-content: center;
         }
         
-        /* Section Headers */
         .section-header {
             text-align: center;
             margin-bottom: 60px;
@@ -596,7 +492,6 @@
             margin: 0 auto;
         }
         
-        /* Services */
         .services {
             padding: 80px 0;
         }
@@ -705,7 +600,6 @@
             transform: translateX(5px);
         }
         
-        /* Flyers */
         .flyers {
             padding: 80px 0;
             background: linear-gradient(135deg, rgba(192, 132, 252, 0.05), rgba(139, 92, 246, 0.02));
@@ -736,12 +630,11 @@
             width: 100%;
             height: 350px;
             object-fit: cover;
-            transition: transform 0.5s ease, filter 0.3s ease;
+            transition: transform 0.5s ease;
         }
         
         .flyer-item:hover .flyer-image img {
-            transform: scale(1.1) rotate(1deg);
-            filter: brightness(1.08);
+            transform: scale(1.1);
         }
         
         .flyer-overlay {
@@ -775,7 +668,6 @@
             margin: 0;
         }
         
-        /* Portfolio */
         .portfolio {
             padding: 80px 0;
         }
@@ -806,12 +698,11 @@
             width: 100%;
             height: 300px;
             object-fit: cover;
-            transition: transform 0.5s ease, filter 0.3s ease;
+            transition: transform 0.3s;
         }
         
         .portfolio-item:hover .portfolio-image img {
-            transform: scale(1.08);
-            filter: brightness(1.1);
+            transform: scale(1.1);
         }
         
         .portfolio-overlay {
@@ -860,7 +751,6 @@
             color: #94a3b8;
         }
         
-        /* Booking */
         .booking {
             padding: 80px 0;
         }
@@ -951,7 +841,6 @@
             text-align: center;
         }
         
-        /* Payment */
         .payment-section {
             margin-top: 24px;
             padding-top: 20px;
@@ -1104,7 +993,6 @@
             transform: translateY(-2px);
         }
         
-        /* Footer */
         .footer {
             background: #050508;
             padding: 60px 0 20px;
@@ -1190,8 +1078,6 @@
             .section-title { font-size: 36px; }
             .booking-wrapper { grid-template-columns: 1fr; }
             .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
-            .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
-            .about-content { padding-right: 0; }
         }
         
         @media (max-width: 768px) {
@@ -1207,7 +1093,6 @@
             body { cursor: auto; }
             .logo-img { height: 35px; }
             .logo-text { font-size: 20px; }
-            .about-stats { gap: 15px; }
         }
         
         @keyframes fadeInUp {
@@ -1249,7 +1134,6 @@
             </a>
             <div class="nav-links">
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
                 <a href="#services">Services</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#flyers">Flyers</a>
@@ -1310,52 +1194,6 @@
             </div>
         </div>
     </div>
-
-    <!-- ABOUT SECTION - September Designz Brand Story -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-wrapper">
-                <div class="about-content">
-                    <div class="section-tag">Our Story</div>
-                    <h2 class="section-title">More Than <span class="gradient-text">Design</span></h2>
-                    <p class="about-text">Born from a passion for creativity and a vision to transform the African design landscape, <strong>September Designz</strong> has grown into a premier design and development agency serving clients across Malawi and beyond. Our name represents new beginnings, fresh perspectives, and the relentless pursuit of excellence in every pixel we craft.</p>
-                    <p class="about-text">We don't just create designs — we build brands, tell stories, and drive results. From startups to established businesses, our work has helped clients increase engagement, boost conversions, and stand out in crowded markets.</p>
-                    
-                    <div class="about-stats">
-                        <div class="about-stat">
-                            <div class="about-stat-number">98%</div>
-                            <div class="about-stat-label">Client Satisfaction</div>
-                        </div>
-                        <div class="about-stat">
-                            <div class="about-stat-number">50+</div>
-                            <div class="about-stat-label">Brands Transformed</div>
-                        </div>
-                        <div class="about-stat">
-                            <div class="about-stat-number">24/7</div>
-                            <div class="about-stat-label">Support Available</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-features">
-                    <div class="about-feature-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Marketing Impact</h3>
-                        <p>Strategic designs that convert viewers into loyal customers, increasing ROI by up to 150%</p>
-                    </div>
-                    <div class="about-feature-card">
-                        <i class="fas fa-brain"></i>
-                        <h3>Creative Strategy</h3>
-                        <p>Data-driven creativity that tells your unique brand story and captures audience attention</p>
-                    </div>
-                    <div class="about-feature-card">
-                        <i class="fas fa-trophy"></i>
-                        <h3>Results Driven</h3>
-                        <p>Proven track record of increasing brand awareness, engagement, and sales</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section id="services" class="services">
         <div class="container">
@@ -1457,7 +1295,6 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#flyers">Flyers</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
@@ -1569,41 +1406,6 @@
             ).join('');
         }
         
-        // Animated Counters
-        let currentProjects = 0, currentClients = 0, currentYears = 0, currentCountries = 0;
-        const projectsEl = document.getElementById('projectsCount');
-        const clientsEl = document.getElementById('clientsCount');
-        const yearsEl = document.getElementById('yearsCount');
-        const countriesEl = document.getElementById('countriesCount');
-        
-        function startCounters() {
-            const interval = setInterval(() => {
-                let allDone = true;
-                if (currentProjects < websiteContent.stats.projects) {
-                    allDone = false;
-                    currentProjects++;
-                    if (projectsEl) projectsEl.innerText = currentProjects;
-                }
-                if (currentClients < websiteContent.stats.clients) {
-                    allDone = false;
-                    currentClients++;
-                    if (clientsEl) clientsEl.innerText = currentClients;
-                }
-                if (currentYears < websiteContent.stats.years) {
-                    allDone = false;
-                    currentYears++;
-                    if (yearsEl) yearsEl.innerText = currentYears;
-                }
-                if (currentCountries < websiteContent.stats.countries) {
-                    allDone = false;
-                    currentCountries++;
-                    if (countriesEl) countriesEl.innerText = currentCountries;
-                }
-                if (allDone) clearInterval(interval);
-            }, 25);
-        }
-        
-        // Typing Animation
         let wordIndex = 0, charIndex = 0, isDeleting = false;
         const typingElement = document.getElementById('typingText');
         
@@ -1636,14 +1438,12 @@
             loadStats();
             populateServiceDropdown();
             typeEffect();
-            startCounters();
             const heroSubtitleEl = document.getElementById('heroSubtitle');
             if (heroSubtitleEl) heroSubtitleEl.innerText = websiteContent.heroSubtitle;
         }
         
         initPage();
         
-        // Custom Cursor
         const cursor = document.querySelector('.custom-cursor');
         const cursorDot = document.querySelector('.cursor-dot');
         if (cursor && cursorDot) {
@@ -1657,7 +1457,6 @@
             });
         }
         
-        // Payment Handlers
         const radioButtons = document.querySelectorAll('input[name="paymentMethod"]');
         const airtelDetails = document.getElementById('airtelDetails');
         const mpambaDetails = document.getElementById('mpambaDetails');
@@ -1711,7 +1510,6 @@
             setTimeout(() => messageDiv.innerHTML = '', 6000);
         }
         
-        // Booking System
         const bookingForm = document.getElementById('bookingForm');
         function getPriceFromService(serviceName) {
             const service = websiteContent.services.find(s => s.name === serviceName);
@@ -1773,7 +1571,6 @@
             });
         }
         
-        // Smooth Scrolling
         document.querySelector('.logo-link')?.addEventListener('click', (e) => { e.preventDefault(); document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' }); });
         document.querySelectorAll('.nav-links a[href^="#"], .btn-primary, .btn-secondary, .service-btn').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1782,12 +1579,10 @@
             });
         });
         
-        // Mobile menu
         const mobileMenuBtn = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         if (mobileMenuBtn && navLinks) mobileMenuBtn.addEventListener('click', () => { navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex'; });
         
-        // Particles
         const particleContainer = document.getElementById('particleContainer');
         if (particleContainer) {
             for (let i = 0; i < 40; i++) {
@@ -1803,8 +1598,8 @@
             }
         }
         
-        console.log('%c✨ September Designz | Fully Loaded ✨', 'color: #c084fc; font-size: 16px; font-weight: bold;');
-        console.log('%c📖 About Section Added | 🎨 Image Animations | 📊 Counters Working', 'color: #10b981; font-size: 12px;');
+        console.log('%c✨ September Designz | Dynamic Website Active ✨', 'color: #c084fc; font-size: 16px; font-weight: bold;');
+        console.log('%c📝 Edit content from Admin Panel → admin.html', 'color: #10b981; font-size: 12px;');
     </script>
 </body>
 </html>
