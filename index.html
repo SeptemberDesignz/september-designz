@@ -6,14 +6,14 @@
     
     <!-- ========== SEO META TAGS ========== -->
     <title>September Designz | Premium Design & Development Agency in Malawi</title>
-    <meta name="description" content="Premium graphic design, web development, and UI/UX services in Malawi. We create stunning digital experiences that drive results. Book your slot today!">
-    <meta name="keywords" content="graphic design Malawi, web development Malawi, UI/UX design, branding, flyer design, Blantyre, Lilongwe">
+    <meta name="description" content="Premium graphic design, web development, and UI/UX services in Malawi. Book your slot and pay via Airtel Money, Mpamba, National Bank, or PayPal.">
+    <meta name="keywords" content="graphic design Malawi, web development Malawi, UI/UX design, branding, flyer design, Blantyre, Lilongwe, Airtel Money, Mpamba, National Bank">
     <meta name="author" content="September Designz">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="September Designz | Premium Design & Development Agency">
-    <meta property="og:description" content="We create stunning digital experiences that drive results. Graphic design, web development, and UI/UX services in Malawi.">
+    <meta property="og:description" content="We create stunning digital experiences that drive results. Book your slot today!">
     <meta property="og:image" content="images/logo.png">
     <meta property="og:type" content="website">
     
@@ -680,6 +680,168 @@
             color: var(--text-secondary);
         }
 
+        /* ========== PAYMENT SECTION STYLES ========== */
+        .payment-section {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px solid var(--border);
+        }
+
+        .payment-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .payment-title i {
+            color: var(--primary);
+            font-size: 22px;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-option:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .payment-option.selected {
+            border: 2px solid var(--primary);
+            background: var(--primary-light);
+        }
+
+        .payment-option-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .payment-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .payment-name {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-primary);
+        }
+
+        .payment-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .payment-number {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 12px 0;
+            padding: 10px;
+            background: var(--bg-page);
+            border-radius: 12px;
+            text-align: center;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
+        .payment-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #10b981;
+            color: white;
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .pay-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pay-btn-airtel {
+            background: #E31E24;
+            color: white;
+        }
+
+        .pay-btn-airtel:hover {
+            background: #c41a1f;
+            transform: translateY(-2px);
+        }
+
+        .pay-btn-mpamba {
+            background: #00875A;
+            color: white;
+        }
+
+        .pay-btn-mpamba:hover {
+            background: #006944;
+            transform: translateY(-2px);
+        }
+
+        .pay-btn-nbm {
+            background: #1B3A6B;
+            color: white;
+        }
+
+        .pay-btn-nbm:hover {
+            background: #142d52;
+            transform: translateY(-2px);
+        }
+
+        .pay-btn-paypal {
+            background: #0070ba;
+            color: white;
+        }
+
+        .pay-btn-paypal:hover {
+            background: #003087;
+            transform: translateY(-2px);
+        }
+
         /* Contact Page */
         .contact-wrapper {
             display: grid;
@@ -906,6 +1068,7 @@
             .section-title { font-size: 28px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .contact-wrapper { grid-template-columns: 1fr; }
+            .payment-options { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -1124,12 +1287,12 @@
     </section>
 </div>
 
-<!-- ========== BOOKING PAGE ========== -->
+<!-- ========== BOOKING PAGE WITH PROFESSIONAL PAYMENT ========== -->
 <div id="bookPage" class="page-container">
     <section class="page-header">
         <div class="container">
             <h1>Book a <span style="color:var(--primary);">Slot</span></h1>
-            <p>Start your project today. Fill out the form and I'll get back to you within 24 hours.</p>
+            <p>Start your project today. Fill out the form and choose your payment method.</p>
         </div>
     </section>
 
@@ -1141,7 +1304,7 @@
                     <p style="color: var(--text-secondary); margin-bottom: 24px;">We deliver high-quality design and development services tailored to your needs.</p>
                     <div class="info-cards">
                         <div class="info-card"><i class="fas fa-clock"></i><div><h4>Quick Response</h4><p>Within 24 hours</p></div></div>
-                        <div class="info-card"><i class="fas fa-shield-alt"></i><div><h4>Secure Payment</h4><p>100% safe & secure</p></div></div>
+                        <div class="info-card"><i class="fas fa-shield-alt"></i><div><h4>Secure Payment</h4><p>Multiple payment options</p></div></div>
                         <div class="info-card"><i class="fas fa-headset"></i><div><h4>24/7 Support</h4><p>Dedicated assistance</p></div></div>
                         <div class="info-card"><i class="fas fa-redo-alt"></i><div><h4>Free Revisions</h4><p>2-3 rounds included</p></div></div>
                     </div>
@@ -1153,8 +1316,79 @@
                         <div class="form-group"><label>Email Address *</label><input type="email" id="email" placeholder="hello@example.com" required></div>
                         <div class="form-group"><label>Select Service</label><select id="service"></select></div>
                         <div class="form-group"><label>Preferred Date</label><input type="date" id="date"></div>
-                        <div class="form-group"><label>Project Details</label><textarea id="details" rows="4" placeholder="Tell me about your project, goals, and requirements..."></textarea></div>
-                        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> Submit Booking</button>
+                        <div class="form-group"><label>Project Details</label><textarea id="details" rows="3" placeholder="Tell me about your project..."></textarea></div>
+                        
+                        <!-- ========== PROFESSIONAL PAYMENT SECTION ========== -->
+                        <div class="payment-section">
+                            <div class="payment-title">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Select Payment Method</span>
+                            </div>
+                            <div class="payment-options" id="paymentOptions">
+                                <!-- Airtel Money -->
+                                <div class="payment-option" data-payment="airtel" onclick="selectPayment('airtel')">
+                                    <div class="payment-badge">Popular</div>
+                                    <div class="payment-option-header">
+                                        <div class="payment-icon"><i class="fas fa-mobile-alt"></i></div>
+                                        <div>
+                                            <div class="payment-name">Airtel Money</div>
+                                            <div class="payment-desc">Pay using Airtel Money USSD *211#</div>
+                                        </div>
+                                    </div>
+                                    <div class="payment-number">Account: +265 994 071 332</div>
+                                    <button type="button" class="pay-btn pay-btn-airtel" onclick="event.stopPropagation(); payWithAirtel()">
+                                        <i class="fas fa-dial"></i> Pay Now with *211#
+                                    </button>
+                                </div>
+                                
+                                <!-- TNM Mpamba -->
+                                <div class="payment-option" data-payment="mpamba" onclick="selectPayment('mpamba')">
+                                    <div class="payment-option-header">
+                                        <div class="payment-icon"><i class="fas fa-mobile-alt"></i></div>
+                                        <div>
+                                            <div class="payment-name">TNM Mpamba</div>
+                                            <div class="payment-desc">Pay using TNM Mpamba USSD *444#</div>
+                                        </div>
+                                    </div>
+                                    <div class="payment-number">Account: +265 886 314 031</div>
+                                    <button type="button" class="pay-btn pay-btn-mpamba" onclick="event.stopPropagation(); payWithMpamba()">
+                                        <i class="fas fa-dial"></i> Pay Now with *444#
+                                    </button>
+                                </div>
+                                
+                                <!-- National Bank -->
+                                <div class="payment-option" data-payment="nbm" onclick="selectPayment('nbm')">
+                                    <div class="payment-option-header">
+                                        <div class="payment-icon"><i class="fas fa-university"></i></div>
+                                        <div>
+                                            <div class="payment-name">National Bank</div>
+                                            <div class="payment-desc">Pay using NBM USSD *626#</div>
+                                        </div>
+                                    </div>
+                                    <div class="payment-number">Account: September Designz - 1009589698</div>
+                                    <button type="button" class="pay-btn pay-btn-nbm" onclick="event.stopPropagation(); payWithNBM()">
+                                        <i class="fas fa-dial"></i> Pay Now with *626#
+                                    </button>
+                                </div>
+                                
+                                <!-- PayPal -->
+                                <div class="payment-option" data-payment="paypal" onclick="selectPayment('paypal')">
+                                    <div class="payment-option-header">
+                                        <div class="payment-icon"><i class="fab fa-paypal"></i></div>
+                                        <div>
+                                            <div class="payment-name">PayPal</div>
+                                            <div class="payment-desc">Pay securely with PayPal or Credit Card</div>
+                                        </div>
+                                    </div>
+                                    <div class="payment-number">Email: nicholaskenneth29@gmail.com</div>
+                                    <button type="button" class="pay-btn pay-btn-paypal" onclick="event.stopPropagation(); payWithPayPal()">
+                                        <i class="fab fa-paypal"></i> Pay with PayPal
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 24px;"><i class="fas fa-paper-plane"></i> Submit Booking</button>
                         <div id="formMessage" style="margin-top: 16px;"></div>
                     </form>
                 </div>
@@ -1167,9 +1401,9 @@
                 </div>
                 <div class="faq-grid">
                     <div class="faq-item"><h4>How long does a project take?</h4><p>Most projects take 1-4 weeks depending on complexity.</p></div>
-                    <div class="faq-item"><h4>What payment methods do you accept?</h4><p>Airtel Money, TNM Mpamba, PayPal, and bank transfer.</p></div>
+                    <div class="faq-item"><h4>How do I pay?</h4><p>Airtel Money (*211#), TNM Mpamba (*444#), National Bank (*626#), or PayPal.</p></div>
                     <div class="faq-item"><h4>Do you offer revisions?</h4><p>Yes! We offer 2-3 rounds of revisions.</p></div>
-                    <div class="faq-item"><h4>Can I see examples of your work?</h4><p>Check our Portfolio and Flyers pages!</p></div>
+                    <div class="faq-item"><h4>Is my payment secure?</h4><p>Yes, all payments are processed through official bank/USSD channels.</p></div>
                 </div>
             </div>
         </div>
@@ -1202,21 +1436,21 @@
 <script>
     // ============================================
     // SEPTEMBER DESIGNZ - COMPLETE WEBSITE
-    // Blog removed, Testimonials with real clients
+    // With Professional Payment Options
     // ============================================
     
     // Default content with REAL testimonials
     const defaultContent = {
         stats: { projects: 156, clients: 98, years: 5, countries: 12 },
         services: [
-            { name: "Graphic Design", icon: "fa-palette", description: "Stunning logos, brand identities, and social media visuals.", features: ["Logo Design", "Brand Guidelines", "Social Media Kits", "Flyers & Posters"], price: 25000, featured: false, category: "design", longDesc: "Professional, eye-catching visuals that communicate your brand's message effectively. From logos to complete brand identities, we ensure every detail is polished and memorable." },
-            { name: "Web Development", icon: "fa-code", description: "Custom, responsive websites that load fast and convert.", features: ["Responsive Design", "SEO Optimized", "CMS Integration", "E-commerce"], price: 350000, featured: true, category: "development", longDesc: "Modern, fast, and secure websites tailored to your business needs. Whether it's a portfolio, corporate site, or online store, we deliver exceptional quality." },
-            { name: "UI/UX Design", icon: "fa-mobile-alt", description: "Beautiful, intuitive interfaces that deliver exceptional experiences.", features: ["Wireframing", "Prototyping", "User Testing", "Mobile App Design"], price: 125000, featured: false, category: "ux", longDesc: "User-centered design to maximize engagement and satisfaction. We focus on creating interfaces that are both beautiful and functional." }
+            { name: "Graphic Design", icon: "fa-palette", description: "Stunning logos, brand identities, and social media visuals.", features: ["Logo Design", "Brand Guidelines", "Social Media Kits", "Flyers & Posters"], price: 25000, featured: false, category: "design", longDesc: "Professional, eye-catching visuals that communicate your brand's message effectively." },
+            { name: "Web Development", icon: "fa-code", description: "Custom, responsive websites that load fast and convert.", features: ["Responsive Design", "SEO Optimized", "CMS Integration", "E-commerce"], price: 350000, featured: true, category: "development", longDesc: "Modern, fast, and secure websites tailored to your business needs." },
+            { name: "UI/UX Design", icon: "fa-mobile-alt", description: "Beautiful, intuitive interfaces that deliver exceptional experiences.", features: ["Wireframing", "Prototyping", "User Testing", "Mobile App Design"], price: 125000, featured: false, category: "ux", longDesc: "User-centered design to maximize engagement and satisfaction." }
         ],
         testimonials: [
             { name: "Clouds Travels Malawi", project: "Branding & Marketing", text: "September Designz created an amazing brand identity for our travel business. The designs captured the essence of our brand perfectly. Professional, creative, and delivered on time! Highly recommended.", rating: 5 },
-            { name: "Libanda Bakery", project: "Packaging & Logo Design", text: "Our bakery's new look is absolutely stunning! The team at September Designz understood our vision perfectly and brought it to life. Our sales have increased thanks to the beautiful new packaging. Thank you!", rating: 5 },
-            { name: "Price Trading", project: "Corporate Branding", text: "Excellent work from September Designz. They delivered high-quality designs that elevated our brand presence. Very professional team, great communication, and the results exceeded our expectations. Will definitely work with them again.", rating: 5 }
+            { name: "Libanda Bakery", project: "Packaging & Logo Design", text: "Our bakery's new look is absolutely stunning! The team at September Designz understood our vision perfectly. Our sales have increased thanks to the beautiful new packaging. Thank you!", rating: 5 },
+            { name: "Price Trading", project: "Corporate Branding", text: "Excellent work from September Designz. They delivered high-quality designs that elevated our brand presence. Very professional team, great communication, and the results exceeded our expectations.", rating: 5 }
         ],
         flyers: [
             { image: "images/flyer-1.png", category: "Business Flyer", title: "Corporate Event Flyer", description: "Professional flyer design for corporate events and business promotions." },
@@ -1235,7 +1469,7 @@
         heroSubtitle: "We transform bold ideas into stunning digital experiences that drive results. Let's build something extraordinary together."
     };
     
-    // Load content from localStorage, or use default if empty
+    // Load content from localStorage
     let websiteContent = JSON.parse(localStorage.getItem('websiteContent'));
     if (!websiteContent || !websiteContent.testimonials || websiteContent.testimonials.length === 0) {
         websiteContent = defaultContent;
@@ -1245,6 +1479,38 @@
     // Lightbox variables
     let currentLightboxIndex = 0;
     let lightboxImages = [];
+    
+    // Selected payment method
+    let selectedPayment = null;
+    
+    // ========== PAYMENT FUNCTIONS ==========
+    function selectPayment(method) {
+        selectedPayment = method;
+        document.querySelectorAll('.payment-option').forEach(opt => {
+            opt.classList.remove('selected');
+        });
+        document.querySelector(`.payment-option[data-payment="${method}"]`).classList.add('selected');
+    }
+    
+    function payWithAirtel() {
+        showToast('Dial *211# on your Airtel line to complete payment');
+        window.location.href = 'tel:*211%23';
+    }
+    
+    function payWithMpamba() {
+        showToast('Dial *444# on your TNM line to complete payment');
+        window.location.href = 'tel:*444%23';
+    }
+    
+    function payWithNBM() {
+        showToast('Dial *626# on your phone to complete payment via National Bank');
+        window.location.href = 'tel:*626%23';
+    }
+    
+    function payWithPayPal() {
+        showToast('Redirecting to PayPal...');
+        window.open('https://paypal.me/septemberdesignz', '_blank');
+    }
     
     // ========== MOBILE MENU FUNCTIONS ==========
     function toggleMobileMenu() {
@@ -1539,15 +1805,26 @@
             const email = document.getElementById('email').value.trim();
             if (!name || !email) { showMessage('Please fill in name and email', 'error', 'formMessage'); return; }
             
-            const booking = { name, email, service: document.getElementById('service').value, date: document.getElementById('date').value || '', details: document.getElementById('details').value || '', timestamp: new Date().toISOString() };
+            const paymentMethod = selectedPayment ? selectedPayment.toUpperCase() : 'Not specified';
+            
+            const booking = { 
+                name, email, 
+                service: document.getElementById('service').value, 
+                date: document.getElementById('date').value || '', 
+                details: document.getElementById('details').value || '',
+                paymentMethod: paymentMethod,
+                timestamp: new Date().toISOString() 
+            };
             let bookings = JSON.parse(localStorage.getItem('september_bookings') || '[]');
             bookings.push(booking);
             localStorage.setItem('september_bookings', JSON.stringify(bookings));
             
             await sendEmailNotification(booking, 'booking');
-            showMessage(`✅ Thanks ${name}! Your booking has been saved. We'll contact you within 24 hours.`, 'success', 'formMessage');
-            showToast('Booking submitted!');
+            showMessage(`✅ Thanks ${name}! Your booking has been saved. Please complete payment via ${paymentMethod}. We'll contact you within 24 hours.`, 'success', 'formMessage');
+            showToast(`Booking submitted! Payment method: ${paymentMethod}`);
             bookingForm.reset();
+            selectedPayment = null;
+            document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
         });
     }
     
