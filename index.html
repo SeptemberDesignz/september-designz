@@ -2,8 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>September Designz | Premium Creative Agency</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+    <!-- ========== SEO META TAGS ========== -->
+    <title>September Designz | Premium Design & Development Agency in Malawi</title>
+    <meta name="description" content="Premium graphic design, web development, and UI/UX services in Malawi. We create stunning digital experiences that drive results. Book your slot today!">
+    <meta name="keywords" content="graphic design Malawi, web development Malawi, UI/UX design, branding, flyer design, Blantyre, Lilongwe">
+    <meta name="author" content="September Designz">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="September Designz | Premium Design & Development Agency">
+    <meta property="og:description" content="We create stunning digital experiences that drive results. Graphic design, web development, and UI/UX services in Malawi.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://yourusername.github.io/september-designz/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_library">
+    <meta name="twitter:title" content="September Designz | Premium Design & Development Agency">
+    <meta name="twitter:description" content="We create stunning digital experiences that drive results.">
+    <meta name="twitter:image" content="images/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourusername.github.io/september-designz/">
+    
+    <!-- Schema.org markup for Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "September Designz",
+        "image": "https://yourusername.github.io/september-designz/images/logo.png",
+        "description": "Premium graphic design, web development, and UI/UX services in Malawi.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Blantyre",
+            "addressCountry": "Malawi"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+265994071332",
+            "contactType": "customer service",
+            "availableLanguage": "English"
+        },
+        "priceRange": "MWK 25,000 - 500,000",
+        "sameAs": [
+            "https://www.instagram.com/september_designz/",
+            "https://web.facebook.com/September.Africah/"
+        ]
+    }
+    </script>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D4YTK8D93M"></script>
     <script>
@@ -65,7 +116,6 @@
             align-items: center;
         }
 
-        /* ENHANCED LOGO STYLES */
         .logo {
             display: flex;
             align-items: center;
@@ -86,7 +136,6 @@
             font-weight: 800;
             color: var(--text-primary);
             letter-spacing: -0.5px;
-            transition: all 0.3s ease;
         }
 
         .logo-text span {
@@ -102,10 +151,6 @@
             filter: drop-shadow(0 4px 12px rgba(217, 48, 37, 0.3));
         }
 
-        .logo:hover .logo-text {
-            color: var(--primary);
-        }
-
         .logo-clicked {
             animation: logoPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
         }
@@ -114,16 +159,6 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.15); }
             100% { transform: scale(1); }
-        }
-
-        @keyframes logoPopImg {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(8deg) scale(1.2); filter: drop-shadow(0 8px 20px rgba(217, 48, 37, 0.4)); }
-            100% { transform: rotate(0deg) scale(1); }
-        }
-
-        .logo-clicked .logo-img {
-            animation: logoPopImg 0.4s ease;
         }
 
         .nav-links {
@@ -161,7 +196,6 @@
             color: var(--text-secondary);
         }
 
-        /* Mobile menu open state */
         .nav-links.mobile-open {
             display: flex !important;
             flex-direction: column;
@@ -172,15 +206,8 @@
             background: var(--bg-card);
             padding: 20px;
             border-bottom: 1px solid var(--border);
-            box-shadow: var(--shadow);
             gap: 16px;
             z-index: 999;
-        }
-
-        .nav-links.mobile-open a {
-            padding: 10px 0;
-            width: 100%;
-            text-align: center;
         }
 
         /* Buttons */
@@ -227,11 +254,6 @@
 
         .btn-outline:hover {
             background: var(--primary-light);
-        }
-
-        .btn-block {
-            width: 100%;
-            justify-content: center;
         }
 
         /* Page Header */
@@ -358,11 +380,6 @@
             border-radius: 24px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
-            transition: transform 0.2s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
         }
 
         .stat-number {
@@ -376,6 +393,32 @@
             font-size: 14px;
             color: var(--text-secondary);
             font-weight: 500;
+        }
+
+        /* Service Filters */
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 8px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
         }
 
         /* Services Grid */
@@ -412,7 +455,6 @@
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 11px;
-            font-weight: 600;
         }
 
         .service-icon {
@@ -440,12 +482,6 @@
             color: var(--text-secondary);
             margin-bottom: 20px;
             line-height: 1.6;
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            font-size: 14px;
         }
 
         .features-list {
@@ -478,6 +514,31 @@
             color: var(--primary);
         }
 
+        /* Pricing Calculator */
+        .calculator-section {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 32px;
+            margin-top: 48px;
+            border: 1px solid var(--border);
+        }
+
+        .calculator-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .calculator-total {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-top: 20px;
+            text-align: right;
+        }
+
         /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
@@ -490,12 +551,12 @@
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid var(--border);
+            cursor: pointer;
             transition: transform 0.2s;
         }
 
         .portfolio-card:hover {
             transform: translateY(-4px);
-            box-shadow: var(--shadow);
         }
 
         .portfolio-image img {
@@ -524,12 +585,52 @@
             margin-bottom: 12px;
         }
 
-        .portfolio-description {
-            color: var(--text-secondary);
-            font-size: 14px;
-            line-height: 1.6;
-            margin: 12px 0;
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .lightbox-prev, .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
 
         /* Flyers Grid */
         .flyers-grid {
@@ -543,12 +644,6 @@
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid var(--border);
-            transition: transform 0.2s;
-        }
-
-        .flyer-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
         }
 
         .flyer-image img {
@@ -572,68 +667,161 @@
             margin-bottom: 10px;
         }
 
-        .flyer-info h2 {
-            font-size: 18px;
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .testimonial-stars {
+            color: #f5b042;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-project {
+            font-size: 12px;
+            color: var(--primary);
+        }
+
+        /* Blog */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .blog-image {
+            height: 200px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary);
+        }
+
+        .blog-info {
+            padding: 24px;
+        }
+
+        .blog-date {
+            font-size: 11px;
+            color: var(--text-secondary);
             margin-bottom: 8px;
         }
 
-        .flyer-info p {
-            color: var(--text-secondary);
-            font-size: 13px;
-            line-height: 1.5;
+        .blog-info h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
         }
 
-        /* Booking */
-        .booking-wrapper {
+        .blog-info p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .blog-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .blog-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blog-modal-content {
+            background: var(--bg-card);
+            max-width: 800px;
+            width: 90%;
+            border-radius: 28px;
+            padding: 32px;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+
+        /* Contact Page */
+        .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 48px;
         }
 
-        .info-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 32px;
+        .contact-info {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 32px;
+            border: 1px solid var(--border);
         }
 
-        .info-card {
+        .contact-detail {
             display: flex;
             gap: 16px;
             align-items: center;
-            padding: 20px;
-            background: var(--bg-card);
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
         }
 
-        .info-card i {
-            font-size: 32px;
+        .contact-detail i {
+            font-size: 28px;
             color: var(--primary);
+            width: 40px;
         }
 
-        .info-card h4 {
-            font-size: 16px;
-            margin-bottom: 4px;
+        .map-placeholder {
+            background: var(--primary-light);
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 24px;
         }
 
-        .info-card p {
-            color: var(--text-secondary);
-            font-size: 13px;
-        }
-
-        .booking-form-wrapper {
+        /* Booking & Contact Forms */
+        .booking-form-wrapper, .contact-form-wrapper {
             background: var(--bg-card);
             border-radius: 28px;
             padding: 36px;
             border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-        }
-
-        .booking-form h2 {
-            font-size: 28px;
-            margin-bottom: 24px;
         }
 
         .form-group {
@@ -657,86 +845,6 @@
             border-radius: 16px;
             font-family: inherit;
             font-size: 14px;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        /* FAQ */
-        .faq-section {
-            margin-top: 64px;
-        }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-            margin-top: 32px;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .faq-item h4 {
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: var(--primary);
-        }
-
-        .faq-item p {
-            font-size: 13px;
-            color: var(--text-secondary);
-        }
-
-        /* CTA */
-        .cta-section {
-            background: var(--primary-light);
-            padding: 48px;
-            text-align: center;
-            border-radius: 32px;
-            margin: 40px 0;
-        }
-
-        /* Toast */
-        .toast {
-            position: fixed;
-            bottom: 100px;
-            right: 24px;
-            background: #0f9d58;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 24px;
-            z-index: 1001;
-            font-size: 13px;
-        }
-
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 54px;
-            height: 54px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            text-decoration: none;
-        }
-
-        .whatsapp-float i {
-            font-size: 30px;
-            color: white;
         }
 
         /* Footer */
@@ -769,10 +877,6 @@
             font-size: 13px;
         }
 
-        .footer-section ul li i {
-            margin-right: 8px;
-        }
-
         .footer-section ul li a {
             color: var(--text-secondary);
             text-decoration: none;
@@ -798,7 +902,6 @@
             align-items: center;
             justify-content: center;
             color: var(--text-secondary);
-            transition: all 0.2s;
         }
 
         .social-links a:hover {
@@ -823,26 +926,55 @@
             display: block;
         }
 
-        /* Responsive */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 54px;
+            height: 54px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-float i {
+            font-size: 30px;
+            color: white;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            background: #0f9d58;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 24px;
+            z-index: 1001;
+            font-size: 13px;
+        }
+
         @media (max-width: 968px) {
             .hero-title { font-size: 40px; }
             .section-title { font-size: 28px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-            .booking-wrapper { grid-template-columns: 1fr; }
-            .page-header h1 { font-size: 36px; }
-            .logo-img { height: 42px; }
-            .logo-text { font-size: 22px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .booking-wrapper, .contact-wrapper { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu { display: block; }
             .stats-grid { grid-template-columns: 1fr; }
-            .services-grid, .portfolio-grid, .flyers-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 32px; }
             .page-header h1 { font-size: 28px; }
-            .stat-number { font-size: 36px; }
             .logo-img { height: 38px; }
             .logo-text { font-size: 20px; }
+            .lightbox-prev, .lightbox-next { font-size: 30px; }
+            .lightbox-close { font-size: 30px; top: 10px; right: 20px; }
         }
     </style>
 </head>
@@ -851,6 +983,19 @@
 <a href="https://wa.me/265994071332?text=Hello%20September%20Designz!%20I'm%20interested%20in%20your%20services." class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <span class="lightbox-prev" onclick="prevImage(event)">&#10094;</span>
+    <img id="lightboxImg" src="">
+    <span class="lightbox-next" onclick="nextImage(event)">&#10095;</span>
+</div>
+
+<!-- Blog Modal -->
+<div id="blogModal" class="blog-modal">
+    <div class="blog-modal-content" id="blogModalContent"></div>
+</div>
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -864,6 +1009,9 @@
             <a onclick="switchPageAndCloseMenu('services')">Services</a>
             <a onclick="switchPageAndCloseMenu('portfolio')">Portfolio</a>
             <a onclick="switchPageAndCloseMenu('flyers')">Flyers</a>
+            <a onclick="switchPageAndCloseMenu('testimonials')">Reviews</a>
+            <a onclick="switchPageAndCloseMenu('blog')">Blog</a>
+            <a onclick="switchPageAndCloseMenu('contact')">Contact</a>
             <a onclick="switchPageAndCloseMenu('book')">Book</a>
             <a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a>
         </div>
@@ -917,7 +1065,7 @@
     </section>
 
     <div class="container">
-        <div class="cta-section">
+        <div class="cta-section" style="background: var(--primary-light); padding: 48px; text-align: center; border-radius: 32px; margin: 40px 0;">
             <h3 style="margin-bottom: 12px;">Ready to bring your vision to life?</h3>
             <p style="margin-bottom: 20px; color: var(--text-secondary);">Get a free consultation and quote within 24 hours.</p>
             <button class="btn btn-primary" onclick="switchPageAndCloseMenu('book')"><i class="fas fa-calendar-alt"></i> Book Your Slot Today</button>
@@ -925,7 +1073,7 @@
     </div>
 </div>
 
-<!-- ========== SERVICES PAGE ========== -->
+<!-- ========== SERVICES PAGE (with Filters & Calculator) ========== -->
 <div id="servicesPage" class="page-container">
     <section class="page-header">
         <div class="container">
@@ -936,20 +1084,26 @@
 
     <section style="padding: 64px 0; background: var(--bg-page);">
         <div class="container">
+            <div class="filter-buttons" id="serviceFilters">
+                <button class="filter-btn active" data-filter="all">All Services</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+                <button class="filter-btn" data-filter="ux">UI/UX</button>
+            </div>
             <div class="services-grid" id="servicesGrid"></div>
+            
+            <!-- Pricing Calculator -->
+            <div class="calculator-section">
+                <h3 style="margin-bottom: 20px;">💰 Pricing Calculator</h3>
+                <div id="calculatorItems"></div>
+                <div class="calculator-total">Total: <span id="calculatorTotal">MWK 0</span></div>
+                <button class="btn btn-primary" style="margin-top: 20px;" onclick="switchPageAndCloseMenu('book')">Proceed to Booking →</button>
+            </div>
         </div>
     </section>
-
-    <div class="container">
-        <div class="cta-section">
-            <h3 style="margin-bottom: 12px;">Need a custom package?</h3>
-            <p style="margin-bottom: 20px; color: var(--text-secondary);">Contact us for enterprise solutions and long-term partnerships.</p>
-            <button class="btn btn-primary" onclick="switchPageAndCloseMenu('book')"><i class="fas fa-calendar-alt"></i> Get a Custom Quote</button>
-        </div>
-    </div>
 </div>
 
-<!-- ========== PORTFOLIO PAGE ========== -->
+<!-- ========== PORTFOLIO PAGE (with Lightbox) ========== -->
 <div id="portfolioPage" class="page-container">
     <section class="page-header">
         <div class="container">
@@ -982,6 +1136,77 @@
             <div class="flyers-grid" id="flyersGrid"></div>
             <div style="text-align: center; margin-top: 48px;">
                 <button class="btn btn-primary" onclick="switchPageAndCloseMenu('book')">Order Custom Flyer →</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ========== TESTIMONIALS PAGE ========== -->
+<div id="testimonialsPage" class="page-container">
+    <section class="page-header">
+        <div class="container">
+            <h1>Client <span style="color:var(--primary);">Testimonials</span></h1>
+            <p>What our happy clients say about us</p>
+        </div>
+    </section>
+
+    <section style="padding: 64px 0; background: var(--bg-page);">
+        <div class="container">
+            <div class="testimonials-grid" id="testimonialsGrid"></div>
+        </div>
+    </section>
+</div>
+
+<!-- ========== BLOG PAGE ========== -->
+<div id="blogPage" class="page-container">
+    <section class="page-header">
+        <div class="container">
+            <h1>Design <span style="color:var(--primary);">Blog</span></h1>
+            <p>Tips, insights, and stories from September Designz</p>
+        </div>
+    </section>
+
+    <section style="padding: 64px 0; background: var(--bg-page);">
+        <div class="container">
+            <div class="blog-grid" id="blogGrid"></div>
+        </div>
+    </section>
+</div>
+
+<!-- ========== CONTACT PAGE ========== -->
+<div id="contactPage" class="page-container">
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact <span style="color:var(--primary);">Us</span></h1>
+            <p>Get in touch for any inquiries or questions</p>
+        </div>
+    </section>
+
+    <section style="padding: 64px 0;">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 24px;">Get in Touch</h3>
+                    <div class="contact-detail"><i class="fas fa-phone"></i><div><strong>Phone</strong><br>+265 994 071 332</div></div>
+                    <div class="contact-detail"><i class="fas fa-envelope"></i><div><strong>Email</strong><br>septemberafricah29@gmail.com</div></div>
+                    <div class="contact-detail"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><br>+265 994 071 332</div></div>
+                    <div class="contact-detail"><i class="fas fa-map-marker-alt"></i><div><strong>Location</strong><br>Blantyre, Malawi</div></div>
+                    <div class="map-placeholder">
+                        <i class="fas fa-map" style="font-size: 48px; color: var(--primary);"></i>
+                        <p style="margin-left: 10px;">📍 Blantyre, Malawi</p>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <h3 style="margin-bottom: 24px;">Send us a Message</h3>
+                        <div class="form-group"><label>Full Name *</label><input type="text" id="contactName" placeholder="John Doe" required></div>
+                        <div class="form-group"><label>Email Address *</label><input type="email" id="contactEmail" placeholder="hello@example.com" required></div>
+                        <div class="form-group"><label>Subject</label><input type="text" id="contactSubject" placeholder="Project inquiry"></div>
+                        <div class="form-group"><label>Message *</label><textarea id="contactMessage" rows="4" placeholder="Tell us how we can help..."></textarea></div>
+                        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        <div id="contactFormMessage" style="margin-top: 16px;"></div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -1029,10 +1254,10 @@
                     <h2 style="margin-top: 12px;">Frequently Asked <span style="color:var(--primary);">Questions</span></h2>
                 </div>
                 <div class="faq-grid">
-                    <div class="faq-item"><h4>How long does a project take?</h4><p>Most projects take 1-4 weeks depending on complexity. We'll give you a timeline before starting.</p></div>
-                    <div class="faq-item"><h4>What payment methods do you accept?</h4><p>Airtel Money, TNM Mpamba, PayPal, and bank transfer. 50% deposit required to start.</p></div>
-                    <div class="faq-item"><h4>Do you offer revisions?</h4><p>Yes! We offer 2-3 rounds of revisions to make sure you're 100% satisfied.</p></div>
-                    <div class="faq-item"><h4>Can I see examples of your work?</h4><p>Absolutely! Check our Portfolio and Flyers pages for examples.</p></div>
+                    <div class="faq-item"><h4>How long does a project take?</h4><p>Most projects take 1-4 weeks depending on complexity.</p></div>
+                    <div class="faq-item"><h4>What payment methods do you accept?</h4><p>Airtel Money, TNM Mpamba, PayPal, and bank transfer.</p></div>
+                    <div class="faq-item"><h4>Do you offer revisions?</h4><p>Yes! We offer 2-3 rounds of revisions.</p></div>
+                    <div class="faq-item"><h4>Can I see examples of your work?</h4><p>Check our Portfolio and Flyers pages!</p></div>
                 </div>
             </div>
         </div>
@@ -1055,7 +1280,7 @@
                     <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="footer-section"><h4>Quick Links</h4><ul><li><a onclick="switchPageAndCloseMenu('home')">Home</a></li><li><a onclick="switchPageAndCloseMenu('services')">Services</a></li><li><a onclick="switchPageAndCloseMenu('portfolio')">Portfolio</a></li><li><a onclick="switchPageAndCloseMenu('flyers')">Flyers</a></li><li><a onclick="switchPageAndCloseMenu('book')">Book</a></li></ul></div>
+            <div class="footer-section"><h4>Quick Links</h4><ul><li><a onclick="switchPageAndCloseMenu('home')">Home</a></li><li><a onclick="switchPageAndCloseMenu('services')">Services</a></li><li><a onclick="switchPageAndCloseMenu('portfolio')">Portfolio</a></li><li><a onclick="switchPageAndCloseMenu('flyers')">Flyers</a></li><li><a onclick="switchPageAndCloseMenu('testimonials')">Reviews</a></li><li><a onclick="switchPageAndCloseMenu('blog')">Blog</a></li><li><a onclick="switchPageAndCloseMenu('contact')">Contact</a></li><li><a onclick="switchPageAndCloseMenu('book')">Book</a></li></ul></div>
             <div class="footer-section"><h4>Contact</h4><ul><li><i class="fas fa-envelope"></i> septemberafricah29@gmail.com</li><li><i class="fas fa-phone"></i> +265 994 071 332</li><li><i class="fas fa-map-marker-alt"></i> Blantyre, Malawi</li></ul></div>
         </div>
         <div class="footer-bottom"><p>&copy; 2026 September Designz. All rights reserved.</p></div>
@@ -1064,30 +1289,40 @@
 
 <script>
     // ============================================
-    // SEPTEMBER DESIGNZ - SINGLE PAGE APP
-    // Mobile menu auto-closes after selection
+    // SEPTEMBER DESIGNZ - ALL FEATURES
+    // Email notifications, testimonials, lightbox, contact, blog, filters, calculator, SEO
     // ============================================
     
     // Default content
     const defaultContent = {
         stats: { projects: 156, clients: 98, years: 5, countries: 12 },
         services: [
-            { name: "Graphic Design", icon: "fa-palette", description: "Stunning logos, brand identities, and social media visuals.", features: ["Logo Design", "Brand Guidelines", "Social Media Kits", "Flyers & Posters", "Business Cards", "Packaging Design"], price: 25000, featured: false, longDesc: "Our graphic design service delivers professional, eye-catching visuals that communicate your brand's message effectively. From logos to complete brand identities, we ensure every detail is polished and memorable." },
-            { name: "Web Development", icon: "fa-code", description: "Custom, responsive websites that load fast and convert visitors into customers.", features: ["Responsive Design", "SEO Optimized", "CMS Integration", "E-commerce", "SSL Security", "Speed Optimization"], price: 350000, featured: true, longDesc: "We build modern, fast, and secure websites tailored to your business needs. Whether it's a portfolio, corporate site, or online store, we deliver exceptional quality with clean code." },
-            { name: "UI/UX Design", icon: "fa-mobile-alt", description: "Beautiful, intuitive interfaces that deliver exceptional user experiences.", features: ["Wireframing", "Prototyping", "User Testing", "Mobile App Design", "Dashboard Design", "Interaction Design"], price: 125000, featured: false, longDesc: "Our UI/UX design process ensures your product is not only beautiful but also easy to use. We focus on user-centered design to maximize engagement and satisfaction." }
+            { name: "Graphic Design", icon: "fa-palette", description: "Stunning logos, brand identities, and social media visuals.", features: ["Logo Design", "Brand Guidelines", "Social Media Kits", "Flyers & Posters"], price: 25000, featured: false, category: "design", longDesc: "Professional, eye-catching visuals that communicate your brand's message effectively." },
+            { name: "Web Development", icon: "fa-code", description: "Custom, responsive websites that load fast and convert.", features: ["Responsive Design", "SEO Optimized", "CMS Integration", "E-commerce"], price: 350000, featured: true, category: "development", longDesc: "Modern, fast, and secure websites tailored to your business needs." },
+            { name: "UI/UX Design", icon: "fa-mobile-alt", description: "Beautiful, intuitive interfaces that deliver exceptional experiences.", features: ["Wireframing", "Prototyping", "User Testing", "Mobile App Design"], price: 125000, featured: false, category: "ux", longDesc: "User-centered design to maximize engagement and satisfaction." }
+        ],
+        testimonials: [
+            { name: "Chisa Mwale", project: "Brand Identity", text: "September Designz created an amazing brand identity for my business. Highly recommended!", rating: 5 },
+            { name: "Clement Munye", project: "E-commerce Website", text: "Professional, fast, and delivered exactly what I wanted. The website looks fantastic!", rating: 5 },
+            { name: "Sarah Phiri", project: "Social Media Graphics", text: "Great communication and beautiful designs. Will definitely work with them again.", rating: 5 }
+        ],
+        blog: [
+            { title: "5 Tips for an Effective Brand Identity", date: "March 15, 2026", excerpt: "Learn how to create a brand that stands out and connects with your audience.", content: "<p>Full article content here...</p>", icon: "fa-palette" },
+            { title: "Why Your Business Needs a Mobile-Friendly Website", date: "March 10, 2026", excerpt: "More than 60% of web traffic comes from mobile devices. Here's why it matters.", content: "<p>Full article content here...</p>", icon: "fa-mobile-alt" },
+            { title: "The Importance of UI/UX in Digital Products", date: "March 5, 2026", excerpt: "Good design isn't just about looks – it's about user experience.", content: "<p>Full article content here...</p>", icon: "fa-users" }
         ],
         flyers: [
-            { image: "images/flyer-1.png", category: "Business Flyer", title: "Corporate Event Flyer", description: "Professional flyer design for corporate events and business promotions. Clean, modern, and effective." },
-            { image: "images/flyer-2.jpg", category: "Promotional", title: "Event Promotional Flyer", description: "High-impact promotional flyers for product launches and special events that grab attention." },
-            { image: "images/flyer-3.jpg", category: "Transportation", title: "Transportation Flyer", description: "Custom flyers for transport companies, travel agencies, and logistics businesses." },
-            { image: "images/flyer-4.png", category: "Store Design", title: "Online Store Flyer", description: "E-commerce flyers to promote online stores, flash sales, and special offers." },
-            { image: "images/flyer-5.png", category: "Social Media", title: "Instagram Post Design", description: "Social media graphics optimized for Instagram, Facebook, Twitter, and LinkedIn." },
-            { image: "images/flyer-6.jpg", category: "Church", title: "Church Flyer", description: "Event flyers for church programs, conferences, concerts, and community events." }
+            { image: "images/flyer-1.png", category: "Business Flyer", title: "Corporate Event Flyer", description: "Professional flyer design for corporate events." },
+            { image: "images/flyer-2.jpg", category: "Promotional", title: "Event Promotional Flyer", description: "High-impact promotional flyers." },
+            { image: "images/flyer-3.jpg", category: "Transportation", title: "Transportation Flyer", description: "Custom flyers for transport companies." },
+            { image: "images/flyer-4.png", category: "Store Design", title: "Online Store Flyer", description: "E-commerce flyers to promote online stores." },
+            { image: "images/flyer-5.png", category: "Social Media", title: "Instagram Post Design", description: "Social media graphics optimized for Instagram." },
+            { image: "images/flyer-6.jpg", category: "Church", title: "Church Flyer", description: "Event flyers for church programs." }
         ],
         portfolio: [
-            { image: "images/portfolio-1.jpg", title: "Brand Identity Package", category: "Graphic Design", description: "Complete brand identity including logo, color palette, typography, and brand guidelines for a tech startup. The client saw a 40% increase in brand recognition." },
-            { image: "images/portfolio-2.jpg", title: "E-commerce Website", category: "Web Development", description: "Fully responsive online store with payment integration, product management, and SEO optimization. Increased sales by 150% in first 3 months." },
-            { image: "images/portfolio-3.jpg", title: "Mobile Banking App", category: "UI/UX Design", description: "User-friendly mobile banking interface with seamless navigation and modern design. Rated 4.8 stars on app stores." }
+            { image: "images/portfolio-1.jpg", title: "Brand Identity Package", category: "Graphic Design", description: "Complete brand identity for a tech startup." },
+            { image: "images/portfolio-2.jpg", title: "E-commerce Website", category: "Web Development", description: "Responsive online store with payment integration." },
+            { image: "images/portfolio-3.jpg", title: "Mobile Banking App", category: "UI/UX Design", description: "User-friendly mobile banking interface." }
         ],
         typingWords: ["Creative Designs.", "Brand Identity.", "Web Solutions.", "UI/UX Magic.", "Digital Success."],
         heroSubtitle: "We transform bold ideas into stunning digital experiences that drive results. Let's build something extraordinary together."
@@ -1100,59 +1335,40 @@
         localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
     }
     
+    // Lightbox variables
+    let currentLightboxIndex = 0;
+    let lightboxImages = [];
+    
     // ========== MOBILE MENU FUNCTIONS ==========
     function toggleMobileMenu() {
         const navLinks = document.getElementById('navLinks');
-        if (navLinks) {
-            if (navLinks.classList.contains('mobile-open')) {
-                navLinks.classList.remove('mobile-open');
-            } else {
-                navLinks.classList.add('mobile-open');
-            }
-        }
+        if (navLinks) navLinks.classList.toggle('mobile-open');
     }
     
     function closeMobileMenu() {
         const navLinks = document.getElementById('navLinks');
-        if (navLinks) {
-            navLinks.classList.remove('mobile-open');
-        }
+        if (navLinks) navLinks.classList.remove('mobile-open');
     }
     
-    // ========== PAGE SWITCHING WITH AUTO-CLOSE MENU ==========
     function switchPageAndCloseMenu(page) {
-        // Close mobile menu first
         closeMobileMenu();
-        
-        // Then switch page
         switchPage(page);
     }
     
     function handleLogoClick() {
-        // Add animation class
         const logo = document.getElementById('mainLogo');
         logo.classList.add('logo-clicked');
-        
-        // Remove animation class after animation ends
-        setTimeout(() => {
-            logo.classList.remove('logo-clicked');
-        }, 400);
-        
-        // Close menu and switch to home
+        setTimeout(() => logo.classList.remove('logo-clicked'), 400);
         switchPageAndCloseMenu('home');
     }
     
+    // ========== PAGE SWITCHING ==========
     function switchPage(page) {
-        // Hide all pages
         document.querySelectorAll('.page-container').forEach(container => {
             container.classList.remove('active');
         });
-        
-        // Show selected page
         const activePage = document.getElementById(`${page}Page`);
-        if (activePage) {
-            activePage.classList.add('active');
-        }
+        if (activePage) activePage.classList.add('active');
         
         // Update active nav link
         document.querySelectorAll('.nav-links a').forEach(link => {
@@ -1161,15 +1377,17 @@
                 (page === 'services' && link.innerText === 'Services') ||
                 (page === 'portfolio' && link.innerText === 'Portfolio') ||
                 (page === 'flyers' && link.innerText === 'Flyers') ||
+                (page === 'testimonials' && link.innerText === 'Reviews') ||
+                (page === 'blog' && link.innerText === 'Blog') ||
+                (page === 'contact' && link.innerText === 'Contact') ||
                 (page === 'book' && link.innerText === 'Book')) {
                 link.classList.add('active');
             }
         });
         
-        // Update URL hash
         window.location.hash = page;
         
-        // Load page content if needed
+        // Load page-specific content
         if (page === 'home') {
             renderPreviewServices();
             startTypingAnimation();
@@ -1178,51 +1396,64 @@
             startCounters();
         } else if (page === 'services') {
             renderServicesPage();
+            renderCalculator();
+            setupFilters();
         } else if (page === 'portfolio') {
             renderPortfolioPage();
         } else if (page === 'flyers') {
             renderFlyersPage();
+        } else if (page === 'testimonials') {
+            renderTestimonialsPage();
+        } else if (page === 'blog') {
+            renderBlogPage();
+        } else if (page === 'contact') {
+            // Contact form already in HTML
         } else if (page === 'book') {
             populateServiceDropdown();
         }
         
-        // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
-    // Handle hash change (back/forward buttons)
+    // Handle hash change
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.substring(1);
-        if (['home', 'services', 'portfolio', 'flyers', 'book'].includes(hash)) {
-            // Don't close menu on hash change (menu likely already closed)
+        if (['home', 'services', 'portfolio', 'flyers', 'testimonials', 'blog', 'contact', 'book'].includes(hash)) {
             switchPage(hash);
-        } else if (!hash) {
-            switchPage('home');
-        }
+        } else if (!hash) switchPage('home');
     });
     
-    // Check hash on load
     if (window.location.hash.substring(1)) {
         switchPage(window.location.hash.substring(1));
     }
     
+    // ========== EMAIL NOTIFICATION FUNCTION ==========
+    async function sendEmailNotification(bookingData, type) {
+        const formData = new FormData();
+        formData.append('name', bookingData.name);
+        formData.append('email', bookingData.email);
+        formData.append('service', bookingData.service);
+        formData.append('details', bookingData.details);
+        formData.append('_subject', type === 'booking' ? `🔔 New Booking: ${bookingData.name}` : `📧 New Contact: ${bookingData.name}`);
+        formData.append('_template', 'table');
+        
+        try {
+            await fetch('https://formsubmit.co/ajax/septemberafricah29@gmail.com', { method: 'POST', body: formData });
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+    
     // ========== RENDER FUNCTIONS ==========
     function loadStats() {
-        const projectsEl = document.getElementById('projectsCount');
-        const clientsEl = document.getElementById('clientsCount');
-        const yearsEl = document.getElementById('yearsCount');
-        const countriesEl = document.getElementById('countriesCount');
-        
-        if (projectsEl) projectsEl.innerText = websiteContent.stats.projects;
-        if (clientsEl) clientsEl.innerText = websiteContent.stats.clients;
-        if (yearsEl) yearsEl.innerText = websiteContent.stats.years;
-        if (countriesEl) countriesEl.innerText = websiteContent.stats.countries;
+        document.getElementById('projectsCount').innerText = websiteContent.stats.projects;
+        document.getElementById('clientsCount').innerText = websiteContent.stats.clients;
+        document.getElementById('yearsCount').innerText = websiteContent.stats.years;
+        document.getElementById('countriesCount').innerText = websiteContent.stats.countries;
     }
     
     function startCounters() {
-        const projectsEl = document.getElementById('projectsCount');
-        if (!projectsEl) return;
-        
         let currentProjects = 0, currentClients = 0, currentYears = 0, currentCountries = 0;
         const targetProjects = websiteContent.stats.projects;
         const targetClients = websiteContent.stats.clients;
@@ -1231,7 +1462,7 @@
         
         const interval = setInterval(() => {
             let allDone = true;
-            if (currentProjects < targetProjects) { allDone = false; currentProjects++; projectsEl.innerText = currentProjects; }
+            if (currentProjects < targetProjects) { allDone = false; currentProjects++; document.getElementById('projectsCount').innerText = currentProjects; }
             if (currentClients < targetClients) { allDone = false; currentClients++; document.getElementById('clientsCount').innerText = currentClients; }
             if (currentYears < targetYears) { allDone = false; currentYears++; document.getElementById('yearsCount').innerText = currentYears; }
             if (currentCountries < targetCountries) { allDone = false; currentCountries++; document.getElementById('countriesCount').innerText = currentCountries; }
@@ -1239,9 +1470,7 @@
         }, 30);
     }
     
-    // Typing animation
     let wordIndex = 0, charIndex = 0, isDeleting = false;
-    
     function startTypingAnimation() {
         const typingElement = document.getElementById('typingText');
         if (!typingElement) return;
@@ -1272,8 +1501,7 @@
     function renderPreviewServices() {
         const container = document.getElementById('previewServices');
         if (!container) return;
-        const services = websiteContent.services.slice(0, 3);
-        container.innerHTML = services.map(service => `
+        container.innerHTML = websiteContent.services.slice(0, 3).map(service => `
             <div class="service-card ${service.featured ? 'featured' : ''}">
                 ${service.featured ? '<div class="popular-badge">Most Popular</div>' : ''}
                 <div class="service-icon"><i class="fas ${service.icon}"></i></div>
@@ -1288,108 +1516,243 @@
     function renderServicesPage() {
         const container = document.getElementById('servicesGrid');
         if (!container) return;
-        const services = websiteContent.services;
-        container.innerHTML = services.map(service => `
-            <div class="service-card ${service.featured ? 'featured' : ''}">
+        container.innerHTML = websiteContent.services.map(service => `
+            <div class="service-card ${service.featured ? 'featured' : ''}" data-category="${service.category}">
                 ${service.featured ? '<div class="popular-badge">Most Popular</div>' : ''}
                 <div class="service-icon"><i class="fas ${service.icon}"></i></div>
                 <h2>${service.name}</h2>
                 <p class="description">${service.longDesc || service.description}</p>
-                <div class="features-list">${(service.features || []).map(f => `<span><i class="fas fa-check-circle"></i> ${f}</span>`).join('')}</div>
+                <div class="features-list">${service.features.map(f => `<span><i class="fas fa-check-circle"></i> ${f}</span>`).join('')}</div>
                 <div class="price">Starting from <span>MWK ${service.price.toLocaleString()}</span></div>
-                <button class="btn btn-outline" onclick="switchPageAndCloseMenu('book')" style="width:100%;">Get This Service →</button>
+                <button class="btn btn-outline" onclick="addToCalculator('${service.name}', ${service.price})" style="width:100%;">Add to Quote →</button>
             </div>
         `).join('');
+    }
+    
+    // Calculator
+    let calculatorItems = [];
+    function renderCalculator() {
+        const container = document.getElementById('calculatorItems');
+        if (!container) return;
+        if (calculatorItems.length === 0) {
+            container.innerHTML = '<p style="color: var(--text-secondary);">Select services above to build your quote.</p>';
+            document.getElementById('calculatorTotal').innerText = 'MWK 0';
+            return;
+        }
+        container.innerHTML = calculatorItems.map((item, i) => `
+            <div class="calculator-row">
+                <span>${item.name}</span>
+                <span>MWK ${item.price.toLocaleString()}</span>
+                <button class="btn-outline" style="padding: 4px 12px;" onclick="removeFromCalculator(${i})">Remove</button>
+            </div>
+        `).join('');
+        const total = calculatorItems.reduce((sum, item) => sum + item.price, 0);
+        document.getElementById('calculatorTotal').innerHTML = `MWK ${total.toLocaleString()}`;
+    }
+    
+    window.addToCalculator = function(name, price) {
+        calculatorItems.push({ name, price });
+        renderCalculator();
+        showToast(`${name} added to quote!`);
+    };
+    
+    window.removeFromCalculator = function(index) {
+        calculatorItems.splice(index, 1);
+        renderCalculator();
+    };
+    
+    function setupFilters() {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                document.querySelectorAll('#servicesGrid .service-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
     }
     
     function renderPortfolioPage() {
         const container = document.getElementById('portfolioGrid');
         if (!container) return;
-        const portfolio = websiteContent.portfolio;
-        container.innerHTML = portfolio.map(item => `
-            <div class="portfolio-card">
+        lightboxImages = websiteContent.portfolio.map(p => p.image);
+        container.innerHTML = websiteContent.portfolio.map((item, idx) => `
+            <div class="portfolio-card" onclick="openLightbox(${idx})">
                 <div class="portfolio-image"><img src="${item.image}" alt="${item.title}" onerror="this.src='https://placehold.co/600x400/e0e0e0/5f6368?text=Project+Image'"></div>
                 <div class="portfolio-info">
                     <span class="portfolio-category">${item.category}</span>
                     <h2>${item.title}</h2>
-                    <p class="portfolio-description">${item.description || "A successful project delivered with excellence."}</p>
+                    <p class="portfolio-description">${item.description}</p>
                 </div>
             </div>
         `).join('');
     }
     
+    // Lightbox functions
+    window.openLightbox = function(index) {
+        currentLightboxIndex = index;
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightboxImg');
+        img.src = lightboxImages[currentLightboxIndex];
+        lightbox.classList.add('active');
+    };
+    
+    window.closeLightbox = function() {
+        document.getElementById('lightbox').classList.remove('active');
+    };
+    
+    window.prevImage = function(event) {
+        event.stopPropagation();
+        currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+        document.getElementById('lightboxImg').src = lightboxImages[currentLightboxIndex];
+    };
+    
+    window.nextImage = function(event) {
+        event.stopPropagation();
+        currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length;
+        document.getElementById('lightboxImg').src = lightboxImages[currentLightboxIndex];
+    };
+    
     function renderFlyersPage() {
         const container = document.getElementById('flyersGrid');
         if (!container) return;
-        const flyers = websiteContent.flyers;
-        container.innerHTML = flyers.map(flyer => `
+        container.innerHTML = websiteContent.flyers.map(flyer => `
             <div class="flyer-card">
                 <div class="flyer-image"><img src="${flyer.image}" alt="${flyer.title}" onerror="this.src='https://placehold.co/400x320/e0e0e0/5f6368?text=Flyer+Image'"></div>
                 <div class="flyer-info">
                     <span class="flyer-category">${flyer.category}</span>
                     <h2>${flyer.title}</h2>
-                    <p>${flyer.description || "Professional design tailored to your brand."}</p>
+                    <p>${flyer.description}</p>
                 </div>
             </div>
         `).join('');
     }
     
+    function renderTestimonialsPage() {
+        const container = document.getElementById('testimonialsGrid');
+        if (!container) return;
+        container.innerHTML = websiteContent.testimonials.map(t => `
+            <div class="testimonial-card">
+                <div class="testimonial-stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
+                <p class="testimonial-text">"${t.text}"</p>
+                <div class="testimonial-name">${t.name}</div>
+                <div class="testimonial-project">${t.project}</div>
+            </div>
+        `).join('');
+    }
+    
+    function renderBlogPage() {
+        const container = document.getElementById('blogGrid');
+        if (!container) return;
+        container.innerHTML = websiteContent.blog.map((post, idx) => `
+            <div class="blog-card" onclick="openBlogPost(${idx})">
+                <div class="blog-image"><i class="fas ${post.icon}"></i></div>
+                <div class="blog-info">
+                    <div class="blog-date">${post.date}</div>
+                    <h3>${post.title}</h3>
+                    <p>${post.excerpt}</p>
+                    <span style="color: var(--primary); font-size: 13px;">Read more →</span>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    window.openBlogPost = function(index) {
+        const post = websiteContent.blog[index];
+        const modal = document.getElementById('blogModal');
+        const content = document.getElementById('blogModalContent');
+        content.innerHTML = `
+            <span style="float: right; font-size: 24px; cursor: pointer;" onclick="closeBlogModal()">&times;</span>
+            <h2>${post.title}</h2>
+            <div style="color: var(--text-secondary); margin-bottom: 16px;">${post.date}</div>
+            <div>${post.content || '<p>Full article coming soon. Contact us for more details!</p>'}</div>
+            <button class="btn btn-primary" style="margin-top: 24px;" onclick="closeBlogModal(); switchPageAndCloseMenu('book')">Book a Consultation →</button>
+        `;
+        modal.classList.add('active');
+    };
+    
+    window.closeBlogModal = function() {
+        document.getElementById('blogModal').classList.remove('active');
+    };
+    
     function populateServiceDropdown() {
         const serviceSelect = document.getElementById('service');
-        if (!serviceSelect) return;
-        serviceSelect.innerHTML = websiteContent.services.map(service => 
-            `<option value="${service.name}">${service.name} - MWK ${(service.price || 0).toLocaleString()}</option>`
-        ).join('');
+        if (serviceSelect) {
+            serviceSelect.innerHTML = websiteContent.services.map(service => 
+                `<option value="${service.name}">${service.name} - MWK ${service.price.toLocaleString()}</option>`
+            ).join('');
+        }
     }
     
-    function showMessage(msg, type) {
-        const div = document.getElementById('formMessage');
-        if (!div) return;
-        div.innerHTML = `<div style="background:${type === 'success' ? '#e6f4ea' : '#fce8e6'}; padding:12px; border-radius:16px; color:${type === 'success' ? '#0f9d58' : '#d93025'};">${msg}</div>`;
-        setTimeout(() => div.innerHTML = '', 5000);
+    function showToast(msg) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = msg;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
     }
     
-    // Booking form
+    function showMessage(msg, type, elementId) {
+        const div = document.getElementById(elementId);
+        if (div) {
+            div.innerHTML = `<div style="background:${type === 'success' ? '#e6f4ea' : '#fce8e6'}; padding:12px; border-radius:16px; color:${type === 'success' ? '#0f9d58' : '#d93025'};">${msg}</div>`;
+            setTimeout(() => div.innerHTML = '', 5000);
+        }
+    }
+    
+    // Booking Form
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
+        bookingForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
-            if (!name || !email) { showMessage('Please fill in name and email', 'error'); return; }
+            if (!name || !email) { showMessage('Please fill in name and email', 'error', 'formMessage'); return; }
             
-            const booking = {
-                id: Date.now(),
-                name: name,
-                email: email,
-                service: document.getElementById('service').value,
-                date: document.getElementById('date').value || '',
-                details: document.getElementById('details').value || '',
-                timestamp: new Date().toISOString()
-            };
+            const booking = { name, email, service: document.getElementById('service').value, date: document.getElementById('date').value || '', details: document.getElementById('details').value || '', timestamp: new Date().toISOString() };
             let bookings = JSON.parse(localStorage.getItem('september_bookings') || '[]');
             bookings.push(booking);
             localStorage.setItem('september_bookings', JSON.stringify(bookings));
             
-            showMessage(`✅ Thanks ${name}! Your booking has been saved. I'll contact you within 24 hours.`, 'success');
+            await sendEmailNotification(booking, 'booking');
+            showMessage(`✅ Thanks ${name}! Your booking has been saved. We'll contact you within 24 hours.`, 'success', 'formMessage');
+            showToast('Booking submitted! Check your email for confirmation.');
             bookingForm.reset();
         });
     }
     
-    // Close mobile menu when clicking outside (optional but nice)
+    // Contact Form
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            if (!name || !email) { showMessage('Please fill in name and email', 'error', 'contactFormMessage'); return; }
+            
+            const message = { name, email, subject: document.getElementById('contactSubject').value, message: document.getElementById('contactMessage').value, timestamp: new Date().toISOString() };
+            await sendEmailNotification(message, 'contact');
+            showMessage(`✅ Thanks ${name}! Your message has been sent. We'll get back to you soon.`, 'success', 'contactFormMessage');
+            showToast('Message sent successfully!');
+            contactForm.reset();
+        });
+    }
+    
+    // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
         const navLinks = document.getElementById('navLinks');
         const mobileMenuBtn = document.querySelector('.mobile-menu');
-        
-        if (navLinks && navLinks.classList.contains('mobile-open')) {
-            // Check if click is outside the menu and outside the menu button
-            if (!navLinks.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                closeMobileMenu();
-            }
+        if (navLinks && navLinks.classList.contains('mobile-open') && !navLinks.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+            closeMobileMenu();
         }
     });
     
-    // Reset mobile menu on window resize
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             closeMobileMenu();
@@ -1399,7 +1762,7 @@
         }
     });
     
-    // Initialize home page
+    // Initialize
     document.getElementById('heroSubtitle').innerText = websiteContent.heroSubtitle;
     renderPreviewServices();
     startTypingAnimation();
