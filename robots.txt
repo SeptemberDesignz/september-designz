@@ -1,5 +1,9 @@
+# Allow all search engines to crawl the site
 User-agent: *
 Allow: /
+
+# Disallow admin page from search results
 Disallow: /admin.html
 
+# Tell Google where your sitemap is
 Sitemap: https://septemberdesignz.github.io/september-designz/sitemap.xml
