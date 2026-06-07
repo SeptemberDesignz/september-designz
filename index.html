@@ -65,7 +65,7 @@
             align-items: center;
         }
 
-        /* ========== ENHANCED LOGO STYLES ========== */
+        /* ENHANCED LOGO STYLES */
         .logo {
             display: flex;
             align-items: center;
@@ -75,14 +75,12 @@
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        /* Logo image - bigger and animated on click */
         .logo-img {
             height: 52px;
             width: auto;
             transition: all 0.3s ease;
         }
 
-        /* Logo text - bigger and styled */
         .logo-text {
             font-size: 26px;
             font-weight: 800;
@@ -95,7 +93,6 @@
             color: var(--primary);
         }
 
-        /* Hover effect */
         .logo:hover {
             transform: scale(1.02);
         }
@@ -109,62 +106,26 @@
             color: var(--primary);
         }
 
-        .logo:hover .logo-text span {
-            color: var(--primary-dark);
-        }
-
-        /* Click animation (pop-out effect) */
         .logo-clicked {
             animation: logoPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
         }
 
         @keyframes logoPop {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.15);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
         }
 
         @keyframes logoPopImg {
-            0% {
-                transform: rotate(0deg) scale(1);
-            }
-            50% {
-                transform: rotate(8deg) scale(1.2);
-                filter: drop-shadow(0 8px 20px rgba(217, 48, 37, 0.4));
-            }
-            100% {
-                transform: rotate(0deg) scale(1);
-            }
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(8deg) scale(1.2); filter: drop-shadow(0 8px 20px rgba(217, 48, 37, 0.4)); }
+            100% { transform: rotate(0deg) scale(1); }
         }
 
         .logo-clicked .logo-img {
             animation: logoPopImg 0.4s ease;
         }
 
-        .logo-clicked .logo-text {
-            animation: textPop 0.4s ease;
-        }
-
-        @keyframes textPop {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-                color: var(--primary);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Nav links */
         .nav-links {
             display: flex;
             gap: 28px;
@@ -198,6 +159,28 @@
             font-size: 24px;
             cursor: pointer;
             color: var(--text-secondary);
+        }
+
+        /* Mobile menu open state */
+        .nav-links.mobile-open {
+            display: flex !important;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            gap: 16px;
+            z-index: 999;
+        }
+
+        .nav-links.mobile-open a {
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
         }
 
         /* Buttons */
@@ -869,19 +852,19 @@
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- NAVBAR with BIGGER LOGO -->
+<!-- NAVBAR -->
 <nav class="navbar">
     <div class="container">
         <div class="logo" id="mainLogo" onclick="handleLogoClick()">
             <img src="images/logo.png" alt="Logo" class="logo-img">
             <span class="logo-text">September<span>Designz</span></span>
         </div>
-        <div class="nav-links">
-            <a onclick="switchPage('home')">Home</a>
-            <a onclick="switchPage('services')">Services</a>
-            <a onclick="switchPage('portfolio')">Portfolio</a>
-            <a onclick="switchPage('flyers')">Flyers</a>
-            <a onclick="switchPage('book')">Book</a>
+        <div class="nav-links" id="navLinks">
+            <a onclick="switchPageAndCloseMenu('home')">Home</a>
+            <a onclick="switchPageAndCloseMenu('services')">Services</a>
+            <a onclick="switchPageAndCloseMenu('portfolio')">Portfolio</a>
+            <a onclick="switchPageAndCloseMenu('flyers')">Flyers</a>
+            <a onclick="switchPageAndCloseMenu('book')">Book</a>
             <a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a>
         </div>
         <div class="mobile-menu" onclick="toggleMobileMenu()">
@@ -901,8 +884,8 @@
                 <h1 class="hero-title">We Create <span class="typed-word" id="typingText"></span></h1>
                 <p class="hero-subtitle" id="heroSubtitle"></p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="switchPage('book')"><i class="fas fa-calendar-alt"></i> Book a Slot</button>
-                    <button class="btn btn-secondary" onclick="switchPage('portfolio')"><i class="fas fa-eye"></i> View Portfolio</button>
+                    <button class="btn btn-primary" onclick="switchPageAndCloseMenu('book')"><i class="fas fa-calendar-alt"></i> Book a Slot</button>
+                    <button class="btn btn-secondary" onclick="switchPageAndCloseMenu('portfolio')"><i class="fas fa-eye"></i> View Portfolio</button>
                 </div>
             </div>
         </div>
@@ -928,7 +911,7 @@
             </div>
             <div class="services-grid" id="previewServices"></div>
             <div style="text-align: center; margin-top: 40px;">
-                <button class="btn btn-primary" onclick="switchPage('services')">View All Services →</button>
+                <button class="btn btn-primary" onclick="switchPageAndCloseMenu('services')">View All Services →</button>
             </div>
         </div>
     </section>
@@ -937,7 +920,7 @@
         <div class="cta-section">
             <h3 style="margin-bottom: 12px;">Ready to bring your vision to life?</h3>
             <p style="margin-bottom: 20px; color: var(--text-secondary);">Get a free consultation and quote within 24 hours.</p>
-            <button class="btn btn-primary" onclick="switchPage('book')"><i class="fas fa-calendar-alt"></i> Book Your Slot Today</button>
+            <button class="btn btn-primary" onclick="switchPageAndCloseMenu('book')"><i class="fas fa-calendar-alt"></i> Book Your Slot Today</button>
         </div>
     </div>
 </div>
@@ -961,7 +944,7 @@
         <div class="cta-section">
             <h3 style="margin-bottom: 12px;">Need a custom package?</h3>
             <p style="margin-bottom: 20px; color: var(--text-secondary);">Contact us for enterprise solutions and long-term partnerships.</p>
-            <button class="btn btn-primary" onclick="switchPage('book')"><i class="fas fa-calendar-alt"></i> Get a Custom Quote</button>
+            <button class="btn btn-primary" onclick="switchPageAndCloseMenu('book')"><i class="fas fa-calendar-alt"></i> Get a Custom Quote</button>
         </div>
     </div>
 </div>
@@ -979,7 +962,7 @@
         <div class="container">
             <div class="portfolio-grid" id="portfolioGrid"></div>
             <div style="text-align: center; margin-top: 48px;">
-                <button class="btn btn-primary" onclick="switchPage('book')">Start Your Project →</button>
+                <button class="btn btn-primary" onclick="switchPageAndCloseMenu('book')">Start Your Project →</button>
             </div>
         </div>
     </section>
@@ -998,7 +981,7 @@
         <div class="container">
             <div class="flyers-grid" id="flyersGrid"></div>
             <div style="text-align: center; margin-top: 48px;">
-                <button class="btn btn-primary" onclick="switchPage('book')">Order Custom Flyer →</button>
+                <button class="btn btn-primary" onclick="switchPageAndCloseMenu('book')">Order Custom Flyer →</button>
             </div>
         </div>
     </section>
@@ -1072,7 +1055,7 @@
                     <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="footer-section"><h4>Quick Links</h4><ul><li><a onclick="switchPage('home')">Home</a></li><li><a onclick="switchPage('services')">Services</a></li><li><a onclick="switchPage('portfolio')">Portfolio</a></li><li><a onclick="switchPage('flyers')">Flyers</a></li><li><a onclick="switchPage('book')">Book</a></li></ul></div>
+            <div class="footer-section"><h4>Quick Links</h4><ul><li><a onclick="switchPageAndCloseMenu('home')">Home</a></li><li><a onclick="switchPageAndCloseMenu('services')">Services</a></li><li><a onclick="switchPageAndCloseMenu('portfolio')">Portfolio</a></li><li><a onclick="switchPageAndCloseMenu('flyers')">Flyers</a></li><li><a onclick="switchPageAndCloseMenu('book')">Book</a></li></ul></div>
             <div class="footer-section"><h4>Contact</h4><ul><li><i class="fas fa-envelope"></i> septemberafricah29@gmail.com</li><li><i class="fas fa-phone"></i> +265 994 071 332</li><li><i class="fas fa-map-marker-alt"></i> Blantyre, Malawi</li></ul></div>
         </div>
         <div class="footer-bottom"><p>&copy; 2026 September Designz. All rights reserved.</p></div>
@@ -1082,6 +1065,7 @@
 <script>
     // ============================================
     // SEPTEMBER DESIGNZ - SINGLE PAGE APP
+    // Mobile menu auto-closes after selection
     // ============================================
     
     // Default content
@@ -1116,7 +1100,34 @@
         localStorage.setItem('websiteContent', JSON.stringify(websiteContent));
     }
     
-    // ========== LOGO CLICK HANDLER ==========
+    // ========== MOBILE MENU FUNCTIONS ==========
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks) {
+            if (navLinks.classList.contains('mobile-open')) {
+                navLinks.classList.remove('mobile-open');
+            } else {
+                navLinks.classList.add('mobile-open');
+            }
+        }
+    }
+    
+    function closeMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.classList.remove('mobile-open');
+        }
+    }
+    
+    // ========== PAGE SWITCHING WITH AUTO-CLOSE MENU ==========
+    function switchPageAndCloseMenu(page) {
+        // Close mobile menu first
+        closeMobileMenu();
+        
+        // Then switch page
+        switchPage(page);
+    }
+    
     function handleLogoClick() {
         // Add animation class
         const logo = document.getElementById('mainLogo');
@@ -1127,11 +1138,10 @@
             logo.classList.remove('logo-clicked');
         }, 400);
         
-        // Switch to home page
-        switchPage('home');
+        // Close menu and switch to home
+        switchPageAndCloseMenu('home');
     }
     
-    // ========== PAGE SWITCHING ==========
     function switchPage(page) {
         // Hide all pages
         document.querySelectorAll('.page-container').forEach(container => {
@@ -1184,6 +1194,7 @@
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.substring(1);
         if (['home', 'services', 'portfolio', 'flyers', 'book'].includes(hash)) {
+            // Don't close menu on hash change (menu likely already closed)
             switchPage(hash);
         } else if (!hash) {
             switchPage('home');
@@ -1269,7 +1280,7 @@
                 <h3>${service.name}</h3>
                 <p>${service.description}</p>
                 <div class="price">From <span>MWK ${service.price.toLocaleString()}</span></div>
-                <button class="btn btn-outline" onclick="switchPage('book')" style="width:100%;">Get Started →</button>
+                <button class="btn btn-outline" onclick="switchPageAndCloseMenu('book')" style="width:100%;">Get Started →</button>
             </div>
         `).join('');
     }
@@ -1286,7 +1297,7 @@
                 <p class="description">${service.longDesc || service.description}</p>
                 <div class="features-list">${(service.features || []).map(f => `<span><i class="fas fa-check-circle"></i> ${f}</span>`).join('')}</div>
                 <div class="price">Starting from <span>MWK ${service.price.toLocaleString()}</span></div>
-                <button class="btn btn-outline" onclick="switchPage('book')" style="width:100%;">Get This Service →</button>
+                <button class="btn btn-outline" onclick="switchPageAndCloseMenu('book')" style="width:100%;">Get This Service →</button>
             </div>
         `).join('');
     }
@@ -1365,28 +1376,28 @@
         });
     }
     
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks) {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        }
-    }
-    
-    // Set active nav on load
-    function setActiveNav() {
-        const currentPage = window.location.hash.substring(1) || 'home';
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.classList.remove('active');
-            if ((currentPage === 'home' && link.innerText === 'Home') ||
-                (currentPage === 'services' && link.innerText === 'Services') ||
-                (currentPage === 'portfolio' && link.innerText === 'Portfolio') ||
-                (currentPage === 'flyers' && link.innerText === 'Flyers') ||
-                (currentPage === 'book' && link.innerText === 'Book')) {
-                link.classList.add('active');
+    // Close mobile menu when clicking outside (optional but nice)
+    document.addEventListener('click', function(event) {
+        const navLinks = document.getElementById('navLinks');
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        
+        if (navLinks && navLinks.classList.contains('mobile-open')) {
+            // Check if click is outside the menu and outside the menu button
+            if (!navLinks.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                closeMobileMenu();
             }
-        });
-    }
+        }
+    });
+    
+    // Reset mobile menu on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+            document.querySelector('.nav-links').style.display = 'flex';
+        } else {
+            document.querySelector('.nav-links').style.display = '';
+        }
+    });
     
     // Initialize home page
     document.getElementById('heroSubtitle').innerText = websiteContent.heroSubtitle;
@@ -1394,16 +1405,6 @@
     startTypingAnimation();
     loadStats();
     startCounters();
-    setActiveNav();
-    
-    // Responsive: reset mobile menu on resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            document.querySelector('.nav-links').style.display = 'flex';
-        } else {
-            document.querySelector('.nav-links').style.display = 'none';
-        }
-    });
 </script>
 </body>
 </html>
